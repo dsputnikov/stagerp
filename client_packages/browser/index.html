@@ -8,7 +8,7 @@
 
 <body>
     <!-- Авторизация -->
-    <div id="auth" v-show="!active" v-cloak>
+    <div id="auth" v-show="active" v-cloak>
         <!-- <img src="./systems/auth/img/bg.png" class="bg_1" v-show="state == 1">
         <img src="./systems/auth/img/bg2.png" class="bg_1" v-show="state == 2"> -->
         <transition name="fade">
@@ -17,10 +17,13 @@
                     <h1>Авторизация</h1>
                     <p>Введите все необходимые данные для авторизации</p>
                     <div class="inputs">
-                        <div class="input input-error">
-                            <input type="text" v-model="Login.login" placeholder="Введите логин" class="">
+                        <div class="input ">
+                            <input type="text" v-model="Login.login" placeholder="Введите логин" >
                         </div>
-                        <input type="password" v-model="Login.password" placeholder="Введите пароль" class="input-error">
+                        <div class="input ">
+                            <input type="password" v-model="Login.password" placeholder="Введите пароль" >
+                        </div>
+
                     </div>
                     <div class="buttons">
                         <button class="button button_login" @click="loginBtn">
@@ -47,10 +50,18 @@
                     <h1>Регистрация</h1>
                     <p>Введите все необходимые данные для авторизации</p>
                     <div class="inputs">
-                        <input type="text" v-model="Register.login" placeholder="Введите логин">
-                        <input type="text" v-model="Register.email" placeholder="Введите e-mail">
-                        <input type="password" v-model="Register.password" placeholder="Введите пароль">
-                        <input type="password" v-model="Register.rpassword" placeholder="Повторите пароль">
+                        <div class="input ">
+                            <input type="text" v-model="Register.login" placeholder="Введите логин">
+                        </div>
+                        <div class="input ">
+                            <input type="text" v-model="Register.email" placeholder="Введите e-mail">
+                        </div>
+                        <div class="input">
+                            <input type="password" v-model="Register.password" placeholder="Введите пароль">
+                        </div>
+                        <div class="input">
+                            <input type="password" v-model="Register.rpassword" placeholder="Повторите пароль">
+                        </div>
                     </div>
                     <div class="buttons">
                         <button class="button button_login" @click="registerBtn">
