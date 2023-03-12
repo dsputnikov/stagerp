@@ -253,6 +253,7 @@ html {
 
 #auth .buttons {
     display: flex;
+    justify-content: space-between;
 }
 
 #auth .button_login {
