@@ -17,8 +17,10 @@
                     <h1>Авторизация</h1>
                     <p>Введите все необходимые данные для авторизации</p>
                     <div class="inputs">
-                        <input type="text" v-model="Login.login" placeholder="Введите логин">
-                        <input type="password" v-model="Login.password" placeholder="Введите пароль">
+                        <div class="input input-error">
+                            <input type="text" v-model="Login.login" placeholder="Введите логин" class="">
+                        </div>
+                        <input type="password" v-model="Login.password" placeholder="Введите пароль" class="input-error">
                     </div>
                     <div class="buttons">
                         <button class="button button_login" @click="loginBtn">

@@ -148,6 +148,11 @@ html {
     align-items: center;
     box-sizing: border-box;
     font-family: 'Inter', sans-serif;
+    position: relative;
+}
+
+#auth .login_wrapper {
+    position: absolute;
 }
 
 #auth .form_login {
@@ -186,6 +191,43 @@ html {
     color: #fff;
     margin-bottom: 12px;
     border-radius: 5px;
+    transition: 0.2s;
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#auth .input {
+    position: relative;
+    box-sizing: border-box;
+}
+
+#auth .input.input-error:after {
+    content: url('../systems/auth/img/error.svg');
+    position: absolute;
+    top: 0;
+    right: 0;
+    top: calc(50% - 12px);
+    margin-right: 25px;
+    display: block;
+    width: 16px;
+    height: 16px;
+}
+
+#auth .input.input-success:after {
+    content: url('../systems/auth/img/success.svg');
+    position: absolute;
+    top: 0;
+    right: 0;
+    top: calc(50% - 12px);
+    margin-right: 25px;
+    display: block;
+    width: 16px;
+    height: 16px;
+}
+
+#auth input:focus {
+    background: #262626;
 }
 
 #auth input::placeholder {
@@ -216,7 +258,17 @@ html {
 
 #auth .button_login {
     max-width: 277px;
+    transition: 0.2s;
+}
+
+#auth .button_login:hover,
+#auth .button__reReg:hover {
     background: #2c80f0;
+}
+
+#auth .button_login:active,
+#auth .button__reReg:active {
+    opacity: 0.7;
 }
 
 #auth .button_login svg {
@@ -233,6 +285,7 @@ html {
     padding: 20px 30px;
     margin-left: 10px;
     max-width: 79px;
+    transition: 0.2s;
 }
 
 #auth .error {
@@ -240,6 +293,15 @@ html {
     font-size: 14px;
     line-height: 15px;
     color: #eb4545;
+}
+
+#auth .fade-enter-active,
+#auth .fade-leave-active {
+    transition: opacity 0.5s;
+}
+#auth .fade-enter,
+#auth .fade-leave-to {
+    opacity: 0;
 }
 
 #pedCreator {
