@@ -15,6 +15,10 @@ mp.events.add('pedCreator_updateServer::SERVER', (player, model) => {
     player.call('pedCreator_update::CLIENT')
 })
 
+mp.events.add('blockCamera', (player) => {
+  player.call('blockCamera');
+});
+
 mp.events.add('pedCreator_finishSync::SERVER', async (player, _data) => {
     var data = JSON.parse(_data)
     let clothes = data.clothes;

@@ -142,9 +142,9 @@ mp.events.add("render", () => {
     // Comment before commit
     // drawDebugText();
 
-    if (mp.game.controls.isDisabledControlPressed(2, 237)) {
-        cameraRotator.onMouseMove(dX, dY);
-    }
+    //if (mp.game.controls.isDisabledControlPressed(2, 237)) {
+      //  cameraRotator.onMouseMove(dX, dY);
+    //}
     // if (mp.game.controls.isDisabledControlPressed(2, 15)) {
     //     fov -= 2;
 
