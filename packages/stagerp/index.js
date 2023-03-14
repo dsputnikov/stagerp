@@ -17,6 +17,7 @@ require('./events/voice'); // Войс чат
 require('./events/weaponcompsync'); // Оружия и их улучшения
 require('./events/houses'); // Дома
 require('./events/menu'); // Меню
+require('./events/rent'); // Аренда ТС
 
 //cas
 require('./events/casino')
