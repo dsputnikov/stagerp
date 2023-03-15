@@ -9,7 +9,7 @@ var salons = [
         marker: new mp.Vector3(-51.41538619995117, -1102.193359375, 25.4154052734375),
         blipColor: 31,
         vehicles: [
-            { name: 'Volvo Turbo Intercooler', price: 7500, model: 'v945' },
+            { name: 'TurboS', price: 7500, model: '911turbos' },
             { name: 'ВАЗ 2109', price: 5000, model: 'vaz2109' },
             { name: 'Лада Priora', price: 15000, model: 'priora' },
             { name: 'ВАЗ 2110', price: 7000, model: 'lada10' },

@@ -4,18 +4,18 @@ let methods = require('../modules/methods');
 mp.events.addCommand("rent", (player) => {
 
     let rentPosition = new mp.Vector3(-1015.8927612304688, -2705.85009765625, 13.694609642028809);
-    let radius = 2;
+    let radius = 3;
 
-    // Проверяем, находится ли игрок в радиусе 20 метров от указанной позиции
     if (player.dist(rentPosition) > radius) {
         chat.addNotify(player, 2, `Вы находитесь слишком далеко от позиции аренды транспорта.`, 7000);
         return;
     }
 
     if (player.getMoney() < 150) {
-        chat.addNotify(player,2,`У вас не хватает денег для аренды транспорта.`,7000)
+        chat.addNotify(player, 2, `У вас не хватает денег для аренды транспорта.`,7000)
         return;
     }
+
     // Снимаем бабки у игрока
     player.removeMoney(150);
     
@@ -37,7 +37,7 @@ mp.events.addCommand("rent", (player) => {
     vehicle.setVariable("owner", player);
     
     // Сообщаем игроку об аредне
-    chat.addNotify(player,1,`Вы успешно арендовали Faggio на 15 минут.`,7000)
+    chat.addNotify(player, 1, `Вы успешно арендовали Faggio на 15 минут.`,7000)
 
     setTimeout(() => { 
             vehicle.destroy();
