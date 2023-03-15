@@ -35,9 +35,9 @@ mp.events.add("loadCharacter::SERVER", (player) => {
           }
         );
 
-        chat.send(player, `Добро пожаловать на !{#0077FF} Stage RolePlay!`);
-        chat.send(player, `Вы можете арендовать !{#D1D1D1} Faggio !{#FFFFFF} используя !{#D1D1D1} /rent`);
-        chat.send(player, `Сборка разработана !{#0077FF} discord.gg/3mKaaZZXTq`);
+        chat.send(player, `Текущая версия !{#0077FF} Stage RolePlay !{#FFFFFF} 1.0`);
+        chat.send(player, `За !{#D1D1D1} 150$ !{#FFFFFF} вы можете арендовать !{#D1D1D1} Faggio !{#FFFFFF} используя !{#D1D1D1} /rent`);
+        chat.send(player, `Сборка разработана и обновляется!{#0077FF} discord.gg/3mKaaZZXTq`);
         chat.addNotify(player, 1, `Добро пожаловать ${player.name}`, 7000);
         if (player.getVariable("adminlvl") >= 1) {
           chat.send(
@@ -69,7 +69,7 @@ async function loadFace(player, data) {
   let face = JSON.parse(data.pedFace);
   let dnk = data.pedDnk.split(",");
   let hair = JSON.parse(data.pedHair);
-  // Ebalo
+  // Лицоы
   player.setHeadBlend(
     Number(dnk[0]),
     Number(dnk[1]),
@@ -86,8 +86,6 @@ async function loadFace(player, data) {
     const value = face[i];
     player.setFaceFeature(i, parseFloat(value));
   }
-
-  // // ВОЛОСЫ И ТД И ТП НАХУЙ
 
   player.setHeadOverlay(2, [Number(hair[0]), 255, 1, 1]); // Брови
   player.setHeadOverlay(1, [Number(hair[3]), 255, 1, 1]); // Брови

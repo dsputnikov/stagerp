@@ -19,7 +19,7 @@ mp.events.addCommand("rent", (player) => {
     
     // Создать объект Faggio и сохранить его в переменную vehicle
     const vehicle = mp.vehicles.new(mp.joaat("faggio"), spawnPos, {
-    numberPlate: "RENTAL",
+    numberPlate: "RENT",
     color: [[255, 255, 255], [255, 255, 255]]
     });
     
@@ -27,5 +27,10 @@ mp.events.addCommand("rent", (player) => {
     vehicle.setVariable("owner", player);
     
     // Сообщаем игроку об аредне
-    chat.addNotify(player,1,`Вы успешно арендовали транспорт.`,7000)
+    chat.addNotify(player,1,`Вы успешно арендовали Faggio на 15 минут.`,7000)
+
+    setTimeout(() => { 
+            vehicle.destroy();
+          chat.addNotify(player, 3, `Арендованный транспорт был возвращен.`, 7000)
+      }, 900000);
 });
