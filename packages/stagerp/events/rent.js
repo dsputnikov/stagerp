@@ -32,7 +32,7 @@ mp.events.addCommand("rent", (player) => {
     numberPlate: "RENT",
     color: [[255, 255, 255], [255, 255, 255]]
     });
-    
+        
     // Установить владельцем транспорта текущего игрока
     vehicle.setVariable("owner", player);
     

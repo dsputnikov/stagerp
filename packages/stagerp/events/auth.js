@@ -1,10 +1,10 @@
 mp.events.add('playerReady', (player) => {
     player.call('Auth_await::CLIENT')
-    player.position = new mp.Vector3(433.524658203125, 5572.46875, 776.3655395507812);
+    player.position = new mp.Vector3(-426.575439453125, -213.47694396972656, 125.90231323242188);
     player.dimension = player.id + 12;
     player.personalVehicle = 0;
 })
-
+  
 mp.events.add('Auth_playerLogin::SERVER', (player, login, password) => {
     DB.query('SELECT * FROM accounts WHERE login = ? AND password = ?', [login, password], function(err, r) {
         if (err) return console.log(err);
@@ -30,10 +30,10 @@ mp.events.add('Auth_playerLogin::SERVER', (player, login, password) => {
 
 mp.events.add('Auth_playerRegister::SERVER', (player, login, email, password) => {
     DB.query('SELECT * FROM accounts', [], function(err, r) {
-        if (r[0]) {
-            if (r[0].login == login) return player.call('Auth_showError::CLIENT', ['Такой аккаунт уже существует'])
-            if (r[0].socialClub == player.socialClub) return player.call('Auth_showError::CLIENT', ['Аккаунт с таким socialClub аккаунт уже существует'])
-        }
+        //if (r[0]) {
+          //  if (r[0].login == login) return player.call('Auth_showError::CLIENT', ['Такой аккаунт уже существует'])
+            //if (r[0].socialClub == player.socialClub) return player.call('Auth_showError::CLIENT', ['Аккаунт с таким socialClub аккаунт уже существует'])
+        //}
         DB.query('INSERT INTO accounts (login,email,password,socialClub,regIP,lastIP) VALUES(?,?,?,?,?,?)', [login, email, password, player.socialClub, player.ip.replace(/^.*:/, '').trim(), player.ip.replace(/^.*:/, '').trim()], function(err, r) {
             if (err) return console.log(err);
             player.call('Auth_setState::CLIENT', [1])

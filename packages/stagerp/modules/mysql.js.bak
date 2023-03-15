@@ -3,9 +3,9 @@ var SQL = require('mysql')
 
 global.DB = SQL.createPool({
     host: 'localhost',
-    user: 'gs2569',
-    database: 'gs2569',
-    password: 'eHz40PYlBW',
+    user: 'root',
+    database: 'test',
+    password: '',
     connectionLimit : 1000,
     connectTimeout  : 60 * 60 * 50000,
     acquireTimeout  : 60 * 60 * 50000,
