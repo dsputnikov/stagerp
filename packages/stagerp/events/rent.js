@@ -3,8 +3,8 @@ let methods = require('../modules/methods');
 
 mp.events.addCommand("rent", (player) => {
 
-    let rentPosition = new mp.Vector3(-1031.29541015625, -2724.4814453125, 20.150541305541992);
-    let radius = 20;
+    let rentPosition = new mp.Vector3(-1015.8927612304688, -2705.85009765625, 13.694609642028809);
+    let radius = 2;
 
     // Проверяем, находится ли игрок в радиусе 20 метров от указанной позиции
     if (player.dist(rentPosition) > radius) {

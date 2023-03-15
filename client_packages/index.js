@@ -14,6 +14,7 @@ require('./systems/events/weaponcompsync');
 require('./systems/events/houses');
 require('./systems/events/menu');
 require('./systems/events/blips');
+require('./systems/events/rent');
 // 
 require('./systems/utils/3dCamera');
 require('./systems/utils/snake');
