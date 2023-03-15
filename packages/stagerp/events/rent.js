@@ -2,6 +2,16 @@ let chat = require('./hud');
 let methods = require('../modules/methods');
 
 mp.events.addCommand("rent", (player) => {
+
+    const rentPosition = new mp.Vector3(-1031.29541015625, -2724.4814453125, 20.150541305541992);
+    const radius = 20;
+
+    // Проверяем, находится ли игрок в радиусе 20 метров от указанной позиции
+    if (player.dist(rentPosition) > radius) {
+        chat.addNotify(player, 2, `Вы находитесь слишком далеко от позиции аренды транспорта.`, 7000);
+        return;
+    }
+    
     if (player.getMoney() < 150) {
         chat.addNotify(player,2,`У вас не хватает денег для аренды транспорта.`,7000)
         return;
