@@ -2,6 +2,11 @@
 let chat = require('./hud');
 let methods = require('../modules/methods');
 
+// Language
+let config = require('../../../languages/config.js');
+const language = config.language;
+let translations = require(`../../../languages/${language}.json`);
+
 function pointingAt(distance) {
     const camera = mp.cameras.new("gameplay"); // gets the current gameplay camera
 
@@ -18,7 +23,7 @@ function pointingAt(distance) {
 
 mp.events.addCommand('veh', (player, _, id, veh, color1, color2) => {
     if(player.getVariable('adminlvl') < 1) return;
-    if (id == undefined || veh == undefined) return chat.send(player, '!{#BAFE2A}[Информация] !{#FFFFFF}Используйте /veh [id] [Vehicle] [Color1] [Color2]');
+    if (id == undefined || veh == undefined) return chat.send(player, `!{#BAFE2A}${translations.chat_info}!{#FFFFFF} ${translations.chat_use} /veh [id] [Vehicle] [Color1] [Color2]`);
     let target = methods.getById(id);
     if (target == undefined) return chat.addNotify(player, 2, 'Игрок не найден', 7000)
     var cVeh = player.getVariable('AdminVeh' + player.id)

@@ -1,5 +1,10 @@
 let chat = require("./hud");
 
+// Language
+let config = require('../../../languages/config.js');
+const language = config.language;
+let translations = require(`../../../languages/${language}.json`);
+
 mp.events.add("loadCharacter::SERVER", (player) => {
   DB.query(
     "SELECT * FROM characters WHERE login = ?",
@@ -35,16 +40,15 @@ mp.events.add("loadCharacter::SERVER", (player) => {
           }
         );
 
-        chat.send(player, `Текущая версия !{#0077FF} Stage RolePlay !{#FFFFFF} 1.0`);
-        chat.send(player, `За !{#D1D1D1} 150$ !{#FFFFFF} вы можете арендовать !{#D1D1D1} Faggio !{#FFFFFF} используя !{#D1D1D1} /rent`);
-        chat.send(player, `Сборка разработана и обновляется!{#0077FF} discord.gg/3mKaaZZXTq`);
-        chat.addNotify(player, 1, `Добро пожаловать ${player.name}`, 7000);
+        chat.send(player, `!{#FFFFFF}${translations.chat_welcome}!{#0077FF} ${translations.chat_stage}!{#FFFFFF} 1.0`);
+        chat.send(player, `${translations.chat_update}!{#0077FF} ${translations.chat_discord}`);
+        chat.addNotify(player, 1, `${translations.chat_player} ${player.name}`, 7000);
         if (player.getVariable("adminlvl") >= 1) {
           chat.send(
             player,
-            `!{#E03444}Вы успешно авторизовались как администратор ${player.getVariable(
+            `!{#E03444}${translations.chat_admin} ${player.getVariable(
               "adminlvl"
-            )} уровня!`
+            )} ${translations.chat_admin_level}!`
           );
         }
 

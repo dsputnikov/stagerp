@@ -1,11 +1,17 @@
 
 let chatRange = 100;
 
+// Language
+let config = require('../../../languages/config.js');
+const language = config.language;
+let translations = require(`../../../languages/${language}.json`);
+
+
 mp.events.add('Chat_sendMessage::SERVER', (player, text) => {
     mp.players.forEachInRange(player.position, chatRange,
 		(_player) => {
 			// _player.call('Hud_addString::CLIENT',[`${player.name}[${player.getVariable('id')}]: ${text}`])
-			_player.call('Hud_addString::CLIENT',[`${player.name} говорит: ${text}`])
+			_player.call('Hud_addString::CLIENT',[`${player.name} ${translations.chat_say} ${text}`])
 		}
 	);
 })
