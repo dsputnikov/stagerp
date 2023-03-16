@@ -1,6 +1,11 @@
 let chat = require('./hud');
 let methods = require('../modules/methods');
 
+// Language
+let config = require('../../../languages/config.js');
+const language = config.language;
+let translations = require(`../../../languages/${language}.json`);
+
 mp.events.addCommand("rent", (player) => {
 
     let rentPosition = new mp.Vector3(-1015.8927612304688, -2705.85009765625, 13.694609642028809);
@@ -12,7 +17,7 @@ mp.events.addCommand("rent", (player) => {
     }
 
     if (player.getMoney() < 150) {
-        chat.addNotify(player, 2, `У вас не хватает денег для аренды транспорта.`,7000)
+        chat.addNotify(player, 2, translations.no_money, 7000);
         return;
     }
 
@@ -42,5 +47,5 @@ mp.events.addCommand("rent", (player) => {
     setTimeout(() => { 
             vehicle.destroy();
           chat.addNotify(player, 3, `Арендованный транспорт был возвращен.`, 7000)
-      }, 900000);
+      }, 900000);a
 });
