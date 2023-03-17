@@ -3,7 +3,11 @@
     "rent_away": "You are too far away from the position of renting transportation.",
     "rent_succes": "You have successfully rented Faggio for 15 minutes.",
     "rent_back": "The rented vehicle was returned.",
+    "rent_rented": "You already have a rental vehicle.",
+    "rent_not_rented": "You did not rent transportation.",
+    "rent_not_owner": "You did not rent this vehicle.",
 
+    "chat_rent": "You can return the transport with the command",
     "chat_info": "[Info]",
     "chat_use": "Use",
     "chat_welcome": "Current version",
@@ -12,7 +16,8 @@
     "chat_admin": "You have successfully logged in as an administrator",
     "chat_admin_level": "level",
     "chat_discord": "discord.gg/3mKaaZZXTq",
-    "chat_update": "The assembly is developed and updated"
+    "chat_update": "The assembly is developed and updated",
+    "chat_say": "says:"
 
   }
   
