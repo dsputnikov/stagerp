@@ -39,7 +39,9 @@ require('./systems/utils/3dCamera');
 
 require('./systems/utils/snake');
 
-require('./systems/utils/noclip'); // Jobs
+require('./systems/utils/noclip');
+
+require('./systems/utils/other'); // Jobs
 
 
 require('./systems/jobs/farm');
