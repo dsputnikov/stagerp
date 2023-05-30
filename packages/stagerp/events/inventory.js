@@ -1,3 +1,6 @@
+let chat = require('./hud');
+let methods = require('../modules/methods');
+let items = require('../utilities/items');
 
 mp.events.add('Inventory_loadPlayerItems::SERVER', (player) => {
     DB.query('SELECT items FROM characters WHERE login = ?', [player.getVariable('login')], function (err, r) {

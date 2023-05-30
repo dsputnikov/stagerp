@@ -8,6 +8,13 @@ for (let i = 0; i < rent.length; i++) {
     let shape = mp.colshapes.newSphere(rent[i].x, rent[i].y, rent[i].z, 1, 0);
     rentColshapes.push(shape);
     mp.markers.new(2, new mp.Vector3(rent[i].x, rent[i].y, rent[i].z), 0.0);
+    let ped = mp.peds.new(mp.game.joaat('a_m_y_bevhills_01'), new mp.Vector3(-1015.8927612304688, -2705.85009765625, 13.694609642028809), 128.07366943359375);
+    let text = mp.labels.new(`Изи Арендов (NPC)`, new mp.Vector3(ped.position.x, ped.position.y, ped.position.z + 1), {
+      los: false,
+      font: 0,
+      drawDistance: 7,
+      dimension: 0
+  });
     mp.blips.new(280, new mp.Vector3(rent[i].x, rent[i].y, rent[i].z), {
       name: `Аренда ТС`,
       color: 2,
@@ -39,15 +46,4 @@ mp.events.add("playerExitColshape", (shape) => {
       break;
     }
   }
-});
-
-// Создаем педа
-let ped = mp.peds.new(mp.game.joaat('a_m_y_bevhills_01'), new mp.Vector3(-1015.8927612304688, -2705.85009765625, 13.694609642028809), 128.07366943359375);
-
-// Создаем 3D текст и прикрепляем его к педу
-let text = mp.labels.new(`Изи Арендов (NPC)`, new mp.Vector3(ped.position.x, ped.position.y, ped.position.z + 1), {
-    los: false,
-    font: 0,
-    drawDistance: 7,
-    dimension: 0
 });

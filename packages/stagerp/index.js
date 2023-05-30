@@ -1,6 +1,11 @@
 try{
+
+    // Модули
+
 require('./modules/mysql');
 require('./modules/methods');
+
+// Events
 
 require('./events/auth'); // Авторизация
 require('./events/pedCreator'); // Создание персонажа
@@ -11,22 +16,21 @@ require('./events/autosalon'); // Автосалон
 require('./events/money'); // Автосалон
 require('./events/commands'); // Команды
 require('./events/bank'); // Банк
-require('./events/time'); // Сиситема времени
 require('./events/inventory'); // Инвентарь
 require('./events/voice'); // Войс чат
 require('./events/weaponcompsync'); // Оружия и их улучшения
 require('./events/houses'); // Дома
 require('./events/menu'); // Меню
 require('./events/rent'); // Аренда ТС
-
-//cas
 require('./events/casino')
-require('./luckywheel/index');
-//
 
-//car
+// Утилиты
+
+require('./luckywheel/index');
 require('./autosalon/auto');
-//
+require('./utilities/time')
+require('./utilities/weather')
+require('./utilities/items')
 
 // Работы
 
@@ -34,6 +38,8 @@ require('./jobs/farm')
 require('./jobs/bus')
 require('./jobs/lawnmower')
 require('./jobs/taxi')
+
+//Конфиги
 
 require('./config')
 
