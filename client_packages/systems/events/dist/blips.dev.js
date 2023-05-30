@@ -1,5 +1,7 @@
 "use strict";
 
+// Блипы, и педы
+// Блипы
 var governemnt = mp.blips["new"](419, new mp.Vector3(-536, -218, 38), {
   name: 'Правительство',
   color: 4,
@@ -31,27 +33,39 @@ var coliseum = mp.blips["new"](24, new mp.Vector3(-319.33905029296875, -1974.354
   shortRange: true
 });
 var ballas_band = mp.blips["new"](84, new mp.Vector3(104.41075897216797, -1940.5482177734375, 20.80369758605957), {
-  name: 'Фиолетовые человеки',
+  name: 'Front Yard Ballas',
   color: 83,
   shortRange: true
 });
-mp.peds["new"](mp.game.joaat('mp_f_deadhooker'), new mp.Vector3(106.412841796875, -1953.96826171875, 20.751243591308594), 5.030980587005615);
 var vagos_band = mp.blips["new"](84, new mp.Vector3(323.4017333984375, -2029.188232421875, 20.838010787963867), {
-  name: 'Желтые человеки ',
+  name: 'Los Santos Vagos',
   color: 81,
   shortRange: true
 });
-mp.peds["new"](mp.game.joaat('s_f_y_baywatch_01'), new mp.Vector3(326.3182678222656, -2020.286376953125, 21.396862030029297), 107.92273712158203);
 var aztec_band = mp.blips["new"](84, new mp.Vector3(1435.540771484375, -1498.5040283203125, 63.223236083984375), {
-  name: 'Синии человеки ',
+  name: 'Varrios Los Aztecas',
   color: 84,
   shortRange: true
 });
-mp.peds["new"](mp.game.joaat('a_m_m_soucent_03'), new mp.Vector3(1437.6900634765625, -1496.4775390625, 63.22447204589844), 131.7062225341797);
 var groove_band = mp.blips["new"](84, new mp.Vector3(-215.70274353027344, -1603.1956787109375, 35.275577545166016), {
-  name: 'Зеленые человеки',
+  name: 'Grove Street Families',
   color: 82,
   shortRange: true
 });
-mp.peds["new"](mp.game.joaat('g_m_y_famca_01'), new mp.Vector3(-206.95274353027344, -1604.972412109375, 34.83317947387695), -88.51010131835938);
-mp.peds["new"](mp.game.joaat('s_m_m_ciasec_01'), new mp.Vector3(-551.671142578125, -198.92312622070312, 38.2196044921875), -134.32952880859375);
+var driving_school = mp.blips["new"](315, new mp.Vector3(-634.9441528320312, -2259.55224609375, 5.932521343231201), {
+  name: 'Автошкола',
+  color: 38,
+  shortRange: true
+}); // Педы
+
+mp.peds["new"](mp.game.joaat('mp_f_deadhooker'), new mp.Vector3(106.412841796875, -1953.96826171875, 20.751243591308594), 5.030980587005615); // Баласы
+
+mp.peds["new"](mp.game.joaat('s_f_y_baywatch_01'), new mp.Vector3(326.3182678222656, -2020.286376953125, 21.396862030029297), 107.92273712158203); // Вагосы
+
+mp.peds["new"](mp.game.joaat('a_m_m_soucent_03'), new mp.Vector3(1437.6900634765625, -1496.4775390625, 63.22447204589844), 131.7062225341797); // Ацтеки
+
+mp.peds["new"](mp.game.joaat('g_m_y_famca_01'), new mp.Vector3(-206.95274353027344, -1604.972412109375, 34.83317947387695), -88.51010131835938); // Грув
+
+mp.peds["new"](mp.game.joaat('s_m_m_ciasec_01'), new mp.Vector3(-551.671142578125, -198.92312622070312, 38.2196044921875), -134.32952880859375); // Мерия
+
+mp.peds["new"](mp.game.joaat('mp_f_execpa_01'), new mp.Vector3(-634.9441528320312, -2259.55224609375, 5.932521343231201), -137.5953826904297); // Автошкола
