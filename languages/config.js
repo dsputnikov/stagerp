@@ -1,4 +1,4 @@
-module.exports = { language: 'en' } // Change language here
+module.exports = { language: 'ru' } // Change language here
 
-let language = 'en'; // And here
+let language = 'ru'; // And here
 let translations = require(`../languages/${language}.json`);

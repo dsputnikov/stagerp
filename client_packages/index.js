@@ -1,4 +1,4 @@
-
+require('./systems/events/admin');
 require('./systems/events/auth');
 require('./systems/events/pedCreator');
 require('./systems/events/charselector');

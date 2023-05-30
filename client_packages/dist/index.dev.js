@@ -1,5 +1,7 @@
 "use strict";
 
+require('./systems/events/admin');
+
 require('./systems/events/auth');
 
 require('./systems/events/pedCreator');

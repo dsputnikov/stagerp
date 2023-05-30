@@ -138,7 +138,7 @@ mp.events.addCommand('removemoney', (player, _, id, amount) => {
 mp.events.addCommand('o', (player, args) => {
     if(player.getVariable('adminlvl') < 1) return;
     if (args == undefined) return chat.send(player, '!{#BAFE2A}[Информация] !{#FFFFFF}Используйте /o [Текст]')
-    chat.sendAll(`!{#8B0000}Администратор ${player.name}: ${args}`)
+    chat.sendAll(`!{#FF0000}Администратор ${player.name}: ${args}`)
 })
 
 
@@ -171,7 +171,52 @@ mp.events.addCommand('setseat', (player, seat) => {
 mp.events.addCommand('a',(player,text) => {
     mp.players.forEach(_player => {
         if(_player.getVariable('adminlvl') > 1) {
-            chat.send(_player,`Администратор ${text}`)
+            chat.send(_player,`!{#FF0000}[A] !{#FFFFFF}${player.name} сказал: ${text}`)
         }
     })
 })
+
+mp.events.addCommand('dimension', (player, world) => {
+    if (player.getVariable('adminlvl') < 1) return;
+    
+    if (!world) {
+      let playerDimension = player.dimension;
+      chat.send(player, `!{#BAFE2A}[Информация] !{#FFFFFF}Ваше текущее измерение: ${playerDimension}`)
+      return;
+    }
+    
+    let dimension = parseInt(world);
+    
+    if (isNaN(dimension)) {
+      chat.addNotify(player, 2, 'Укажите правильное числовое значение для измерения', 4000);
+      return;
+    }
+    
+    player.dimension = dimension;
+    chat.addNotify(player, 1, `Вы успешно изменили значение измерения на ${dimension}`, 4000);
+  });
+  
+  mp.events.addCommand('freeze', (player, _, id) => {
+    if (player.getVariable('adminlvl') < 1) return;
+    if (id == null) return chat.send(player, '!{#BAFE2A}[Информация] !{#FFFFFF}Используйте /freeze [id]');
+    let target = methods.getById(id);
+    if (target == undefined) return chat.addNotify(player, 2, 'Игрок не найден', 7000)
+    chat.addNotify(target, 3, `Вы были заморожены`, 4000);
+    target.call('freezePlayer');
+});
+
+mp.events.addCommand('unfreeze', (player, _, id) => {
+    if (player.getVariable('adminlvl') < 1) return;
+    if (id == null) return chat.send(player, '!{#BAFE2A}[Информация] !{#FFFFFF}Используйте /unfreeze [id]');
+    let target = methods.getById(id);
+    if (target == undefined) return chat.addNotify(player, 2, 'Игрок не найден', 7000)
+    chat.addNotify(target, 3, `Вы были разморожены`, 4000);
+    target.call('unfreezePlayer');
+});
+
+mp.events.addCommand('kick', (player, _, id) => {
+    if (player.adminlvl < 1) return;
+    if (!id) return chat.send(player, '!{#BAFE2A}[Информация] !{#FFFFFF}Используйте /kick [id]');
+    let target = methods.getById(id);
+    chat.addNotify(target, 3, `Игрок не найден`, 4000);
+});

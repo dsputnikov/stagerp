@@ -33,3 +33,37 @@ let coliseum = mp.blips.new(24, new mp.Vector3(-319.33905029296875, -1974.354858
     color: 0,
     shortRange: true,
 });
+
+let ballas_band = mp.blips.new(84, new mp.Vector3(104.41075897216797, -1940.5482177734375, 20.80369758605957), {
+    name: 'Фиолетовые человеки',
+    color: 83,
+    shortRange: true,
+});
+
+mp.peds.new(mp.game.joaat('mp_f_deadhooker'), new mp.Vector3(106.412841796875, -1953.96826171875, 20.751243591308594), 5.030980587005615)
+
+let vagos_band = mp.blips.new(84, new mp.Vector3(323.4017333984375, -2029.188232421875, 20.838010787963867), {
+    name: 'Желтые человеки ',
+    color: 81,
+    shortRange: true,
+});
+
+mp.peds.new(mp.game.joaat('s_f_y_baywatch_01'), new mp.Vector3(326.3182678222656, -2020.286376953125, 21.396862030029297), 107.92273712158203)
+
+let aztec_band = mp.blips.new(84, new mp.Vector3(1435.540771484375, -1498.5040283203125, 63.223236083984375), {
+    name: 'Синии человеки ',
+    color: 84,
+    shortRange: true,
+});
+
+mp.peds.new(mp.game.joaat('a_m_m_soucent_03'), new mp.Vector3(1437.6900634765625, -1496.4775390625, 63.22447204589844), 131.7062225341797)
+
+let groove_band = mp.blips.new(84, new mp.Vector3(-215.70274353027344, -1603.1956787109375, 35.275577545166016), {
+    name: 'Зеленые человеки',
+    color: 82,
+    shortRange: true,
+});
+
+mp.peds.new(mp.game.joaat('g_m_y_famca_01'), new mp.Vector3(-206.95274353027344, -1604.972412109375, 34.83317947387695), -88.51010131835938)
+
+mp.peds.new(mp.game.joaat('s_m_m_ciasec_01'), new mp.Vector3(-551.671142578125, -198.92312622070312, 38.2196044921875), -134.32952880859375)
