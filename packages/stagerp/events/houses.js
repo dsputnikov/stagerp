@@ -3,7 +3,7 @@ let chat = require('./hud');
 let methods = require('../modules/methods');
 
 mp.events.addCommand('addhouse', (player, _, price, houseClass) => {
-    if (player.getVariable('adminlvl') < 1) return;
+    if (player.getVariable('adminlvl') < 5) return;
     if (price == undefined || houseClass == undefined) return chat.send(player, '!{#BAFE2A}[Информация] !{#FFFFFF}Используйте /addhouse [Цена] [Класс дома]')
     let pos = player.position
     DB.query('INSERT INTO houses SET ownerScId = ?, ownerName = ?, price = ?, payments = ?, x = ?, y = ?, z = ?, class = ?, status = ?, lockedStatus = ?', [0, '', parseInt(price), '', pos.x, pos.y, pos.z, houseClass, 1, 1], function (err) {
@@ -12,7 +12,18 @@ mp.events.addCommand('addhouse', (player, _, price, houseClass) => {
     chat.addNotify(player, 3, 'Требуется перезапуск сервера', 7000)
 })
 
+mp.events.addCommand('addgarage', (player, _, houseId, garageClass) => {
+    if (player.getVariable('adminlvl') < 5) return;
+    if (houseId == undefined || garageClass == undefined) return chat.send(player, '!{#BAFE2A}[Информация] !{#FFFFFF}Используйте /addgarage [ID дома] [Класс гаража]');
+    let garagePos = player.position; // Позиция гаража
+    DB.query('INSERT INTO garages SET houseId = ?, garageClass = ?, x = ?, y = ?, z = ?', [houseId, garageClass, garagePos.x, garagePos.y, garagePos.z], function (err) {
+        if (err) return console.log(err);
+    });
+    chat.addNotify(player, 3, 'Требуется перезапуск сервера', 4000);
+});
+
 let houses = []
+let garages = []
 let ids = []
 
 let housesPos = [
@@ -29,17 +40,39 @@ let housesPos = [
     ]
 ]
 
+let garagesPos = [
+    [
+        { x: 240.311, y: -1004.840, z: -99.000, class: 'high' }
+    ],
+
+    [
+        { x: 212.012, y: -999.059, z: -99.000, class: 'medium' }
+    ],
+
+    [
+        { x: 179.086, y: -1000.814, z: -99.000, class: 'low' }
+    ],
+]
+
 mp.events.add('packagesLoaded', () => {
     DB.query('SELECT * FROM houses', function (err, res) {
         if (err) {
             console.log(err)
         } else {
             houses.push(res)
-            // console.log(`Создано: ${res.length} домов`)
-            console.log('\x1b[32m%s\x1b[0m', '[Дома]', "\x1b[0m", `Загружено ${res.length} дома`);  //cyan
+            console.log('\x1b[32m%s\x1b[0m', '[Дома]', "\x1b[0m", `Загружено ${res.length} дома`); 
         }
     })
 })
+
+    DB.query('SELECT * FROM garages', function (err, res) {
+        if (err) {
+            console.log(err)
+        } else {
+            garages.push(res)
+            console.log('\x1b[32m%s\x1b[0m', '[Гаражи]', "\x1b[0m", `Загружено ${res.length} гаражи`); 
+        }
+    })
 
 mp.events.add('playerReady', (player) => {
     player.position = new mp.Vector3(-1189.982, 291.911, 69.897)
@@ -52,6 +85,19 @@ mp.events.add('playerReady', (player) => {
         player.call('House_loadInHouseObjects::CLIENT', [houses, ids])
     })
 })
+
+mp.events.add('playerReady', (player) => {
+    player.position = new mp.Vector3(-1189.982, 291.911, 69.897)
+    DB.query('SELECT id FROM garages', [], (err, res) => {
+        if (err) return console.log(err)
+        for (let i = 0; i < res.length; i++) {
+            ids.push(res[i].id)
+        }
+        player.call('Garage_loadInGaragesObjects::CLIENT', [garages, ids])
+        player.call('Garage_loadInGarageObjects::CLIENT', [garages, ids])
+    })
+})
+
 
 mp.events.add('House_sendHouseInfo::SERVER', (player, id) => {
     player.currentId = id
@@ -72,6 +118,29 @@ mp.events.add('House_sendHouseInfo::SERVER', (player, id) => {
             }
             let ownerName = (res[0].ownerScId == '') ? res[0].ownerScId = 'Государство' : `${res[0].ownerName}`
             player.call('House_executeHouseInfo::CLIENT', [ifOwner, ownerName, res[0].class, 3, res[0].price, res[0].lockedStatus])
+        }
+    })
+})
+
+mp.events.add('Garage_sendGarageInfo::SERVER', (player, id) => {
+    player.currentId = id
+    DB.query('SELECT * FROM garages WHERE id = ?', [id], (err, res) => {
+        if (err) {
+            console.log(err)
+        } else {
+            if (res[0].class == 'high') {
+                res[0].class = 'Высокий'
+            } else if (res[0].class == 'medium') {
+                res[0].class = 'Средний'
+            } else if (res[0].class == 'low') {
+                res[0].class = 'Низкий'
+            }
+            let ifOwner = false;
+            if (res[0].ownerScId == player.getVariable('id')) {
+                ifOwner = true;
+            }
+            let ownerName = (res[0].ownerScId == '') ? res[0].ownerScId = 'Государство' : `${res[0].ownerName}`
+            player.call('Garage_executeGarageInfo::CLIENT', [ifOwner, ownerName, res[0].class, 3, res[0].price, res[0].lockedStatus])
         }
     })
 })
@@ -223,6 +292,31 @@ mp.events.add({
                 player.call('House_chooseGarageToggle::CLIENT', [false])
                 player.call('House_unbindEkey::CLIENT')
                 player.dimension = 0
+            } catch (e) {
+                console.log(e)
+            }
+        })
+    }
+})
+
+mp.events.add({
+    'Garage_enterGarage::SERVER': (player, id) => {
+        DB.query('SELECT class FROM garages WHERE id = ?', [id], (err, res) => {
+            if (err) return console.log(err)
+            try {
+                switch (res[0].class) {
+                    case 'high':
+                        player.position = new mp.Vector3(240.311, -1004.840, -99.000)
+                        break;
+
+                    case 'medium':
+                        player.position = new mp.Vector3(212.4087371826172, -998.9288940429688, -98.99999237060547)
+                        break;
+
+                    case 'low':
+                        player.position = new mp.Vector3(178.95326232910156, -1000.1830444335938, -98.99995422363281)
+                        break;
+                }
             } catch (e) {
                 console.log(e)
             }

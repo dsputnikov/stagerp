@@ -103,7 +103,8 @@ mp.events.addCommand('tp', (player, id) => {
 
 mp.events.addCommand('ipl', (player, id) => {
     if(player.getVariable('adminlvl') < 5) return;
-    if (id == null) return chat.send(player, '!{#BAFE2A}[Информация] !{#FFFFFF}Используйте /ipl [id]');   
+    if (id == null) return chat.send(player, '!{#BAFE2A}[Информация] !{#FFFFFF}Используйте /ipl [id]');
+    chat.addNotify(player, 1, `Вы успешно загрузили интерьер ${id}`, 4000);   
     mp.world.requestIpl(id);
 })
 
@@ -220,3 +221,9 @@ mp.events.addCommand('kick', (player, _, id) => {
     let target = methods.getById(id);
     chat.addNotify(target, 3, `Игрок не найден`, 4000);
 });
+
+mp.events.addCommand('alvl', (player) => {
+    if (player.getVariable('adminlvl') < 1) return;
+    let alvl = player.getVariable('adminlvl');
+    chat.addNotify(player, 1, `Ваш уровень админа: ${alvl}`, 4000);
+})

@@ -62,12 +62,29 @@ let groove_band = mp.blips.new(84, new mp.Vector3(-215.70274353027344, -1603.195
     shortRange: true,
 });
 
-let driving_school = mp.blips.new(315, new mp.Vector3(-634.9441528320312, -2259.55224609375, 5.932521343231201), {
+let driving_school = mp.blips.new(545, new mp.Vector3(-634.9441528320312, -2259.55224609375, 5.932521343231201), {
     name: 'Автошкола',
     color: 38,
     shortRange: true,
 });
 
+let fraction_FIB = mp.blips.new(188, new mp.Vector3(2479.0087890625, -391.23455810546875, 109.50233459472656), {
+    name: 'FIB',
+    color: 58,
+    shortRange: true,
+});
+
+let fraction_EMS = mp.blips.new(61, new mp.Vector3(303.479248046875, -586.5426025390625, 57.70624542236328), {
+    name: 'EMS',
+    color: 59,
+    shortRange: true,
+});
+
+let fraction_LSPD = mp.blips.new(60, new mp.Vector3(436.385009765625, -984.70947265625, 43.66206741333008), {
+    name: 'LSPD',
+    color: 57,
+    shortRange: true,
+});
 
 // Педы
 

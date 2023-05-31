@@ -103,6 +103,7 @@ mp.events.addCommand('tp', function (player, id) {
 mp.events.addCommand('ipl', function (player, id) {
   if (player.getVariable('adminlvl') < 5) return;
   if (id == null) return chat.send(player, '!{#BAFE2A}[Информация] !{#FFFFFF}Используйте /ipl [id]');
+  chat.addNotify(player, 1, "\u0412\u044B \u0443\u0441\u043F\u0435\u0448\u043D\u043E \u0437\u0430\u0433\u0440\u0443\u0437\u0438\u043B\u0438 \u0438\u043D\u0442\u0435\u0440\u044C\u0435\u0440 ".concat(id), 4000);
   mp.world.requestIpl(id);
 });
 mp.events.addCommand('tph', function (player, id) {
@@ -204,4 +205,9 @@ mp.events.addCommand('kick', function (player, _, id) {
   if (!id) return chat.send(player, '!{#BAFE2A}[Информация] !{#FFFFFF}Используйте /kick [id]');
   var target = methods.getById(id);
   chat.addNotify(target, 3, "\u0418\u0433\u0440\u043E\u043A \u043D\u0435 \u043D\u0430\u0439\u0434\u0435\u043D", 4000);
+});
+mp.events.addCommand('alvl', function (player) {
+  if (player.getVariable('adminlvl') < 1) return;
+  var alvl = player.getVariable('adminlvl');
+  chat.addNotify(player, 1, "\u0412\u0430\u0448 \u0443\u0440\u043E\u0432\u0435\u043D\u044C \u0430\u0434\u043C\u0438\u043D\u0430: ".concat(alvl), 4000);
 });

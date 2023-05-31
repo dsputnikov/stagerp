@@ -3,9 +3,11 @@ let houseBlips = []
 let houseLabels = []
 let garageColshapes = []
 let garageMarkers = []
+let garageBlips = []
 let inHouseColshapes = []
 let inHouseMarkers = []
 let _houses = []
+let _garages = []
 var currentId = null
 let localPlayer = mp.players.local
 let windowOpened = false;
@@ -101,6 +103,78 @@ mp.events.add({
         }
     }
 })
+
+mp.events.add({
+    'Garage_loadGaragesObjects::CLIENT': (garages, id) => {
+        _garages = garages
+        for (let i = 0; i < garages[0].length; i++) {
+            console_log(JSON.stringify(garages[0][i]))
+            let labelStatus = (garages[0][i].status == 1) ? `~g~(Свободен)` : '~r~(Занят)';
+            let blipColor = (garages[0][i].status == 2) ? 59 : 25;
+            garageBlips.push(mp.blips.new(50, new mp.Vector3(garages[0][i].x, garages[0][i].y, garages[0][i].z),
+            {
+                name: `Гараж`,
+                scale: 0.6,
+                color: blipColor,
+                dimension: 0,
+                shortRange: true,
+            }))
+            garageLabels.push(mp.labels.new(`Гараж #${i + 1} ${labelStatus}`, new mp.Vector3(garages[0][i].x, garages[0][i].y, garages[0][i].z),
+            {
+                name: `Гараж`,
+                scale: 0.6,
+                color: blipColor,
+                dimension: 0,
+                shortRange: true,
+            }))
+            garageColshapes.push(mp.colshapes.newSphere(garages[0][i].x, garages[0][i].y, garages[0][i].z, 1, 0))
+        }
+        render = true;
+    },
+    
+    'Garage_loadInGarageObjects::CLIENT': (garages, ids) => {
+        for (let i = 0; i < garages[0].length; i++) {
+            switch (garages[0][i].class) {
+                case 'high':
+
+                    garageMarkers.push(mp.markers.new(20, new mp.Vector3(240.311, -1004.840, -99.000), 1,
+                        {
+                            visible: true,
+                            dimension: ids[i] + 10
+                        }))
+
+                    garageColshapes.push(mp.colshapes.newSphere(240.311, -1004.840, -99.000, 1, ids[i] + 10))
+                    break;
+
+                case 'medium':
+
+                    garageMarkers.push(mp.markers.new(20, new mp.Vector3(212.012, -999.059, -99.000), 1,
+                        {
+                            visible: true,
+                            dimension: ids[i] + 10
+                        }))
+
+                    garageColshapes.push(mp.colshapes.newSphere(212.012, -999.059, -99.000, 1, ids[i] + 10))
+                    break;
+
+                case 'low':
+
+                    garageMarkers.push(mp.markers.new(20, new mp.Vector3(179.086, -1000.814, -99.000), 1,
+                        {
+                            visible: true,
+                            dimension: ids[i] + 10
+                        }))
+
+                    garageColshapes.push(mp.colshapes.newSphere(179.086, -1000.814, -99.000, 1, ids[i] + 10))
+                    break;
+            }
+        }
+    }
+})
+
+
+
+
 
 mp.events.add({
     'playerEnterColshape': (shape) => {

@@ -30,8 +30,6 @@ require('./systems/events/houses');
 
 require('./systems/events/menu');
 
-require('./systems/events/blips');
-
 require('./systems/events/rent'); // 
 
 
@@ -50,7 +48,10 @@ require('./systems/jobs/bus');
 
 require('./systems/jobs/lawnmower');
 
-require('./systems/jobs/taxi'); //
+require('./systems/jobs/taxi'); // Фракции
+
+
+require('./systems/fractions/autoschool'); //
 
 
 require('./luckywheel/index'); //
@@ -58,7 +59,10 @@ require('./luckywheel/index'); //
 
 
 require('./systems/autosalon/auto'); //
+//utils
 
+
+require('./systems/utils/death');
 
 var browser = mp.browsers["new"]('package://browser/index.html');
 var player = mp.players.local; //IPL

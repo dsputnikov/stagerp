@@ -240,7 +240,7 @@ mp.events.add('Autosalon_buyVehicle::SERVER', async (player, t, model, price, co
                 if(player.personalVehicles[i].model == model) {
                 player.personalVehiclesList[i] = mp.vehicles.new(mp.joaat(player.personalVehicles[i].model), new mp.Vector3(parseFloat(pos.x), parseFloat(pos.y), parseFloat(pos.z)), {
                     dimension: 0,
-                    numberPlate: 'DEREBAS',
+                    numberPlate: 'STAGE',
                     color: [color1, color2]           
                 })
     

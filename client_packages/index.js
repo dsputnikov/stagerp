@@ -13,7 +13,6 @@ require('./systems/events/voice');
 require('./systems/events/weaponcompsync');
 require('./systems/events/houses');
 require('./systems/events/menu');
-require('./systems/events/blips');
 require('./systems/events/rent');
 // 
 require('./systems/utils/3dCamera');
@@ -27,6 +26,11 @@ require('./systems/jobs/bus');
 require('./systems/jobs/lawnmower');
 require('./systems/jobs/taxi');
 
+// Фракции
+
+require('./systems/fractions/autoschool');
+
+
 //
 require('./luckywheel/index');
 //
@@ -34,6 +38,9 @@ require('./luckywheel/index');
 // autosalons
 require('./systems/autosalon/auto');
 //
+
+//utils
+require('./systems/utils/death');
 
 var browser = mp.browsers.new('package://browser/index.html')
 

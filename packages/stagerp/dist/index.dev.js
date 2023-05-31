@@ -52,18 +52,21 @@ try {
   require('./events/rent'); // Аренда ТС
 
 
-  require('./events/casino'); // Утилиты
+  require('./events/casino'); // Прочее
 
 
   require('./luckywheel/index');
 
-  require('./autosalon/auto');
+  require('./autosalon/auto'); // Утилиты
+
 
   require('./utilities/time');
 
   require('./utilities/weather');
 
-  require('./utilities/items'); // Работы
+  require('./utilities/items');
+
+  require('./utilities/death'); // Работы
 
 
   require('./jobs/farm');
@@ -72,16 +75,16 @@ try {
 
   require('./jobs/lawnmower');
 
-  require('./jobs/taxi'); //Конфиги
+  require('./jobs/taxi'); // Фракции
+
+
+  require('./fractions/autoschool'); //Конфиги
 
 
   require('./config');
 
   mp.events.add('console_log', function (player, arg) {
     console.log(arg);
-  });
-  mp.events.add('playerDeath', function (player) {
-    player.spawn(player.position);
   });
   mp.events.add('OnPlayerExitVehicle', function (player) {
     if (player.getConfigFlag(32) == false) {
@@ -130,6 +133,8 @@ mp.world.requestIpl("hei_dlc_casino_aircon"); // кондиционер на к�
 mp.world.requestIpl("vw_casino_main");
 mp.world.requestIpl("vw_casino_garage");
 mp.world.requestIpl("vw_casino_carpark");
-mp.world.requestIpl("vw_casino_penthouse"); //my apa_v_mp_h_01_a
+mp.world.requestIpl("shr_int");
+mp.world.requestIpl("shr_int_lod");
+mp.world.requestIpl("gabz_mrpd_milo_"); //my apa_v_mp_h_01_a
 
 exports.getClearSlot = getClearSlot;
