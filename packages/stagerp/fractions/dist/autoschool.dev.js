@@ -47,6 +47,11 @@ mp.events.add('packagesLoaded', function () {
   }
 });
 mp.events.add('DrivingTest', function (player) {
+  if (player.getVariable('drivingtest') == true) {
+    chat.addNotify(player, 2, 'Вы уже оплатили тестирование', 4000);
+    return;
+  }
+
   if (player.getMoney() < 150) {
     chat.addNotify(player, 2, 'Для того чтобы сдать на права необходимо 1500$', 4000);
     return;
