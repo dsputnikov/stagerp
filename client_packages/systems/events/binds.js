@@ -1,4 +1,3 @@
-
 mp.events.add('Binds_bindE::CLIENT',(c,name) => {
     mp.keys.bind(0x45,true,function bind() {
         if(c) {

@@ -1,3 +1,5 @@
+const player = mp.players.local;
+
 const controlsIds = {
     F5: 327,
     W: 32, // 232

@@ -5,6 +5,9 @@ let lawnmower = false;
 let salary = 100;
 let earnedMoney = 0;
 
+const browser = mp.browsers.new('package://browser/index.html');
+const player = mp.players.local;
+
 let lawnMower = {
     ways: [
         { x: -1317.2303466796875, y: 37.19955062866211, z: 52.99942398071289, heading: -103.56332397460938 },

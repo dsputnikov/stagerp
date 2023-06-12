@@ -1,5 +1,6 @@
 // Блипы, и педы
-
+const browser = mp.browsers.new('package://browser/index.html');
+const player = mp.players.local;
 // Блипы
 
 let governemnt = mp.blips.new(419, new mp.Vector3(-536, -218, 38), {
@@ -99,3 +100,5 @@ mp.peds.new(mp.game.joaat('g_m_y_famca_01'), new mp.Vector3(-206.95274353027344,
 mp.peds.new(mp.game.joaat('s_m_m_ciasec_01'), new mp.Vector3(-551.671142578125, -198.92312622070312, 38.2196044921875), -134.32952880859375) // Мерия
 
 mp.peds.new(mp.game.joaat('mp_f_execpa_01'), new mp.Vector3(-634.9441528320312, -2259.55224609375, 5.932521343231201), -137.5953826904297) // Автошкола
+
+

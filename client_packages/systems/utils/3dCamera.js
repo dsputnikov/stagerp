@@ -1,4 +1,8 @@
-class CameraRotator {
+global.browser = mp.browsers.new('package://browser/index.html');
+global.player = mp.players.local;
+
+
+global.CameraRotator = class {
     start(camera, basePosition, lookAtPosition, offsetVector, heading, fov) {
         this.camera = camera;
         this.basePosition = basePosition;
@@ -163,7 +167,7 @@ mp.events.add("render", () => {
     // }
 });
 
-function drawDebugText() {
+    global.createCam = function() {
     let message = `zUp: ${cameraRotator.zUp.toFixed(3)}`;
 
     message += `\nHeading: ${cameraRotator.heading.toFixed(2)}`;
@@ -179,7 +183,7 @@ function drawDebugText() {
     });
 }
 
-function createCam(x, y, z, rx, ry, rz, viewangle) {
+global.createCam = function(x, y, z, rx, ry, rz, viewangle) {
     camera = mp.cameras.new("default");
     camera.setCoord(x, y, z);
     camera.setRot(rx, ry, rz, 2);
@@ -187,7 +191,7 @@ function createCam(x, y, z, rx, ry, rz, viewangle) {
     camera.setActive(true);
 
     var vehPosition = new mp.Vector3(x,y,z); // спавн авто
-    cameraRotator.start(camera, vehPosition, vehPosition, new mp.Vector3(-3.0, 3.5, 0.5), 70,viewangle);
+    cameraRotator.start(camera, vehPosition, vehPosition, new mp.Vector3(-3.0, 3.5, 0.5), 70, viewangle);
     cameraRotator.setZBound(-0.8, 1.8);
     cameraRotator.setZUpMultipler(5);
     cameraRotator.pause(false);
@@ -196,9 +200,9 @@ function createCam(x, y, z, rx, ry, rz, viewangle) {
 }
 
 mp.events.add('Utils_3dcamera::CLIENT', (x, y, z, rx, ry, rz, viewangle) => {
-    createCam(x,y,z, rx, ry, 285.854, viewangle); // координаты камеры и ротация
+    global.createCam(x,y,z, rx, ry, 285.854, viewangle); // координаты камеры и ротация
 })
 
 mp.events.add('Utils_delcamera::CLIENT', () => {
-    cameraRotator.stop()
+    global.cameraRotator.stop()
 })

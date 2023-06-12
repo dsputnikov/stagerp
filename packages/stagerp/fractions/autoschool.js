@@ -46,7 +46,11 @@ mp.events.add('DrivingTest' , (player) => {
         chat.addNotify(player, 2, 'Вы уже оплатили тестирование', 4000);
         return;
     }
-    if (player.getMoney() < 150) {
+    if (player.getVariable('carpass') == 1) {
+        chat.addNotify(player, 2, 'У вас уже есть права', 4000);
+        return;
+    }
+    if (player.getMoney() < 1500) {
         chat.addNotify(player, 2, 'Для того чтобы сдать на права необходимо 1500$', 4000);
         return;
     }
@@ -65,4 +69,26 @@ mp.events.add('playerEnterVehicle', (player, vehicle) => {
             player.removeFromVehicle()
         }
     }
+})
+
+mp.events.add('DriveTest_checkpointReached' , (player) => {
+    chat.send(player, '!{#BAFE2A}[Информация] !{#FFFFFF}Вы сдали на права, держите косарь 500');
+    player.removeFromVehicle()
+    player.setVariable('carpass', 1);
+    player.setVariable('drivingtest', false);
+})
+
+mp.events.addCommand('mypass', (player) => {
+    let carpass = player.getVariable('carpass');
+    chat.addNotify(player, 1, `Ваши права: ${carpass}`, 4000);
+})
+
+mp.events.add('JoinGreen' , (player) => {
+    chat.send(player, '!{#BAFE2A}[Информация] !{#FFFFFF}Ты в ЗЗ другалек');
+    player.setVariable('greenzone', true);
+})
+
+mp.events.add('LeaveGreen' , (player) => {
+    chat.send(player, '!{#BAFE2A}[Информация] !{#FFFFFF}Ты вышел из ЗЗ другалек');
+    player.setVariable('greenzone', false);
 })

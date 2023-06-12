@@ -180,7 +180,7 @@ mp.events.add({
     'playerEnterColshape': (shape) => {
         inHouseColshapes.forEach(el => {
             if (shape == el) {
-                browser.execute('HUD.usebutton.active = true;')
+                global.browser.execute('HUD.usebutton.active = true;')
                 mp.keys.bind(0x45, true, () => {
                     browser.call('Houses_showWindow::CEF', 2, true)
                     windowOpened = true;
@@ -193,7 +193,7 @@ mp.events.add({
 
         garageColshapes.forEach(el => {
             if (shape == el) {
-                browser.execute('HUD.usebutton.active = true;')
+                global.browser.execute('HUD.usebutton.active = true;')
                 mp.keys.bind(0x45, true, () => {
                     browser.call('Houses_showWindow::CEF', 2, true)
                     mp.gui.cursor.show(true, true);
@@ -206,14 +206,14 @@ mp.events.add({
     'playerExitColshape': (shape) => {
         inHouseColshapes.forEach(el => {
             if (shape == el) {
-                browser.execute('HUD.usebutton.active = false;')
+                global.browser.execute('HUD.usebutton.active = false;')
                 mp.keys.unbind(0x45, true)
             }
         })
 
         garageColshapes.forEach(el => {
             if (shape == el) {
-                browser.execute('HUD.usebutton.active = false;')
+                global.browser.execute('HUD.usebutton.active = false;')
                 mp.keys.unbind(0x45, true)
             }
         })
@@ -225,7 +225,7 @@ mp.events.add({
         for (var [key, value] of Object.entries(houseColshapes)) {
             if (shape == value) {
                 mp.events.call('House_bindMainColshape::CLIENT', _houses[0][key].id)
-                browser.execute('HUD.usebutton.active = true;')
+                global.browser.execute('HUD.usebutton.active = true;')
             }
         }
     },
@@ -234,7 +234,7 @@ mp.events.add({
         houseColshapes.forEach(colshape => {
             if (shape == colshape) {
                 mp.events.call('House_unbindEkey::CLIENT')
-                browser.execute('HUD.usebutton.active = false;')
+                global.browser.execute('HUD.usebutton.active = false;')
             }
         })
     }
@@ -253,12 +253,12 @@ mp.events.add({
 //
 
 mp.events.add('House_executeHouseInfo::CLIENT', (ifOwner, ownerName, houseClass, gm, price, locked) => {
-    browser.execute(`houses.ifOwner = ${ifOwner}`)
-    browser.execute(`houses.ownerName = '${ownerName}'`)
-    browser.execute(`houses.houseClass = '${houseClass}'`)
-    browser.execute(`houses.price = ${price} + '$'`)
-    browser.execute(`houses.ifLocked = ${locked}`)
-    browser.execute(`houses.id = ${currentId}`)
+    global.browser.execute(`houses.ifOwner = ${ifOwner}`)
+    global.browser.execute(`houses.ownerName = '${ownerName}'`)
+    global.browser.execute(`houses.houseClass = '${houseClass}'`)
+    global.browser.execute(`houses.price = ${price} + '$'`)
+    global.browser.execute(`houses.ifLocked = ${locked}`)
+    global.browser.execute(`houses.id = ${currentId}`)
 })
 
 mp.events.add({

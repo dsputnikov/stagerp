@@ -41,10 +41,10 @@ require('./systems/autosalon/auto');
 
 //utils
 require('./systems/utils/death');
+require('./systems/utils/zones');
 
-var browser = mp.browsers.new('package://browser/index.html')
-
-var player = mp.players.local;
+global.browser = mp.browsers.new('package://browser/index.html');
+global.player = mp.players.local;
 
 //IPL
 //
@@ -139,6 +139,14 @@ var VK = {
     F11: 0x7a,
     F12: 0x7b,
 };
+
+mp.game.streaming.removeIpl("ch1_02_open");
+mp.game.streaming.removeIpl("rc12b_fixed");
+mp.game.streaming.removeIpl("rc12b_destroyed");
+mp.game.streaming.removeIpl("rc12b_default");
+mp.game.streaming.removeIpl("rc12b_hospitalinterior_lod");
+mp.game.streaming.removeIpl("rc12b_hospitalinterior");
+
 
 let CPED_CONFIG_FLAG_DisableStartEngine = 429;
 player.setConfigFlag(CPED_CONFIG_FLAG_DisableStartEngine, true);
@@ -252,3 +260,24 @@ mp.keys.bind(0x58, false, function () { // X key
         return a ? 15 > mp.game.system.vdist(player.position.x, player.position.y, player.position.z, autopilotPoint.x, autopilotPoint.y, autopilotPoint.z) ? (player.clearTasks(), a && player.taskVehicleTempAction(a.handle, 27, 1e4), autopilotPoint = null, autopilotStart = !1, clearInterval(autopilotInterval), void mp.events.callRemote('Hud_addNotify::SERVER',1,"Вы достигли места назначения",7000)) : void 0 : (a && (player.clearTasks(), player.taskVehicleTempAction(a.handle, 27, 1e4)), autopilotStart = !1, void clearInterval(autopilotInterval))
     }, 300)))
 });
+
+let simonIntID = mp.game.interior.getInteriorAtCoords(
+    -58.161064,
+    -1099.174,
+    25.10041
+  );
+  let simonPropList = [
+    "csr_beforeMission", // До разбития витрины
+    // 'csr_afterMissionA',  // Мусор от разбитого стелка
+    // 'csr_afterMissionB', // Тут просто фанерой закрыто
+    "csr_inMission",
+    // 'shutter_open',
+    "shutter_closed",
+  ];
+  
+  for (const propSimons of simonPropList) {
+    mp.game.interior.enableInteriorProp(simonIntID, propSimons);
+    mp.game.invoke("0xC1F1920BAF281317", simonIntID, propSimons, 1); // _SET_INTERIOR_PROP_COLOR
+  }
+  
+  mp.game.interior.refreshInterior(simonIntID);

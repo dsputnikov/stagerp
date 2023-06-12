@@ -135,6 +135,7 @@ mp.world.requestIpl("vw_casino_garage");
 mp.world.requestIpl("vw_casino_carpark");
 mp.world.requestIpl("shr_int");
 mp.world.requestIpl("shr_int_lod");
-mp.world.requestIpl("gabz_mrpd_milo_"); //my apa_v_mp_h_01_a
+mp.world.requestIpl("gabz_mrpd_milo_");
+mp.world.requestIpl("TrevorsTrailerTidy"); //my apa_v_mp_h_01_a
 
 exports.getClearSlot = getClearSlot;

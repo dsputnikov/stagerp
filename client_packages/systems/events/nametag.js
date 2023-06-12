@@ -4,6 +4,8 @@ const height = 0.0065;
 const border = 0.001;
 const color = [255, 255, 255, 255];
 
+const player = mp.players.local;
+
 mp.nametags.enabled = false;
 
 mp.events.add('render', (nametags) => {

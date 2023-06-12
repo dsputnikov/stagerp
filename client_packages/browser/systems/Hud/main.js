@@ -25,6 +25,9 @@ var HUD = new Vue({
             location: '',
             zone: ''
         },
+        greenzone: {
+            zone: ''
+        },
         hints: [
             { key: 'F7', text: 'Скрыть худ' },
             { key: 'F2', text: 'Показать/Скрыть курсор' },
@@ -67,7 +70,7 @@ var HUD = new Vue({
                 this.notify.notifys.push({ type: 2, top: 'Ошибка', color: this.notify.error_color, text: text });
             }
             else if (type == 3) {
-                this.notify.notifys.push({ type: 2, top: 'Внимание', color: this.notify.info_color, text: text });
+                this.notify.notifys.push({ type: 2, top: 'Информация', color: this.notify.info_color, text: text });
             }
             // Удаление
             setTimeout(function () {

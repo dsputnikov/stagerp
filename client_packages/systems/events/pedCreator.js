@@ -1,13 +1,14 @@
 
 var tempData = {};
+const browser = mp.browsers.new('package://browser/index.html');
+const player = mp.players.local;
 
 mp.events.add('pedCreator_start::CLIENT', () => {
     browser.call('pedCreator_show::CEF')
     mp.gui.cursor.show(true, true);
     mp.game.ui.displayRadar(false);
     mp.events.call('HUD_setShow::CLIENT', false)
-    // showCamera(true);
-    mp.events.call('Utils_3dcamera::CLIENT', -3225.01904296875, 763.4280395507812, 5.791280269622803, 0, 0, 285.854, 40)
+    mp.events.call('Utils_3dcamera::CLIENT', 1976.890869140625, 3820.33203125, 33.45004653930664, 0, 0, 285.854, 40)
 })
 
 mp.events.add('pedCreator_updateData', (data, t) => {

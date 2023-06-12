@@ -1,7 +1,7 @@
 
 
 mp.events.add('pedCreator_start::SERVER', (player) => {
-    player.position = new mp.Vector3(-3225.01904296875, 763.4280395507812, 5.791280269622803);
+    player.position = new mp.Vector3(1976.890869140625, 3820.33203125, 33.45004653930664);
     player.heading = 90;
     player.dimension = player.id + 12;
     player.model = mp.joaat('mp_m_freemode_01')
@@ -10,7 +10,7 @@ mp.events.add('pedCreator_start::SERVER', (player) => {
 
 mp.events.add('pedCreator_updateServer::SERVER', (player, model) => {
     player.model = mp.joaat(model);
-    // player.position = pos;
+    //player.position = pos;
     // player.rot = rot;
     player.call('pedCreator_update::CLIENT')
 })

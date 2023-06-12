@@ -477,46 +477,124 @@
             </div>
         </div>
     </div>
-    <!-- Худ -->
-    <div id="HUD_main" v-show="active" v-cloak>
-        <div class="right_up">
-            <div class="logo_and_info">
-                <div class="money_wrapper">
-                    <h1>${{ money }}</h1>
-                    <div class="money-bank">
-                        <img src="./systems/Hud/img/bank.svg" alt="">
-                        <p>${{ bank }}</p>
-                    </div>
-                </div>
-                <div class="info_server">
-                    <div class="info_items">
-                        <img src="./systems/Hud/img/online.svg" alt="">
-                        <p>{{server.online}}</p>
-                    </div>
-                    <div class="info_items">
-                        <img src="./systems/Hud/img/login.svg" alt="">
-                        <p>#{{server.login}}</p>
-                    </div>
-                    <div class="info_items">
-                        <img src="./systems/Hud/img/time.svg" alt="">
-                        <div class="time_wrapper">
-                            <p>{{ server.time }}</p>
-                            <span>{{ server.date }}</span>
-                        </div>
-                    </div>
-                    <img src="./systems/Hud/img/Logo.png" class="logo">
-                </div>
+
+    <!-- машины -->
+
+    <div id="auto" v-show="active" v-cloak>
+        <img src="./systems/auto/img/bg3.png" class="bg" v-if="open == 1">
+
+        <div class="auto-first-wnd-wrapper" v-if="open == 1">
+
+            <h1>Автосалон</h1>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            <div class="auto-first-button auto-first-button-start" v-if="IsIn == false" @click="tpToAuto">
+                <span>Зайти</span>
+            </div>
+            
+            <div class="auto-first-button auto-first-button-leave" v-if="IsIn == true" @click="tpToStreet">
+                <span>Выйти</span>
             </div>
 
         </div>
-        <div class="hints">
-            <div class="hint_wrapper" v-for="item in hints">
-                <div class="hint">
-                    <p>{{ item.key }}</p>
+    </div>
+
+    <!-- мини уведы -->
+    <div id="miniuvedi" v-show="active" v-cloak>
+        <img src="./systems/cars/img/bgmini.png" class="centerimage">
+        <p :class= "[textclass]">{{text}}</p>
+        <transition name="fade">
+    </div>
+
+        <!-- Меню машин -->
+        <div id="cars" v-show="active" v-cloak>
+            <img src="./systems/cars/img/bg.png" class="bg">
+            <div class="main_wrapper">
+
+
+
+                <!-- v-if="show == 3" -->
+                <div class="up"><span>Машины</span></div>
+                <div class="body_flex">
+                    <div class="body">
+                        <div class="body_wrapper">
+                            <div class="parametr">
+                            </div>
+                            <div class="parametr" v-if="show == 1">
+
+                                    <div class="parent_w_img">
+                                        <div class="parametr_name" v-if="cars[0] != undefined">
+                                            <div class="strip"></div>
+                                            <p class="sosamba" @click="open('first');">{{cars[0].model.toUpperCase()}} {{cars[0].id}}</p>
+                                        </div>
+                                        <div class="parametr_name" v-if="cars[1] != undefined">
+                                            <div class="strip"></div>
+                                            <p class="sosamba" @click="open('two');">{{cars[1].model.toUpperCase()}} {{cars[1].id}}</p>
+                                        </div>
+                                        <div class="parametr_name" v-if="cars[2] != undefined">
+                                            <div class="strip"></div>
+                                            <p class="sosamba" @click="open('three');">{{cars[2].model.toUpperCase()}} {{cars[2].id}}</p>
+                                        </div>
+                                        <div class="parametr_name" v-if="cars[3] != undefined">
+                                            <div class="strip"></div>
+                                            <p class="sosamba" @click="open('four');">{{cars[3].model.toUpperCase()}} {{cars[3].id}}</p>
+                                        </div>
+                                        <div class="parametr_name" v-if="cars[4] != undefined">
+                                            <div class="strip"></div>
+                                            <p class="sosamba" @click="open('five');">{{cars[4].model.toUpperCase()}} {{cars[4].id}}</p>
+                                        </div>
+                                        <div class="parametr_name" v-if="cars[5] != undefined">
+                                            <div class="strip"></div>
+                                            <p class="sosamba" @click="open('six');">{{cars[5].model.toUpperCase()}} {{cars[5].id}}</p>
+                                        </div>
+                                    </div>
+                            </div>
+                            <div class="parametr" v-if="show == 2">
+                                <div class="type_wrapper">
+                                    <div class="type_btn" @click="towtruck()"><img src="./systems/cars/img/towtruck.png" alt="">
+                                    </div>
+
+                                    <div class="type_btn" @click="gps()"><img src="./systems/cars/img/gps.png" alt="">
+                                    </div> 
+
+                                    <div class="type_btn" id="loadupload"><img :src="itemImage()">
+                                    </div>
+
+                                    <div class="type_btn" @click="lock()"><img src="./systems/cars/img/lock.png" alt="">
+                                        </div>
+
+                                </div>
+
+                        </div>
+                        </div>
+
+                        
+
+                        <div class="main_buttons">
+                            <div class="create_btn" @click="back();"><span>Назад</span></div>
+                        </div>
+                    </div>
+
+                    
                 </div>
-                <h1>{{ item.text }}</h1>
+                
             </div>
+
         </div>
+    <!-- Худ -->
+    <div id="HUD_main" v-show="active" v-cloak>
+        <transition name="slide-fade">
+            <div class="use-button" v-show="usebutton.active">
+                <div class="use-button-wrapper">
+                    <div class="use-button-btn">
+                        <p>{{ usebutton.button }}</p>
+                    </div>
+                    <span>{{ usebutton.text }}</span>
+                </div>
+            </div>
+        </transition>
+
         <div class="notify">
             <transition-group name="slide-fade">
                 <div class="notify_wrapper" v-for="(item,i) in notify.notifys" v-bind:style="{ background: item.color }" :key="i" v-html>
@@ -530,29 +608,59 @@
                 </div>
             </transition-group>
         </div>
-        <div class="location" v-bind:style="{ top: locationPosition.top + 'px', left: locationPosition.left + 'px'}">
-            <div class="location_wrapper">
-                <img src="./systems/Hud/img/compass.svg" alt="">
-                <div class="location_text_wrapper">
-                    <h1>{{ locationPosition.location }}</h1>
-                    <p>{{ locationPosition.zone }}</p>
+    
+        <div class="right_up">
+            <div class="logo">
+                <div class="logo_donate">X2</div>
+                <div class="logo_svg"><img src="./systems/Hud/img/logo.svg" alt=""></div>
+                <div class="logo_text">STAGE FIVE <span class="logo_color">2.0</span></div>
+            </div>
+            <div class="dies">
+                <div class="online">
+                    <p>Online: {{server.online}}</p>
+                </div>
+                <div class="id">
+                    <p>ID: {{server.login}}</p>
+                </div>
+                <div class="server">
+                    <p>💗 RU</p>
                 </div>
             </div>
-            <!-- <div class="player_indicators">
-                <img src="./systems/Hud/img/eat.svg" alt="">
-                <img src="./systems/Hud/img/water.svg" alt="">
-            </div> -->
         </div>
-        <transition name="slide-fade">
-            <div class="use-button" v-show="usebutton.active">
-                <div class="use-button-wrapper">
-                    <div class="use-button-btn">
-                        <p>{{ usebutton.button }}</p>
-                    </div>
-                    <span>{{ usebutton.text }}</span>
+
+        <div class="money_bank">
+        <h1>${{ money }}</h1>
+        <div class="money-bank">
+            <img src="./systems/Hud/img/bank.svg" alt="">
+            <p>${{ bank }}</p>
+        </div>
+         </div>
+        
+        <div class="left_down">
+            <div class="time">
+                <span class="time_icon"><img src="./systems/Hud/img/time.svg" alt=""></span>
+                <div class="server_time_text">
+                <span class="server_time">{{ server.time }}</span>
+                <span class="server_date">{{ server.date }}</span>
                 </div>
             </div>
-        </transition>
+            <div class="location">
+                <span class="compass_icon"><img src="./systems/Hud/img/compass.svg" alt=""></span>
+                <div class="position_text">
+                <span class="position">{{ locationPosition.location }}</span>
+                <span class="position_zone">{{ locationPosition.zone }}</span>
+                </div>
+            </div>
+            <div class="zone_micro">
+                <div class="zone">
+                <span class="zone_icon"><img src="./systems/Hud/img/green_zone.svg" alt=""></span>
+                </div>
+            <div class="microphone">
+                <span class="micro_icon"><img src="./systems/Hud/img/microphone.svg" alt=""></span>
+            </div>
+            </div>
+        </div>
+        
     </div>
     <!-- Спидометр -->
     <div id="speedometer" v-show="active" v-cloak>
@@ -591,10 +699,10 @@
         </div>
         <input class="input" v-show="open" v-model="message" v-on:keyup.enter="sendMessage" v-focus="open == true">
         <div class="buttons" v-show="open">
-            <span v-bind:style="{ 'border-bottom': border_color1 }">Обычный</span>
+            <!-- <span v-bind:style="{ 'border-bottom': border_color1 }">Обычный</span>
             <span v-bind:style="{ 'border-bottom': border_color2 }">Реальный</span>
             <span v-bind:style="{ 'border-bottom': border_color3 }">Ролеплей</span>
-            <span v-bind:style="{ 'border-bottom': border_color4 }">Рация</span>
+            <span v-bind:style="{ 'border-bottom': border_color4 }">Рация</span> -->
         </div>
     </div>
     <!-- Автосалон -->
@@ -779,7 +887,7 @@
                 <div class="list-slots-wrapper" v-show="active">
                     <div class="list-slots-texts">
                         <h1>Ваши предметы</h1>
-                        <p>Вес 15/30 кг</p>
+                        <p>Вес NoNe</p>
                     </div>
                     <div class="slots">
                         <div class="slot" v-for="i in 28" :id="i">
@@ -1486,77 +1594,61 @@
                 </div>
             </transition>
     </div>
+    <!-- Дом -->
     <div id="houses" v-show="active" v-cloak>
         <div class="house-wrapper" v-show="activeMain">
-            <img src="./systems/houses/img/bg.png" class="house-bg">
-            <div class="house-prompt-wrapper">
-                <div class="house-prompt-button" style="width: 7.5vh;"><span>ESC</span></div>
-                <p>закрыть окно</p>
-            </div>
-            <!-- <img src="./systems/houses/img/figura1.svg" class="house-b"> -->
             <div class="house-container">
-                <div class="house-text-h-wrapper">
-                    <h1>Дом:</h1>
-                    <p>#{{id}}</p>
-                </div>
-                <div class="house-container-texts">
-                    <!-- <div class="house-container-texts-text">
-                        <h1>Страховка:</h1>
-                        <p>0 дней</p>
-                    </div> -->
-                    <div class="house-container-texts-text">
-                        <h1>Владелец:</h1>
-                        <p>{{ ownerName }}</p>
+                <div class="house-bg">
+                    <div class="left-side">
+                            <div class="left-text">
+                            <span class="house-id">Дом: #{{id}}</span>
+                            <span class="house-text-other">Выберите нужное <br>вам действие</span>
+                        </div>
+                        <div class="dies">
+                            <div class="dies-up">
+                                <div class="house-info">
+                                    <h1>Владелец:&nbsp;</h1>
+                                    <p> {{ ownerName }}</p>
+                                </div>
+                                <div class="house-info">
+                                    <h1>Класс дома:&nbsp;</h1>
+                                    <p>{{ houseClass }}</p>
+                                </div>
+                            </div>
+                            <div class="dies-down">
+                                <div class="house-info">
+                                    <h1>Мест в гараже:&nbsp;</h1>
+                                    <p>2</p>
+                                </div>
+                                <div class="house-info">
+                                    <h1>Стоимость:&nbsp;</h1>
+                                    <p>{{ price }}</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="house-container-texts-text">
-                        <h1>Класс дома:</h1>
-                        <p>{{ houseClass }}</p>
+                    <div class="house-container-buttons">
+                        <div class="house-container-button" v-if="ifOwner" @click="sellHouse">
+                            <span>💰 Продать дом</span>
+                        </div>
+                        <div class="house-container-button" v-if="ownerName == 'Государство'" @click="buyHouse">
+                            <span>💰 Купить дом</span>
+                        </div>
+                        <div class="house-container-button" v-if="ifOwner && ifLocked == 2" @click="unlockHouse">
+                            <span>🔓 Открыть</span>
+                        </div>
+                        <div class="house-container-button" v-if="ifOwner && ifLocked == 1" @click="lockHouse">
+                            <span>🔒 Закрыть</span>
+                        </div>
+                        <div class="house-container-button" @click="enterHouse">
+                            <span>🚪 Войти</span>
+                        </div>
                     </div>
-                    <div class="house-container-texts-text">
-                        <h1>Плата в день:</h1>
-                        <p>$23</p>
-                    </div>
-                    <div class="house-container-texts-text">
-                        <h1>Стоимость</h1>
-                        <p>{{ price }}</p>
-                    </div>
-                    <div class="house-container-texts-garage" style="float: right;">
-                        <img src="./systems/houses/img/garage.svg" alt="">
-                        <p>Мест в гараже: <span style="color: rgba(255, 255, 255, 1);">2</span></p>
-                    </div>
-                </div>
-                <div class="house-container-buttons">
-                    <div class="house-container-button" v-if="ifOwner" @click="sellHouse">
-                        <img src="./systems/houses/img/sell.svg" alt="">
-                        <span>Продать дом</span>
-                    </div>
-                    <div class="house-container-button" v-if="ownerName == 'Государство'" @click="buyHouse">
-                        <img src="./systems/houses/img/buy.svg" alt="">
-                        <span>Купить</span>
-                    </div>
-                    <div class="house-container-button" v-if="ifOwner && ifLocked == 2" @click="unlockHouse">
-                        <img src="./systems/houses/img/unlocked.svg" alt="">
-                        <span>Открыть</span>
-                    </div>
-                    <div class="house-container-button" v-if="ifOwner && ifLocked == 1" @click="lockHouse">
-                        <img src="./systems/houses/img/locked.svg" alt="">
-                        <span>Закрыть</span>
-                    </div>
-                    <div class="house-container-button" @click="enterHouse">
-                        <img src="./systems/houses/img/house.svg" alt="">
-                        <span>Войти</span>
-                    </div>
-                    <!-- <div class="house-container-button" @click="enterGarage">
-                        <img src="./systems/houses/img/garage.svg" alt="">
-                        <span>Гараж</span>
-                    </div> -->
                 </div>
             </div>
         </div>
+        <!-- Модалка дома -->
         <div class="exit-wrapper" v-show="acitveExits">
-            <img src="./systems/houses/img/bg.png" class="house-bg">
-            <img src="./systems/houses/img/figura2.svg" class="house-b">
-            <img src="./systems/houses/img/points.png" class="house-b" style="width: 38vh; height: 52vh;">
             <div class="exit-container">
                 <h1>Выход</h1>
                 <div class="exit-buttons">
@@ -1573,6 +1665,7 @@
             </div>
         </div>
     </div>
+    <!-- Автошкола-->
     <div id="autoschool" v-show="active" v-cloak>
         <img src="./systems/autoschool/img/bg.png" class="bg">
         <p class="text-center">Центр лицензирования</p>
@@ -1808,9 +1901,13 @@
 <!-- Инвентарь -->
 <script src="./systems/inventory/inventory.js"></script>
 <script src="./systems/menu/menu.js"></script>
+<script src="./systems/cars/cars.js"></script>
 
 <!-- Автосалон -->
 <script src="./systems/Autosalon/autosalon.js"></script>
+
+<!-- Автосалон заход -->
+<script src="./systems/auto/auto.js"></script>
 
 <!-- Банк -->
 

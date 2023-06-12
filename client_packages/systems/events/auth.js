@@ -15,11 +15,11 @@ mp.events.add('Auth_showLoginDialog::CLIENT', () => {
     showCamera(true);
     mp.events.call('HUD_setShow::CLIENT', false)
     //
-    var storage = mp.storage.data;
-    var saveData = storage.auth;
+    let storage = mp.storage.data;
+    let saveData = storage.auth;
     if (saveData) {
-        var login = saveData.login;
-        var pass = saveData.pass;
+        let login = saveData.login;
+        let pass = saveData.pass;
         browser.execute(`
             Auth.Login.login = '${login}';
             Auth.Login.password = '${pass}';
@@ -29,7 +29,7 @@ mp.events.add('Auth_showLoginDialog::CLIENT', () => {
     browser.execute(`Auth.active = true;`)
 });
 
-var camera;
+let camera;
 
 function showCamera(type) {
     if (type) {

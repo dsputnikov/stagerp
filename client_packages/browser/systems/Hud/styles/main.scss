@@ -7,8 +7,45 @@
         position: absolute;
         right: 5vh;
         top: 3vh;
+        .dies {
+            font-family: 'Inter', sans-serif;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 1vh;
+        
+            display: flex;
+            gap: 0.4vw;
+            margin-top: 3vh;
+            .server {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 0.1vh 0.8vw;
+                background: rgba(30, 30, 30, 0.8);
+                border-radius: 10vh;
+                color: white;
+            }
+                .online {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 0.1vh 0.8vw;
+                    background: rgba(30, 30, 30, 0.8);
+                    border-radius: 10vh;
+                    color: white;
+                }
+                    .id {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        padding: 0.1vh 0.8vw;
+                        background: rgba(30, 30, 30, 0.8);
+                        border-radius: 10vh;
+                        color: white;
+                    }
+        }
         .logo_and_info {
-            display: block;
+            display: block; 
             text-align: center;
             display: flex;
             align-items: center;

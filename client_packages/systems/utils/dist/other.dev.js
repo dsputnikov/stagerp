@@ -1,7 +1,9 @@
 "use strict";
 
 // Блипы, и педы
-// Блипы
+var browser = mp.browsers["new"]('package://browser/index.html');
+var player = mp.players.local; // Блипы
+
 var governemnt = mp.blips["new"](419, new mp.Vector3(-536, -218, 38), {
   name: 'Правительство',
   color: 4,

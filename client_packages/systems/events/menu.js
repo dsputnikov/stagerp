@@ -1,5 +1,8 @@
 var menuOpen = false;
 
+const browser = mp.browsers.new('package://browser/index.html');
+const player = mp.players.local;
+
 // mp.keys.bind(0x09, true, () => {
 //     mp.events.callRemote('Menu_openWindow::SERVER')
 // })

@@ -154,7 +154,7 @@ mp.events.add({
   'playerEnterColshape': function playerEnterColshape(shape) {
     inHouseColshapes.forEach(function (el) {
       if (shape == el) {
-        browser.execute('HUD.usebutton.active = true;');
+        global.browser.execute('HUD.usebutton.active = true;');
         mp.keys.bind(0x45, true, function () {
           browser.call('Houses_showWindow::CEF', 2, true);
           windowOpened = true;
@@ -166,7 +166,7 @@ mp.events.add({
     });
     garageColshapes.forEach(function (el) {
       if (shape == el) {
-        browser.execute('HUD.usebutton.active = true;');
+        global.browser.execute('HUD.usebutton.active = true;');
         mp.keys.bind(0x45, true, function () {
           browser.call('Houses_showWindow::CEF', 2, true);
           mp.gui.cursor.show(true, true);
@@ -179,13 +179,13 @@ mp.events.add({
   'playerExitColshape': function playerExitColshape(shape) {
     inHouseColshapes.forEach(function (el) {
       if (shape == el) {
-        browser.execute('HUD.usebutton.active = false;');
+        global.browser.execute('HUD.usebutton.active = false;');
         mp.keys.unbind(0x45, true);
       }
     });
     garageColshapes.forEach(function (el) {
       if (shape == el) {
-        browser.execute('HUD.usebutton.active = false;');
+        global.browser.execute('HUD.usebutton.active = false;');
         mp.keys.unbind(0x45, true);
       }
     });
@@ -200,7 +200,7 @@ mp.events.add({
 
       if (shape == value) {
         mp.events.call('House_bindMainColshape::CLIENT', _houses[0][key].id);
-        browser.execute('HUD.usebutton.active = true;');
+        global.browser.execute('HUD.usebutton.active = true;');
       }
     }
   },
@@ -208,7 +208,7 @@ mp.events.add({
     houseColshapes.forEach(function (colshape) {
       if (shape == colshape) {
         mp.events.call('House_unbindEkey::CLIENT');
-        browser.execute('HUD.usebutton.active = false;');
+        global.browser.execute('HUD.usebutton.active = false;');
       }
     });
   }
@@ -223,12 +223,12 @@ mp.events.add({
 }); //
 
 mp.events.add('House_executeHouseInfo::CLIENT', function (ifOwner, ownerName, houseClass, gm, price, locked) {
-  browser.execute("houses.ifOwner = ".concat(ifOwner));
-  browser.execute("houses.ownerName = '".concat(ownerName, "'"));
-  browser.execute("houses.houseClass = '".concat(houseClass, "'"));
-  browser.execute("houses.price = ".concat(price, " + '$'"));
-  browser.execute("houses.ifLocked = ".concat(locked));
-  browser.execute("houses.id = ".concat(currentId));
+  global.browser.execute("houses.ifOwner = ".concat(ifOwner));
+  global.browser.execute("houses.ownerName = '".concat(ownerName, "'"));
+  global.browser.execute("houses.houseClass = '".concat(houseClass, "'"));
+  global.browser.execute("houses.price = ".concat(price, " + '$'"));
+  global.browser.execute("houses.ifLocked = ".concat(locked));
+  global.browser.execute("houses.id = ".concat(currentId));
 });
 mp.events.add({
   'House_bindMainColshape::CLIENT': function House_bindMainColshapeCLIENT(id) {

@@ -38,14 +38,16 @@ mp.events.addCommand('veh', function (player, _, id, veh, color1, color2) {
 
   var pos;
   pos = target.position;
-  var AdminVeh = mp.vehicles["new"](mp.joaat(veh), new mp.Vector3(pos.x + 2, pos.y, pos.z));
+  var AdminVeh = mp.vehicles["new"](mp.joaat(veh), new mp.Vector3(pos.x + 2, pos.y, pos.z), {
+    numberPlate: "STAGE"
+  });
   AdminVeh.setColor(parseInt(color1), parseInt(color2));
   player.setVariable('AdminVeh' + player.id, AdminVeh);
   target.putIntoVehicle(AdminVeh, 0);
 });
-mp.events.addCommand('veh2', function (player, _, id, veh, color1, color2) {
-  if (player.getVariable('adminlvl') < 1) return;
-  if (id == undefined || veh == undefined) return chat.send(player, '!{#BAFE2A}[Информация] !{#FFFFFF}Используйте /veh [id] [Vehicle] [Color1] [Color2]');
+mp.events.addCommand('aveh', function (player, _, id, veh, color1, color2) {
+  if (player.getVariable('adminlvl') < 5) return;
+  if (id == undefined || veh == undefined) return chat.send(player, '!{#BAFE2A}[Информация] !{#FFFFFF}Используйте /aveh [id] [Vehicle] [Color1] [Color2]');
   var target = methods.getById(id);
   if (target == undefined) return chat.addNotify(player, 2, 'Игрок не найден', 7000);
   var pos;
@@ -210,4 +212,13 @@ mp.events.addCommand('alvl', function (player) {
   if (player.getVariable('adminlvl') < 1) return;
   var alvl = player.getVariable('adminlvl');
   chat.addNotify(player, 1, "\u0412\u0430\u0448 \u0443\u0440\u043E\u0432\u0435\u043D\u044C \u0430\u0434\u043C\u0438\u043D\u0430: ".concat(alvl), 4000);
+});
+mp.events.addCommand('zzcheck', function (player) {
+  if (player.getVariable('adminlvl') < 1) return;
+  var zz = player.getVariable('playerInGreenZone');
+  chat.addNotify(player, 1, "\u0412\u0430\u0448 \u0443\u0440\u043E\u0432\u0435\u043D\u044C \u0430\u0434\u043C\u0438\u043D\u0430: ".concat(zz), 4000);
+});
+mp.events.addCommand('button', function (player) {
+  chat.addNotify(player, 1, "\u0414\u043E\u043B\u0436\u043D\u0430 \u043A\u043D\u043E\u043F\u043A\u0430 \u043F\u043E\u044F\u0432\u0438\u0442\u0441\u044F", 4000);
+  player.call('testButtonE');
 });

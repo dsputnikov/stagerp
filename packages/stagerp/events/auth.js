@@ -1,6 +1,6 @@
 mp.events.add('playerReady', (player) => {
     player.call('Auth_await::CLIENT')
-    player.position = new mp.Vector3(-426.575439453125, -213.47694396972656, 125.90231323242188);
+    player.position = new mp.Vector3(3358.125, 5169.5703125, 20.1375675201416);
     player.dimension = player.id + 12;
     player.personalVehicle = 0;
 })

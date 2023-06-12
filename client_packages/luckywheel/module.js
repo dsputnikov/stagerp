@@ -1,3 +1,6 @@
+let browser = mp.browsers.new('package://browser/index.html')
+let player = mp.players.local;
+
 const luckywheel = 
 {
     object:

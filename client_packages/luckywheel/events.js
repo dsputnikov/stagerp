@@ -1,5 +1,7 @@
 const luckywheel = require('luckywheel/module'),
 player = mp.players.local;
+let browser = mp.browsers.new('package://browser/index.html')
+
 
 mp.events.add(
 {

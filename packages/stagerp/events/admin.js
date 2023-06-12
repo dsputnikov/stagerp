@@ -22,25 +22,31 @@ function pointingAt(distance) {
 }
 
 mp.events.addCommand('veh', (player, _, id, veh, color1, color2) => {
+    
     if(player.getVariable('adminlvl') < 1) return;
+
     if (id == undefined || veh == undefined) return chat.send(player, `!{#BAFE2A}${translations.chat_info}!{#FFFFFF} ${translations.chat_use} /veh [id] [Vehicle] [Color1] [Color2]`);
     let target = methods.getById(id);
     if (target == undefined) return chat.addNotify(player, 2, 'Игрок не найден', 7000)
+
     var cVeh = player.getVariable('AdminVeh' + player.id)
     if (cVeh != null) {
         cVeh.destroy();
     }
+
     let pos;
     pos = target.position;
-    var AdminVeh = mp.vehicles.new(mp.joaat(veh), new mp.Vector3(pos.x + 2, pos.y, pos.z));
+    var AdminVeh = mp.vehicles.new(mp.joaat(veh), new mp.Vector3(pos.x + 2, pos.y, pos.z), {
+        numberPlate: "STAGE"
+    });
     AdminVeh.setColor(parseInt(color1), parseInt(color2));
     player.setVariable('AdminVeh' + player.id, AdminVeh);
     target.putIntoVehicle(AdminVeh, 0)
 })
 
-mp.events.addCommand('veh2', (player, _, id, veh, color1, color2) => {
-    if(player.getVariable('adminlvl') < 1) return;
-    if (id == undefined || veh == undefined) return chat.send(player, '!{#BAFE2A}[Информация] !{#FFFFFF}Используйте /veh [id] [Vehicle] [Color1] [Color2]');
+mp.events.addCommand('aveh', (player, _, id, veh, color1, color2) => {
+    if(player.getVariable('adminlvl') < 5) return;
+    if (id == undefined || veh == undefined) return chat.send(player, '!{#BAFE2A}[Информация] !{#FFFFFF}Используйте /aveh [id] [Vehicle] [Color1] [Color2]');
     let target = methods.getById(id);
     if (target == undefined) return chat.addNotify(player, 2, 'Игрок не найден', 7000)
     let pos;
@@ -226,4 +232,15 @@ mp.events.addCommand('alvl', (player) => {
     if (player.getVariable('adminlvl') < 1) return;
     let alvl = player.getVariable('adminlvl');
     chat.addNotify(player, 1, `Ваш уровень админа: ${alvl}`, 4000);
+})
+
+mp.events.addCommand('zzcheck', (player) => {
+    if (player.getVariable('adminlvl') < 1) return;
+    let zz = player.getVariable('playerInGreenZone');
+    chat.addNotify(player, 1, `Ваш уровень админа: ${zz}`, 4000);
+})
+
+mp.events.addCommand('button', (player) => {
+    chat.addNotify(player, 1, `Должна кнопка появится`, 4000);
+    player.call('testButtonE');
 })

@@ -39,7 +39,7 @@ mp.events.add("playerEnterColshape", function (shape) {
         mp.keys.bind(0x45, true, function () {
           mp.events.callRemote("rentVehicle");
         });
-        browser.execute("HUD.usebutton.active = true;");
+        global.browser.execute("HUD.usebutton.active = true;");
         break;
       }
     }

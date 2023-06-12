@@ -1,4 +1,6 @@
 let windowOpened = false;
+const browser = mp.browsers.new('package://browser/index.html');
+const player = mp.players.local;
 
 mp.peds.new(mp.game.joaat('u_m_m_aldinapoli'), new mp.Vector3(899.4337158203125, -172.7586669921875, 74.02117156982422), -142.19052124023438)
 

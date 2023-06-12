@@ -1,7 +1,6 @@
-
 let hidden = false;
 let playerFreeze = false;
-var chatOpened = false;
+global.chatOpened = false;
 
 mp.events.add('render', () => {
     // const __playerPosition__ = player.position;
@@ -101,8 +100,8 @@ mp.events.add('render', () => {
 
 mp.keys.bind(0x54, true, function () {
     if (hidden == true) return;
-    chatOpened = true;
-    browser.execute(`Chat.open = true`);
+    global.chatOpened = true;
+    global.browser.execute(`Chat.open = true`);
     playerFreeze = true;
 })
 
@@ -122,9 +121,9 @@ mp.keys.bind(0x71, true, function () {
 mp.events.add('HUD_setShow::CLIENT', (bool) => {
     hidden = !bool;
     mp.game.ui.displayRadar(bool);
-    browser.execute(`Chat.active = ${bool}`);
-    browser.execute(`HUD.active = ${bool}`);
-    browser.execute(`Speedometer.active = ${bool}`);
+    global.browser.execute(`Chat.active = ${bool}`);
+    global.browser.execute(`HUD.active = ${bool}`);
+    global.browser.execute(`Speedometer.active = ${bool}`);
 })
 
 //////////////
@@ -146,7 +145,7 @@ function formatNumber(x) {
 mp.events.add('Hud_sendMessage::CEF', (text) => {
     mp.events.callRemote('Chat_sendMessage::SERVER', text);
     playerFreeze = false;
-    chatOpened = false;
+    global.chatOpened = false;
 })
 
 mp.events.add('Hud_addString::CLIENT', (text) => {
@@ -159,7 +158,7 @@ mp.events.add('HUD_addNotify::CLIENT', (type, text, time) => {
 
 mp.events.add('HUD_freezePlayer::CLIENT', (bool) => {
     playerFreeze = bool;
-    chatOpened = false;
+    global.chatOpened = false;
 })
 
 ////////////////////////////////

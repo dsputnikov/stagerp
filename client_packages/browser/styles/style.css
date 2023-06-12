@@ -1104,99 +1104,10 @@ html {
     opacity: 0;
 }
 
-#HUD_main .right_up {
-    position: absolute;
-    right: 5vh;
-    top: 3vh;
+#HUD_main body {
+    position: relative;
 }
-#HUD_main .right_up .logo_and_info {
-    display: block;
-    text-align: center;
-    display: flex;
-    align-items: center;
-}
-#HUD_main .right_up .logo_and_info .info_server {
-    display: flex;
-    align-items: center;
-}
-#HUD_main .right_up .logo_and_info .info_server .info_items {
-    display: flex;
-    align-items: center;
-    margin-left: 3vh;
-}
-#HUD_main .right_up .logo_and_info .info_server .info_items p {
-    margin-left: 0.5vh;
-    font-family: 'Inter', sans-serif;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 1.6vh;
-    color: #ffffff;
-    text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25);
-}
-#HUD_main .right_up .logo_and_info .info_server .info_items .time_wrapper {
-    display: block;
-    text-align: left;
-}
-#HUD_main .right_up .logo_and_info .info_server .info_items .time_wrapper p {
-    font-family: 'Inter', sans-serif;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 1.6vh;
-    color: #ffffff;
-    text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25);
-}
-#HUD_main .right_up .logo_and_info .info_server .info_items .time_wrapper span {
-    margin-left: 0.5vh;
-    font-family: 'Inter', sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 14px;
-    color: rgba(255, 255, 255, 0.5);
-}
-#HUD_main .right_up .logo_and_info .info_server .info_items:first-child {
-    margin-left: 0;
-}
-#HUD_main .right_up .logo_and_info .logo {
-    margin-left: 3.4vh;
-    width: 8vh;
-    height: 8vh;
-}
-#HUD_main .right_up .money_wrapper {
-    position: absolute;
-    top: 13vh;
-    display: block;
-    right: 0vh;
-    text-align: right;
-}
-#HUD_main .right_up .money_wrapper h1 {
-    font-family: 'Inter', sans-serif;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 3.6vh;
-    color: #ffffff;
-    text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25);
-}
-#HUD_main .right_up .money_wrapper .money-bank {
-    display: flex;
-    align-items: center;
-    text-align: right;
-    width: 20vh;
-    justify-content: flex-end;
-}
-#HUD_main .right_up .money_wrapper .money-bank p {
-    font-family: 'Inter', sans-serif;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 1.8vh;
-    color: #ffffff;
-    opacity: 0.7;
-    text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25);
-}
-#HUD_main .right_up .money_wrapper .money-bank img {
-    opacity: 0.7;
-    margin-right: 0.5vh;
-}
+
 #HUD_main .hints {
     left: 2vh;
     display: block;
@@ -1228,6 +1139,7 @@ html {
     font-size: 1.4vh;
     color: rgba(255, 255, 255, 0.5);
 }
+
 #HUD_main .notify {
     position: absolute;
     bottom: 5vh;
@@ -1237,6 +1149,7 @@ html {
     margin: 2vh auto;
     display: flex;
     align-items: center;
+    justify-content: center;
     width: 33.1vh;
     height: 8.1vh;
     border-radius: 1vh;
@@ -1247,6 +1160,10 @@ html {
 }
 #HUD_main .notify .notify_wrapper .texts {
     margin-left: 2vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: -4vh;
 }
 #HUD_main .notify .notify_wrapper .texts h1 {
     font-family: 'Inter', sans-serif;
@@ -1273,38 +1190,7 @@ html {
     transform: translateX(10px);
     opacity: 0;
 }
-#HUD_main .location {
-    position: absolute;
-}
-#HUD_main .location .location_wrapper {
-    display: flex;
-}
-#HUD_main .location .location_wrapper .location_text_wrapper {
-    margin-left: 1vh;
-}
-#HUD_main .location .location_wrapper .location_text_wrapper h1 {
-    font-family: 'Inter', sans-serif;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 1.8vh;
-    color: #ffffff;
-}
-#HUD_main .location .location_wrapper .location_text_wrapper p {
-    font-family: 'Inter', sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 1.4vh;
-    color: rgba(255, 255, 255, 0.5);
-}
-#HUD_main .player_indicators {
-    margin-top: 2vh;
-}
-#HUD_main .player_indicators img {
-    margin-left: 1vh;
-}
-#HUD_main .player_indicators img:first-child {
-    margin-left: 0;
-}
+
 #HUD_main .use-button {
     position: absolute;
     bottom: 17.5vh;
@@ -1339,6 +1225,248 @@ html {
     color: rgba(255, 255, 255, 0.8);
     text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25);
 }
+
+#HUD_main .right_up {
+    right: 5vh;
+    top: 3vh;
+    position: absolute;
+}
+
+#HUD_main .left_down {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+    top: 80vh;
+    left: 16.6vw;
+}
+
+#HUD_main .dies {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.2vh;
+
+    display: flex;
+    gap: 0.4vw;
+    margin-top: 3vh;
+}
+
+#HUD_main .server {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.3vh 0.8vw;
+    background: rgba(30, 30, 30, 0.8);
+    border-radius: 10vh;
+    color: white;
+}
+
+#HUD_main .online {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.3vh 0.8vw;
+    background: rgba(30, 30, 30, 0.8);
+    border-radius: 10vh;
+    color: white;
+}
+
+#HUD_main .logo_color {
+    color: rgb(16, 119, 255);
+}
+
+#HUD_main .id {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0.8vh 0.8vw;
+        background: rgba(30, 30, 30, 0.8);
+        border-radius: 10vh;
+        color: white;
+}
+
+#HUD_main .money_bank {
+    right: 5vh;
+    top: 13vh;
+    gap: 20px;
+    position: absolute;
+}
+
+#HUD_main h1 {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 2.4vh;
+    margin-top: 4vh;
+    color: white;
+}
+
+#HUD_main .money-bank {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.4vw;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.6vh;
+    margin-top: 1.4vh;
+    color: #E6E6E6;
+    margin-right: 0.3vh;
+}
+
+#HUD_main .logo {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.7vw;
+}
+
+#HUD_main .logo_donate {
+    background: radial-gradient(62.16% 62.16% at 49.09% 49.09%, rgba(131, 72, 255, 0.6) 0%, rgba(131, 72, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+    border: 0.25vh solid #9360FF;
+    border-radius: 20%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.6vh;
+    color: white;
+
+    width: 1.7vw;
+    height: 3.1vh;
+}
+
+#HUD_main .logo_text {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 2vh;
+    color: white;
+    gap: 20px;
+}
+
+#HUD_main .zone {
+    background: radial-gradient(58.18% 58.18% at 49.09% 49.09%, rgba(206, 255, 66, 0.48) 0%, rgba(206, 255, 66, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+    border: 0.2vh solid #CEFF42;
+    border-radius: 20%;
+    width: 4.1vh;
+    height: 4vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#HUD_main .microphone {
+    background: radial-gradient(58.18% 58.18% at 49.09% 49.09%, rgba(70, 70, 70, 0.58) 0%, rgba(164, 164, 164, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+    border: 0.2vh solid #8E8E8E;
+    border-radius: 20%;
+    width: 4.1vh;
+    height: 4vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#HUD_main .zone_micro {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5vw;
+    margin-left: 0.3vw;
+}
+
+#HUD_main .location {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#HUD_main .time {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#HUD_main .position_text {
+    display: flex;
+    flex-direction: column;
+}
+
+#HUD_main .server_time_text {
+    display: flex;
+    flex-direction: column;
+}
+
+#HUD_main .position {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.5vh;
+    color: white;
+    margin-left: 0.3vw;
+}
+
+#HUD_main .position_zone {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.3vh;
+    color: #A7A7A7;
+    margin-left: 0.3vw;
+    margin-top: 0.4vh;
+}
+
+#HUD_main .server_time {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.5vh;
+    color: white;
+    margin-left: 0.3vw;
+}
+
+#HUD_main .server_date {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.3vh;
+    color: #A7A7A7;
+    margin-left: 0.3vw;
+    margin-top: 0.4vh;
+}
+
+#HUD_main .zone_icon {
+    width: 5vw;
+    height: 5vh;
+    display: flex;
+    justify-content: center;
+}
+
+#HUD_main .micro_icon {
+    width: 2.6vw;
+    height: 2.6vh;
+    display: flex;
+    justify-content: center;
+}
+
+#HUD_main .time_icon {
+     width: 2vw;
+     height: 2vh;
+     display: flex;
+     justify-content: center;
+ }
+
+#HUD_main .compass_icon {
+    width: 2vw;
+    height: 2vh;
+    display: flex;
+    justify-content: center;
+}
+
 
 #speedometer .bg {
     position: absolute;
@@ -1422,8 +1550,8 @@ html {
 #HUD_chat .chat_wrapper .messages p {
     font-family: 'Inter', sans-serif;
     font-style: normal;
-    font-weight: 600;
-    font-size: 1.8vh;
+    font-weight: 500;
+    font-size: 1.6vh;
     color: #ffffff;
     text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25);
 }
@@ -1434,8 +1562,8 @@ html {
     padding-left: 2.5vh;
     width: 476px;
     height: 52px;
-    background: rgba(0, 0, 0, 0.33);
-    border-radius: 2px;
+    background: #1E1E1E;
+    border-radius: 0.6vh;
     font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 500;
@@ -3821,128 +3949,119 @@ html {
     background: #ececec;
 }
 
-#houses .house-wrapper .house-bg {
-    position: absolute;
-    width: 100%;
-    height: 100%;
+#houses body {
+    position: relative;
 }
-#houses .house-wrapper .house-container .house-text-h-wrapper {
-    text-align: center;
-    margin: 5vh 0;
+
+#houses .house-bg {
+    background-color: #1E1E1E;
+    width: 38.438vw;
+    height: 49.167vh;
+    border-radius: 2vh;
+    background-image: url('./systems/houses/img/bg.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
 }
-#houses .house-wrapper .house-container .house-text-h-wrapper h1 {
+
+#houses .left-text {
+    margin-top: 8.098vh;
+    margin-left: 2vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 1vh;
+}
+
+#houses .house-id {
+    margin-top: 4vh;
     font-family: 'Inter', sans-serif;
     font-style: normal;
-    font-weight: normal;
-    font-size: 2.2vh;
-    letter-spacing: 0.2em;
-    color: rgba(255, 255, 255, 0.4);
-}
-#houses .house-wrapper .house-container .house-text-h-wrapper p {
-    font-family: 'Inter', sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 3.2vh;
-    color: #ffffff;
-}
-#houses .house-wrapper .house-container .house-container-texts {
-    text-align: center;
-    display: grid;
-    justify-content: center;
-    grid-template-rows: 1fr 1fr 1fr;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 1.5vw;
-}
-#houses .house-wrapper .house-container .house-container-texts .house-container-texts-text h1 {
-    font-family: 'Inter', sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 2.8vh;
-    color: rgba(255, 255, 255, 0.5);
-}
-#houses .house-wrapper .house-container .house-container-texts .house-container-texts-text p {
-    font-family: 'Inter', sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 2.8vh;
+    font-weight: 700;
+    font-size: 2.4vh;
     color: white;
 }
-#houses .house-wrapper .house-container .house-container-texts .house-container-texts-garage {
-    display: flex;
-    align-items: center;
-    margin-left: auto;
-}
-#houses .house-wrapper .house-container .house-container-texts .house-container-texts-garage p {
-    margin-left: 1vh;
+
+#houses .house-text-other {
     font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 500;
-    font-size: 3vh;
-    color: rgba(255, 255, 255, 0.5);
+    font-size: 1.6vh;
+    color: #AAAAAA;
 }
-#houses .house-wrapper .house-container .house-container-buttons {
+
+#houses .dies {
+    margin-top: 24vh;
+}
+
+#houses .dies-up {
+    margin-left: 2vw;
+    display: flex;
+    gap: 0.4vw;
+    margin-top: 3vh;
+}
+
+#houses .dies-down {
+    margin-left: 2vw;
+    display: flex;
+    gap: 0.4vw;
+    margin-top: 1vh;
+}
+
+
+#houses  .house-info {
     display: flex;
     justify-content: center;
-}
-#houses .house-wrapper .house-container .house-container-buttons .house-container-button {
-    display: flex;
     align-items: center;
-    justify-content: center;
-    width: 25vh;
-    height: 8vh;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 1vh;
-    margin-left: 2.4vh;
-    transition: all 0.5s;
+    padding: 1vh 1.3vw;
+    background:  #292929;
+    border-radius: 100vh;
+    color: white;
 }
-#houses .house-wrapper .house-container .house-container-buttons .house-container-button:hover {
-    background: #2c80ef;
-}
-#houses .house-wrapper .house-container .house-container-buttons .house-container-button span {
-    margin-left: 0.5vh;
-    font-family: 'Inter', sans-serif;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 2vh;
-    color: #ffffff;
-}
-#houses
-    .house-wrapper
-    .house-container
-    .house-container-buttons
-    .house-container-button:first-child {
-    margin-left: 0;
-}
-#houses .house-prompt-wrapper {
-    position: absolute;
-    display: flex;
-    align-items: center;
-    bottom: 3vh;
-    left: 4.4vh;
-    opacity: 0.8;
-}
-#houses .house-prompt-wrapper .house-prompt-button {
-    position: relative;
-    width: 11.5vh;
-    height: 4.1vh;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 5px;
-}
-#houses .house-prompt-wrapper .house-prompt-button span {
-    font-family: 'Inter', sans-serif;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 1.4vh;
-    color: rgba(255, 255, 255, 0.7);
-}
-#houses .house-prompt-wrapper p {
-    margin-left: 1.5vh;
+
+#houses h1 {
     font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 500;
-    font-size: 1.8vh;
-    color: rgba(255, 255, 255, 0.5);
+    font-size: 1vh;
+    color: #AAAAAA;
 }
+
+#houses p {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1vh;
+}
+
+#houses .house-container-buttons {
+    display: flex;
+    flex-direction: column;
+    margin-left: 22.8vw;
+    margin-top: -38vh;
+    gap: 1vh;
+}
+
+#houses .house-container-button {
+    width: 13.594vw;
+    height: 5.185vh;
+    background-color: #292929;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.3vh;
+    color: white;
+    border-radius: 0.6vh;
+    transition: background-color 0.4s ease;
+}
+
+#houses .house-container-button:hover {
+    cursor: pointer;
+    background-color: #2C80F0;
+}
+
 #houses .exit-wrapper .house-bg {
     position: absolute;
     width: 100%;
@@ -4082,6 +4201,544 @@ html {
 #autoschool .autoschool-tabs-wrapper .autoschool-tab:first-child {
     margin-left: 0;
 }
+
+#auto {
+    /* Track */
+    /* Handle */
+    /* Handle on hover */ }
+    #auto .xd {
+      position: absolute;
+      z-index: 3; }
+    #auto .bg {
+      position: absolute;
+      width: 100%;
+      height: 100%; }
+    #auto .auto-first-wnd-wrapper h1 {
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 7.2vh;
+      color: white;
+      text-align: center;
+      text-shadow: 0px 0.6vh 0px #aaaaaa; }
+    #auto .auto-first-wnd-wrapper p {
+      margin-top: 3vh;
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 2.4vh;
+      text-align: center;
+      width: 57vh;
+      color: rgba(255, 255, 255, 0.5); }
+    #auto .auto-first-wnd-wrapper .auto-first-button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 35vh;
+      height: 12vh;
+      margin: 0 auto;
+      margin-top: 4vh;
+      transition: all 0.5s; }
+      #auto .auto-first-wnd-wrapper .auto-first-button span {
+        font-family: Gilroy;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 2.8vh;
+        color: #ffffff;
+        transform: rotate(-0.33deg); }
+    #auto .auto-first-wnd-wrapper .auto-first-button-start {
+      background: #FFFFFF; }
+      #auto .auto-first-wnd-wrapper .auto-first-button-start:hover {
+        box-shadow: 0px 4px 0px #c9a900;
+        background: #000000; }
+    #auto .auto-first-wnd-wrapper .auto-first-button-leave {
+      background: #FFFFFF; }
+      #auto .auto-first-wnd-wrapper .auto-first-button-leave:hover {
+        background: #000000;
+        box-shadow: 0px 4px 0px #635d5d; }
+    #auto .auto-first-wnd-wrapper h2 {
+      margin-top: 1vh;
+      text-align: center;
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 2.4vh;
+      color: #ffffff; }
+    #auto .auto-oders-wrapper {
+      display: block;
+      height: 80.5vh;
+      overflow: scroll;
+      overflow-x: hidden;
+      width: 98vh; }
+      #auto .auto-oders-wrapper .auto-order-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 96vh;
+        height: 12vh;
+        border-radius: 1vh;
+        margin-top: 1.7vh;
+        background: linear-gradient(180deg, rgba(33, 30, 46, 0.7) 16.76%, rgba(33, 30, 46, 0.658) 100.3%); }
+        #auto .auto-oders-wrapper .auto-order-wrapper .auto-order-wrapper-text {
+          margin: 0 3vh; }
+          #auto .auto-oders-wrapper .auto-order-wrapper .auto-order-wrapper-text h1 {
+            font-family: Gilroy;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 2vh;
+            color: rgba(255, 255, 255, 0.4); }
+          #auto .auto-oders-wrapper .auto-order-wrapper .auto-order-wrapper-text p {
+            font-family: Gilroy;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 2vh;
+            color: #ffffff; }
+        #auto .auto-oders-wrapper .auto-order-wrapper .auto-order-button {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 20vh;
+          height: 8vh;
+          margin-left: 2vh;
+          /* yellow */
+          background: #ffe83f;
+          border-radius: 1vh;
+          transition: all 0.5s; }
+          #auto .auto-oders-wrapper .auto-order-wrapper .auto-order-button span {
+            font-family: Gilroy;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 20px;
+            line-height: 24px;
+            text-align: center;
+            color: #ffffff; }
+          #auto .auto-oders-wrapper .auto-order-wrapper .auto-order-button:hover {
+            background: #e0cd39; }
+      #auto .auto-oders-wrapper .auto-order-wrapper:first-child {
+        margin-top: 0; }
+    #auto .auto-rent-auto-wrapper {
+      display: block;
+      text-align: center; }
+      #auto .auto-rent-auto-wrapper h1 {
+        font-family: Gilroy;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 4.8vh;
+        color: #ffffff; }
+      #auto .auto-rent-auto-wrapper p {
+        font-family: Gilroy;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 2.8vh;
+        color: rgba(255, 255, 255, 0.5); }
+      #auto .auto-rent-auto-wrapper h2 {
+        font-family: Gilroy;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 3vh;
+        color: rgba(255, 255, 255, 0.5); }
+      #auto .auto-rent-auto-wrapper .auto-rent-auto-buttons {
+        display: flex;
+        justify-content: center;
+        margin-top: 2.6vh; }
+        #auto .auto-rent-auto-wrapper .auto-rent-auto-buttons .auto-rent-auto-button {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 24.5vh;
+          height: 6.1vh;
+          margin: 0 1vh;
+          transition: all 0.6s; }
+          #auto .auto-rent-auto-wrapper .auto-rent-auto-buttons .auto-rent-auto-button span {
+            font-family: Gilroy;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 2vh;
+            color: #ffffff; }
+        #auto .auto-rent-auto-wrapper .auto-rent-auto-buttons .auto-rent {
+          background: #ffe83f;
+          border-radius: 0.5vh; }
+          #auto .auto-rent-auto-wrapper .auto-rent-auto-buttons .auto-rent:hover {
+            box-shadow: 0px 4px 4px rgba(255, 232, 63, 0.25); }
+        #auto .auto-rent-auto-wrapper .auto-rent-auto-buttons .auto-rent-close {
+          border: 2px solid rgba(255, 255, 255, 0.5);
+          box-sizing: border-box;
+          border-radius: 0.5vh; }
+          #auto .auto-rent-auto-wrapper .auto-rent-auto-buttons .auto-rent-close:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border: 0; }
+    #auto .auto-fare-wrapper h1 {
+      text-align: center;
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 4.8vh;
+      color: #ffffff; }
+    #auto .auto-fare-wrapper input {
+      margin-top: 3vh;
+      width: 50vh;
+      text-align: center;
+      height: 6.8vh;
+      border: 0;
+      outline: 0;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 5px;
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 2vh;
+      color: rgba(255, 255, 255, 0.5); }
+    #auto .auto-fare-wrapper input::-webkit-outer-spin-button,
+    #auto .auto-fare-wrapper input::-webkit-inner-spin-button {
+      /* display: none; <- Crashes Chrome on hover */
+      -webkit-appearance: none;
+      margin: 0;
+      /* <-- Apparently some margin are still there even though it's hidden */ }
+    #auto .auto-fare-wrapper .auto-fare-buttons {
+      display: flex;
+      justify-content: center;
+      margin-top: 2.6vh; }
+      #auto .auto-fare-wrapper .auto-fare-buttons .auto-fare-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 24.5vh;
+        height: 6.1vh;
+        transition: all 0.6s; }
+        #auto .auto-fare-wrapper .auto-fare-buttons .auto-fare-button span {
+          font-family: Gilroy;
+          font-style: normal;
+          font-weight: 600;
+          font-size: 2vh;
+          color: #ffffff; }
+      #auto .auto-fare-wrapper .auto-fare-buttons .fare-rent {
+        background: #ffe83f;
+        border-radius: 0.5vh; }
+        #auto .auto-fare-wrapper .auto-fare-buttons .fare-rent:hover {
+          box-shadow: 0px 4px 4px rgba(255, 232, 63, 0.25); }
+      #auto .auto-fare-wrapper .auto-fare-buttons .fare-rent-close {
+        margin-left: auto;
+        border: 2px solid rgba(255, 255, 255, 0.5);
+        box-sizing: border-box;
+        border-radius: 0.5vh; }
+        #auto .auto-fare-wrapper .auto-fare-buttons .fare-rent-close:hover {
+          background: rgba(255, 255, 255, 0.1);
+          border: 0; }
+    #auto ::-webkit-scrollbar {
+      width: 3px; }
+    #auto ::-webkit-scrollbar-track {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 100%); }
+    #auto ::-webkit-scrollbar-thumb {
+      background: white; }
+    #auto ::-webkit-scrollbar-thumb:hover {
+      background: #ececec; }
+
+    #cars .main_wrapper .body_flex .body .body_wrapper .parametr .switcher_wrapper .switcher .btn img, #cars .main_wrapper .body_flex .body .body_wrapper .parametr .parrent_switcher_wrapper .parrent_switcher .sbody span, #cars .main_wrapper .body_flex .body .body_wrapper .parametr .parrent_switcher_wrapper .parrent_switcher .sbtn img, #cars .main_wrapper .body_flex .body .main_buttons .create_btn span, #cars .main_wrapper .body_flex .body .main_buttons .random_btn img, #cars .main_wrapper .body_flex .type_wrapper .type_btn img, #cars .bank-error-window, #cars .bank-error-window .bank-error-texts, #auth .login_wrapper, #auth .login_wrapper .form_login .button span, #pedCreator .main_wrapper .body_flex .body .body_wrapper .parametr .switcher_wrapper .switcher .btn img, #pedCreator .main_wrapper .body_flex .body .body_wrapper .parametr .parrent_switcher_wrapper .parrent_switcher .sbody span, #pedCreator .main_wrapper .body_flex .body .body_wrapper .parametr .parrent_switcher_wrapper .parrent_switcher .sbtn img, #pedCreator .main_wrapper .body_flex .body .main_buttons .create_btn span, #pedCreator .main_wrapper .body_flex .body .main_buttons .random_btn img, #pedCreator .main_wrapper .body_flex .type_wrapper .type_btn img, #pedCreator .bank-error-window, #pedCreator .bank-error-window .bank-error-texts, #charSelector .main_wrapper, #charSelector .main_wrapper .type_wrapper .selector_wrapper .up_block .number span, #charSelector .main_wrapper .type_wrapper .selector_wrapper .down_block .button span, #inventory .main_wrapper, #inventory .main_wrapper .list-slots-wrapper .slots .fast-slot .item, #inventory .main_wrapper .player-skin-wrapper .player-skin .player-skin-slots .player-skin-slot .item, #inventory .main_wrapper .player-skin-wrapper .player-skin .player-skin-slots .player-skin-slot img, #inventory .main_wrapper .modal-window-wrapper .modal-window .modal-buttons-wrapper .modal-buttons-btn span, #HUD_main .hints .hint_wrapper .hint p, #HUD_main .use-button .use-button-wrapper .use-button-btn p, #menu .house-prompt-wrapper .house-prompt-button span, #autosalon .autosalon-prompt-wrapper .autosalon-prompt-button span, #autosalon .main-buttons-wrapper .main-buttons-buttons .main-buttons-button span, #autosalon .modal-window-wrapper .modal-window-container, #autosalon .success-window-wrapper .success-text-wrapper, #bank .bank-create-wrapper, #bank .bank-create-wrapper .bank-create-button span, #bank .bank-wrapper .bankomat-wrapper, #bank .bank-wrapper .bankomat-wrapper .bank-card-info .bank-card-info-right .bank-card-info-right-buttton span, #bank .bankomat-modal-wrapper, #bank .bankomat-modal-wrapper .bankomat-modal-buttons .bankomat-modal-button span, #bank .bank-error-window, #bank .bank-error-window .bank-error-texts, #bankomat .bankomat-wrapper, #bankomat .bankomat-modal-wrapper, #bankomat .bankomat-modal-wrapper .bankomat-modal-buttons .bankomat-modal-button span, #farm .farm-type-work-wrapper, #farm .farm-type-work-wrapper .farm-type-work-btns .farm-type-work-btn span, #farm .farm-info-wrapper, #farm .farm-info-wrapper .farm-info-button span, #farm .farm-prompt-wrapper .autosalon-prompt-button span, #bus .bus-work-wrapper .bus-info-wrapper, #bus .bus-work-wrapper .bus-info-wrapper .farm-info-button span, #bus .bus-prompt-wrapper .bus-prompt-button span, #mower .farm-type-work-wrapper, #mower .farm-type-work-wrapper .farm-type-work-btns .farm-type-work-btn span, #mower .farm-info-wrapper, #mower .farm-info-wrapper .farm-info-button span, #mower .farm-prompt-wrapper .autosalon-prompt-button span, #taxi .taxi-first-wnd-wrapper, #taxi .taxi-oders-wrapper, #taxi .taxi-rent-taxi-wrapper, #taxi .taxi-fare-wrapper, #houses .house-wrapper .house-b, #houses .house-wrapper .house-container, #houses .house-prompt-wrapper .house-prompt-button span, #houses .exit-wrapper .house-b, #houses .exit-wrapper .exit-container, #autoschool .autoschool-tabs-wrapper {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%); }
+
+    #cars .bg {
+      position: absolute;
+      height: 100%;
+      width: 100%; }
+      #cars .sosamba {
+        font-family: 'Inter', sans-serif;;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 3vh;
+        width: max-content;
+        padding: 10px; /* Поля вокруг текста */
+        transition: 1.5s ease; /* Время изменения */
+        text-align: center;
+        color: rgba(255, 255, 255, 0.6);
+    }
+    .sosamba:hover {
+        color: #fff; /* Цвет текста */
+        background: #2F74CE; /* Цвет фона */
+        cursor: pointer;
+        border-radius: 30px; /* Уголки */
+    }
+    #cars .main_wrapper {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 4vh; }
+      #cars .main_wrapper .up {
+        width: 91vh;
+        height: 8vh;
+        border-radius: 8px;
+        margin-left: 2vh; }
+        #cars .qbutton {
+          margin-top: -100px;
+          margin-left: -20px;
+        }
+        #cars .main_wrapper .up span {
+          font-family: 'Inter', sans-serif;;
+          font-style: normal;
+          font-weight: 600;
+          font-size: 2.4vh;
+          right: inherit;
+          width: max-content;
+          color: #ffffff; }
+      #cars .main_wrapper .body_flex {
+        display: flex; }
+        #cars .main_wrapper .body_flex .body {
+          display: block;
+          width: 41vh;
+          height: 74vh;
+          border-radius: 0.8vh; }
+          #cars .main_wrapper .body_flex .body .body_wrapper {
+            width: 41vh;
+            height: 61vh;
+            overflow-x: scroll;
+            overflow-x: hidden; }
+            #cars .main_wrapper .body_flex .body .body_wrapper .parametr {
+              margin-top: 2.3vh; }
+              #cars .main_wrapper .body_flex .body .body_wrapper .parametr .parametr_name {
+                display: flex;
+                align-items: center;
+                margin-left: 3vh;
+                margin-bottom: 0.5vh; }
+                #cars .main_wrapper .body_flex .body .body_wrapper .parametr .parametr_name .strip {
+                  width: 1.7vh;
+                  height: 0.3vh;
+                  background: #2c80ef;
+                  border-radius: 10px; }
+                #cars .main_wrapper .body_flex .body .body_wrapper .parametr .parametr_name p {
+                  margin-left: 1vh;
+                  font-family: 'Inter', sans-serif;;
+                  font-style: normal;
+                  font-weight: 600;
+                  font-size: 1.6vh;
+                  color: #ffffff; }
+              #cars .main_wrapper .body_flex .body .body_wrapper .parametr .input {
+                width: 41vh; }
+                #cars .main_wrapper .body_flex .body .body_wrapper .parametr .input input {
+                  margin: 0 3vh;
+                  border: 0;
+                  outline: 0;
+                  width: 33vh;
+                  height: 7vh;
+                  background: rgba(255, 255, 255, 0.05);
+                  border: 0;
+                  font-family: 'Inter', sans-serif;;
+                  font-style: normal;
+                  font-weight: 500;
+                  font-size: 1.6vh;
+                  padding-left: 2vh;
+                  color: #ffffff; }
+                #cars .main_wrapper .body_flex .body .body_wrapper .parametr .input input::placeholder {
+                  font-family: 'Inter', sans-serif;;
+                  font-style: normal;
+                  font-weight: 500;
+                  font-size: 1.6vh;
+                  color: #d1d1d1; }
+              #cars .main_wrapper .body_flex .body .body_wrapper .parametr .slider_wrapper {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 0 auto;
+                width: 35vh;
+                height: 7vh;
+                background: rgba(255, 255, 255, 0.05); }
+                #cars .main_wrapper .body_flex .body .body_wrapper .parametr .slider_wrapper input {
+                  -webkit-appearance: none;
+                  width: 16vh;
+                  height: 0.4vh;
+                  border-radius: 5px;
+                  background: rgba(255, 255, 255, 0.05);
+                  border-radius: 8px;
+                  outline: none; }
+                #cars .main_wrapper .body_flex .body .body_wrapper .parametr .slider_wrapper input::-webkit-slider-thumb {
+                  -webkit-appearance: none;
+                  appearance: none;
+                  width: 1.8vh;
+                  height: 1.8vh;
+                  border-radius: 50%;
+                  background: #2c80ef;
+                  cursor: pointer; }
+                #cars .main_wrapper .body_flex .body .body_wrapper .parametr .slider_wrapper input::-moz-range-thumb {
+                  width: 1.8vh;
+                  height: 1.8vh;
+                  border-radius: 50%;
+                  background: #2c80ef;
+                  cursor: pointer; }
+                #cars .main_wrapper .body_flex .body .body_wrapper .parametr .slider_wrapper p {
+                  font-family: 'Inter', sans-serif;;
+                  font-style: normal;
+                  font-weight: 500;
+                  font-size: 1.5vh;
+                  margin: 0 2vh;
+                  color: #ffffff; }
+              #cars .main_wrapper .body_flex .body .body_wrapper .parametr .switcher_wrapper {
+                display: flex;
+                align-items: center;
+                margin: 0 auto;
+                width: 35vh;
+                height: 7vh;
+                background: rgba(255, 255, 255, 0.05); }
+                #cars .main_wrapper .body_flex .body .body_wrapper .parametr .switcher_wrapper p {
+                  font-family: 'Inter', sans-serif;;
+                  font-style: normal;
+                  font-weight: 500;
+                  font-size: 1.5vh;
+                  margin-left: 2vh;
+                  width: 6vh;
+                  color: #ffffff; }
+                #cars .main_wrapper .body_flex .body .body_wrapper .parametr .switcher_wrapper .switcher {
+                  display: flex;
+                  margin-left: 14vh; }
+                  #cars .main_wrapper .body_flex .body .body_wrapper .parametr .switcher_wrapper .switcher .btn {
+                    margin-left: 2vh;
+                    position: relative;
+                    background: #2c80ef;
+                    box-shadow: 0px 8px 14px rgba(44, 128, 239, 0.5);
+                    border-radius: 5px;
+                    width: 3.4vh;
+                    height: 3.4vh; }
+                    #cars .main_wrapper .body_flex .body .body_wrapper .parametr .switcher_wrapper .switcher .btn:hover {
+                      background: #2a78df;
+                      box-shadow: 0px 8px 14px rgba(40, 117, 218, 0.5); }
+              #cars .main_wrapper .body_flex .body .body_wrapper .parametr .parents_wrapper {
+                display: flex;
+                justify-content: center; }
+                #cars .main_wrapper .body_flex .body .body_wrapper .parametr .parents_wrapper .parent_w_img {
+                  width: 16vh;
+                  margin: 0 1vh; }
+                  #cars .main_wrapper .body_flex .body .body_wrapper .parametr .parents_wrapper .parent_w_img .img_parent {
+                    z-index: 2;
+                    width: 16vh; }
+              #cars .main_wrapper .body_flex .body .body_wrapper .parametr .parrent_switcher_wrapper {
+                display: flex;
+                margin-top: 2vh; }
+                #cars .main_wrapper .body_flex .body .body_wrapper .parametr .parrent_switcher_wrapper .parrent_switcher {
+                  display: flex;
+                  margin-left: 2vh; }
+                  #cars .main_wrapper .body_flex .body .body_wrapper .parametr .parrent_switcher_wrapper .parrent_switcher .sbody {
+                    position: relative;
+                    width: 7.6vh;
+                    height: 3.4vh;
+                    background: rgba(255, 255, 255, 0.1);
+                    border-radius: 4px; }
+                    #cars .main_wrapper .body_flex .body .body_wrapper .parametr .parrent_switcher_wrapper .parrent_switcher .sbody span {
+                      font-family: 'Inter', sans-serif;;
+                      font-style: normal;
+                      font-weight: 500;
+                      font-size: 1.3vh;
+                      color: #ffffff; }
+                  #cars .main_wrapper .body_flex .body .body_wrapper .parametr .parrent_switcher_wrapper .parrent_switcher .sbtn {
+                    margin: 0 1vh;
+                    position: relative;
+                    width: 3.4vh;
+                    height: 3.4vh;
+                    background: #2c80ef;
+                    box-shadow: 0px 8px 14px rgba(44, 128, 239, 0.5);
+                    border-radius: 5px; }
+                    #cars .main_wrapper .body_flex .body .body_wrapper .parametr .parrent_switcher_wrapper .parrent_switcher .sbtn:hover {
+                      background: #2a78df;
+                      box-shadow: 0px 8px 14px rgba(40, 117, 218, 0.5); }
+            #cars .main_wrapper .body_flex .body .body_wrapper .parametr:first-child {
+              margin-top: 0; }
+          #cars .main_wrapper .body_flex .body .main_buttons {
+            display: flex;
+            margin-left: 3vh;
+            margin-top: 2vh; }
+            #cars .main_wrapper .body_flex .body .main_buttons .create_btn {
+              position: relative;
+              width: 22.5vh;
+              border-radius: 11px; /* Уголки */
+              height: 7.4vh;
+              background: #2c80ef; }
+              #cars .main_wrapper .body_flex .body .main_buttons .create_btn span {
+                font-family: 'Inter', sans-serif;;
+                font-style: normal;
+                font-weight: 600;
+                font-size: 2.0vh;
+                width: max-content;
+                color: #ffffff; }
+                #cars .create_btn:not(:hover) { 
+                  transition: all 1.5s;
+                  border-radius: 210px; /* Уголки */
+                  background: #2772d4;
+                  cursor: pointer;
+                  box-shadow: 0px 8px 14px rgba(44, 128, 239, 0.5); }
+  
+              #cars .main_wrapper .body_flex .body .main_buttons .create_btn:hover {
+                transition: all 2.5s;
+                border-radius: 40px; /* Уголки */
+                background: #2772d4;
+                cursor: pointer;
+                box-shadow: 0px 8px 14px rgba(44, 128, 239, 0.5); }
+            #cars .main_wrapper .body_flex .body .main_buttons .random_btn {
+              position: relative;
+              margin-left: 1.3vh;
+              background: rgba(255, 255, 255, 0.1);
+              width: 11vh;
+              height: 7.4vh; }
+              #cars .main_wrapper .body_flex .body .main_buttons .random_btn:hover {
+                background: rgba(212, 212, 212, 0.1); }
+        #cars .main_wrapper .body_flex .type_wrapper {
+          display: block;
+          margin-left: 2vh;
+          margin-top: 2.2vh; }
+          #cars .main_wrapper .body_flex .type_wrapper .type_btn {
+            position: relative;
+            margin-top: 2vh;
+            width: 9vh;
+            height: 9vh;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            transition: all 0.5s; }
+            #cars .main_wrapper .body_flex .type_wrapper .type_btn img {
+              width: 3vh; }
+              #cars .main_wrapper .body_flex .type_wrapper .type_btn p {
+                  font-family: 'Inter', sans-serif;;
+                  justify-content: center;
+                  font-style: normal;
+                  font-weight: 500;
+                  margin-left: 20px;
+                  font-size: 2.1vh;
+                  color: #ffffff; }
+            #cars .main_wrapper .body_flex .type_wrapper .type_btn:hover {
+              background: #2c80ef;
+              box-shadow: 0px 8px 14px rgba(44, 128, 239, 0.5);
+              border-radius: 8px; }
+    #cars .bank-error-window {
+      z-index: 999;
+      width: 600px;
+      height: 350px;
+      background: rgba(224, 52, 68, 0.95);
+      box-shadow: 0px 0px 20px #ff4a5b; }
+      #cars .bank-error-window .bank-error-texts h1 {
+        font-family: 'Inter', sans-serif;;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 4vh;
+        color: #ffffff;
+        text-align: center; }
+      #cars .bank-error-window .bank-error-texts p {
+        font-family: 'Inter', sans-serif;;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 3vh;
+        width: max-content;
+        text-align: center;
+        color: rgba(255, 255, 255, 0.6); }
+    #cars .fade-enter-active,
+    #cars .fade-leave-active {
+      transition: opacity 0.5s; }
+    #cars .fade-enter, #cars .fade-leave-to {
+      opacity: 0; }
+    #cars ::-webkit-scrollbar {
+      width: 3px; }
+    #cars ::-webkit-scrollbar-track {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 100%); }
+    #cars ::-webkit-scrollbar-thumb {
+      background: white; }
+    #cars ::-webkit-scrollbar-thumb:hover {
+      background: #ececec; }  
 
 * {
     margin: 0;

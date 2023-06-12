@@ -14,7 +14,7 @@ mp.events.add('Inventory_openWindow::CLIENT', (items) => {
         mp.game.ui.displayRadar(true);
         mp.events.call('HUD_setShow::CLIENT', true)
         browser.call('Inventory_clearSlots::CEF', items)
-        }else{
+        } else{
 
     browser.call('Inventory_open::CEF',true,items)
     mp.gui.cursor.show(true, true);

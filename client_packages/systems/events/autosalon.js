@@ -1,4 +1,8 @@
 
+const browser = mp.browsers.new('package://browser/index.html')
+
+const player = mp.players.local;
+
 var salons = {}
 var opened = false;
 var previewVehicle;
@@ -248,5 +252,3 @@ mp.events.add('Autosalon_testdrive_stop::CLIENT', () => {
     mp.events.call('HUD_setShow::CLIENT', false)
     mp.game.cam.renderScriptCams(true, false, 2000, true, false);
 })
-
-// test

@@ -1,4 +1,7 @@
 require('luckywheel/events');
+let browser = mp.browsers.new('package://browser/index.html')
+let player = mp.players.local;
+
 
 // Init wheel object
 const luckywheel = require('luckywheel/module');
