@@ -200,9 +200,9 @@ global.createCam = function(x, y, z, rx, ry, rz, viewangle) {
 }
 
 mp.events.add('Utils_3dcamera::CLIENT', (x, y, z, rx, ry, rz, viewangle) => {
-    global.createCam(x,y,z, rx, ry, 285.854, viewangle); // координаты камеры и ротация
+    createCam(x,y,z, rx, ry, 285.854, viewangle); // координаты камеры и ротация
 })
 
 mp.events.add('Utils_delcamera::CLIENT', () => {
-    global.cameraRotator.stop()
+    cameraRotator.stop()
 })

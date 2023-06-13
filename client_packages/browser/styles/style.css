@@ -4433,7 +4433,7 @@ html {
     #auto ::-webkit-scrollbar-thumb:hover {
       background: #ececec; }
 
-      
+
 
     #cars .main {
         margin-top: 20vh;
@@ -4486,6 +4486,7 @@ html {
         border-radius: 0.6vh;
         display: flex;
         align-items: center;
+        transition: background-color 0.4s ease;
     }
     
     #cars .parametr_name {

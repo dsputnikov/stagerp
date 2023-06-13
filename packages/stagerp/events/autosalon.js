@@ -2,6 +2,15 @@ let chat = require('./hud');
 
 const heading = require('../index.js');
 
+function generateRandomNumberPlate() {
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'; // Доступные символы для номерных знаков
+    let plate = '';
+    for (let i = 0; i < 6; i++) {
+        const randomIndex = Math.floor(Math.random() * characters.length);
+        plate += characters[randomIndex];
+    }
+    return plate;
+}
 
 var salons = [
     {
@@ -239,7 +248,7 @@ mp.events.add('Autosalon_buyVehicle::SERVER', async (player, t, model, price, co
                 if(player.personalVehicles[i].model == model) {
                 player.personalVehiclesList[i] = mp.vehicles.new(mp.joaat(player.personalVehicles[i].model), new mp.Vector3(parseFloat(pos.x), parseFloat(pos.y), parseFloat(pos.z)), {
                     dimension: 0,
-                    numberPlate: 'STAGE',
+                    numberPlate: generateRandomNumberPlate(),
                     color: [color1, color2]           
                 })
     
@@ -378,7 +387,7 @@ async function towtruckVehicle(player, carObject) {
             player.personalVehiclesList[carObj.selectedId] = mp.vehicles.new(mp.joaat(r[0].model), new mp.Vector3(parseFloat(pos.x), parseFloat(pos.y), parseFloat(pos.z)), {
                 heading: rot.z,
                 dimension: player.dimension,
-                numberPlate: 'DEREBAS',
+                numberPlate: generateRandomNumberPlate(),
                 color: [color1, color2]           
             })
 
@@ -413,7 +422,7 @@ async function loadVehicles(player) {
             player.personalVehiclesList[i] = mp.vehicles.new(mp.joaat(player.personalVehicles[i].model), new mp.Vector3(parseFloat(pos.x), parseFloat(pos.y), parseFloat(pos.z)), {
                 heading: rot.z,
                 dimension: player.dimension,
-                numberPlate: 'DEREBAS',
+                numberPlate: generateRandomNumberPlate(),
                 color: [color1, color2]           
             })
 

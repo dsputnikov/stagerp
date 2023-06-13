@@ -220,8 +220,8 @@ global.createCam = function (x, y, z, rx, ry, rz, viewangle) {
 };
 
 mp.events.add('Utils_3dcamera::CLIENT', function (x, y, z, rx, ry, rz, viewangle) {
-  global.createCam(x, y, z, rx, ry, 285.854, viewangle); // координаты камеры и ротация
+  createCam(x, y, z, rx, ry, 285.854, viewangle); // координаты камеры и ротация
 });
 mp.events.add('Utils_delcamera::CLIENT', function () {
-  global.cameraRotator.stop();
+  cameraRotator.stop();
 });

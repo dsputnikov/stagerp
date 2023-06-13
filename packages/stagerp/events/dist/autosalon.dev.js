@@ -12,6 +12,19 @@ var chat = require('./hud');
 
 var heading = require('../index.js');
 
+function generateRandomNumberPlate() {
+  var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'; // Доступные символы для номерных знаков
+
+  var plate = '';
+
+  for (var i = 0; i < 6; i++) {
+    var randomIndex = Math.floor(Math.random() * characters.length);
+    plate += characters[randomIndex];
+  }
+
+  return plate;
+}
+
 var salons = [{
   name: 'Низкого класса',
   marker: new mp.Vector3(-51.41538619995117, -1102.193359375, 25.4154052734375),
@@ -374,7 +387,7 @@ mp.events.add('Autosalon_buyVehicle::SERVER', function _callee3(player, t, model
                                   (function () {
                                     player.personalVehiclesList[_i2] = mp.vehicles["new"](mp.joaat(player.personalVehicles[_i2].model), new mp.Vector3(parseFloat(pos.x), parseFloat(pos.y), parseFloat(pos.z)), {
                                       dimension: 0,
-                                      numberPlate: 'STAGE',
+                                      numberPlate: generateRandomNumberPlate(),
                                       color: [_color, _color2]
                                     }); //player.personalVehiclesList[i].setColor(player.personalVehicles[i].color1, player.personalVehicles[i].color2)
 
@@ -513,7 +526,7 @@ function towtruckVehicle(player, carObject) {
             player.personalVehiclesList[carObj.selectedId] = mp.vehicles["new"](mp.joaat(r[0].model), new mp.Vector3(parseFloat(pos.x), parseFloat(pos.y), parseFloat(pos.z)), {
               heading: rot.z,
               dimension: player.dimension,
-              numberPlate: 'DEREBAS',
+              numberPlate: generateRandomNumberPlate(),
               color: [color1, color2]
             });
             player.personalVehiclesList[carObj.selectedId].setVariable('id', player.personalVehicles[carObj.selectedId].id);
@@ -555,7 +568,7 @@ function loadVehicles(player) {
                   player.personalVehiclesList[_i3] = mp.vehicles["new"](mp.joaat(player.personalVehicles[_i3].model), new mp.Vector3(parseFloat(pos.x), parseFloat(pos.y), parseFloat(pos.z)), {
                     heading: rot.z,
                     dimension: player.dimension,
-                    numberPlate: 'DEREBAS',
+                    numberPlate: generateRandomNumberPlate(),
                     color: [color1, color2]
                   });
 
