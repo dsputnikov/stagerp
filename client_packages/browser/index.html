@@ -509,78 +509,104 @@
 
         <!-- Меню машин -->
         <div id="cars" v-show="active" v-cloak>
-            <img src="./systems/cars/img/bg.png" class="bg">
-            <div class="main_wrapper">
+            <div class="main">
+            <div class="main-box">
+                <div class="main-text">
+                    <span class="rotate-text">Управление вашими ТС</span>
+                    <span class="description">Выберите нужную машину для <br> продолжения, если вы передумали или у вас <br>ее нет вы можете вернуться назад</span>
+                </div>
+    
+                <div class="parametr" v-if="show == 1">
+                    <div class="parametr_column">
 
-
-
-                <!-- v-if="show == 3" -->
-                <div class="up"><span>Машины</span></div>
-                <div class="body_flex">
-                    <div class="body">
-                        <div class="body_wrapper">
-                            <div class="parametr">
+                        <div class="parametr_bg" @click="back();">
+                            <div class="parametr_name">
+                                <img src="./systems/cars/img/close.svg" alt="car_icon">
+                                <p class="car_name">Закрыть</p>
                             </div>
-                            <div class="parametr" v-if="show == 1">
-
-                                    <div class="parent_w_img">
-                                        <div class="parametr_name" v-if="cars[0] != undefined">
-                                            <div class="strip"></div>
-                                            <p class="sosamba" @click="open('first');">{{cars[0].model.toUpperCase()}} {{cars[0].id}}</p>
-                                        </div>
-                                        <div class="parametr_name" v-if="cars[1] != undefined">
-                                            <div class="strip"></div>
-                                            <p class="sosamba" @click="open('two');">{{cars[1].model.toUpperCase()}} {{cars[1].id}}</p>
-                                        </div>
-                                        <div class="parametr_name" v-if="cars[2] != undefined">
-                                            <div class="strip"></div>
-                                            <p class="sosamba" @click="open('three');">{{cars[2].model.toUpperCase()}} {{cars[2].id}}</p>
-                                        </div>
-                                        <div class="parametr_name" v-if="cars[3] != undefined">
-                                            <div class="strip"></div>
-                                            <p class="sosamba" @click="open('four');">{{cars[3].model.toUpperCase()}} {{cars[3].id}}</p>
-                                        </div>
-                                        <div class="parametr_name" v-if="cars[4] != undefined">
-                                            <div class="strip"></div>
-                                            <p class="sosamba" @click="open('five');">{{cars[4].model.toUpperCase()}} {{cars[4].id}}</p>
-                                        </div>
-                                        <div class="parametr_name" v-if="cars[5] != undefined">
-                                            <div class="strip"></div>
-                                            <p class="sosamba" @click="open('six');">{{cars[5].model.toUpperCase()}} {{cars[5].id}}</p>
-                                        </div>
-                                    </div>
-                            </div>
-                            <div class="parametr" v-if="show == 2">
-                                <div class="type_wrapper">
-                                    <div class="type_btn" @click="towtruck()"><img src="./systems/cars/img/towtruck.png" alt="">
-                                    </div>
-
-                                    <div class="type_btn" @click="gps()"><img src="./systems/cars/img/gps.png" alt="">
-                                    </div> 
-
-                                    <div class="type_btn" id="loadupload"><img :src="itemImage()">
-                                    </div>
-
-                                    <div class="type_btn" @click="lock()"><img src="./systems/cars/img/lock.png" alt="">
-                                        </div>
-
-                                </div>
-
-                        </div>
-                        </div>
-
+                        </div>  
                         
-
-                        <div class="main_buttons">
-                            <div class="create_btn" @click="back();"><span>Назад</span></div>
+                    <div class="parametr_bg" v-if="cars[0] != undefined" @click="open('first');">
+                        <div class="parametr_name" v-if="cars[0] != undefined">
+                            <img src="./systems/cars/img/arrow.svg" alt="car_icon">
+                            <p class="car_name">{{cars[0].model.toUpperCase()}} {{cars[0].id}}</p>
                         </div>
                     </div>
-
-                    
+                    <div class="parametr_bg" v-if="cars[1] != undefined" @click="open('two');">
+                        <div class="parametr_name" v-if="cars[1] != undefined">
+                            <img src="./systems/cars/img/arrow.svg" alt="car_icon">
+                            <p class="car_name">{{cars[1].model.toUpperCase()}} {{cars[1].id}}</p>
+                        </div>
+                    </div>
+                    <div class="parametr_bg" v-if="cars[2] != undefined" @click="open('three');">
+                        <div class="parametr_name" v-if="cars[2] != undefined">
+                            <img src="./systems/cars/img/arrow.svg" alt="car_icon">
+                            <p class="car_name">{{cars[2].model.toUpperCase()}} {{cars[2].id}}</p>
+                        </div>
+                    </div>
+                    <div class="parametr_bg" v-if="cars[3] != undefined" @click="open('four');">
+                        <div class="parametr_name" v-if="cars[3] != undefined">
+                            <img src="./systems/cars/img/arrow.svg" alt="car_icon">
+                            <p class="car_name">{{cars[3].model.toUpperCase()}} {{cars[3].id}}</p>
+                        </div>
+                    </div>
+                    <div class="parametr_bg" v-if="cars[4] != undefined" @click="open('five');">
+                        <div class="parametr_name" v-if="cars[4] != undefined">
+                            <img src="./systems/cars/img/arrow.svg" alt="car_icon">
+                            <p class="car_name">{{cars[4].model.toUpperCase()}} {{cars[4].id}}</p>
+                        </div>
+                    </div>
+                    <div class="parametr_bg" v-if="cars[5] != undefined" @click="open('six');">
+                        <div class="parametr_name" v-if="cars[5] != undefined">
+                            <img src="./systems/cars/img/arrow.svg" alt="car_icon">
+                            <p class="car_name">{{cars[5].model.toUpperCase()}} {{cars[5].id}}</p>
+                        </div>
+                    </div>
                 </div>
-                
-            </div>
+                </div>
+    
+                <div class="parametr" v-if="show == 2">
+                    <div class="parametr_column">
 
+                        <div class="parametr_bg" @click="back();">
+                            <div class="parametr_name">
+                                <img src="./systems/cars/img/close.svg" alt="car_icon">
+                                <p class="car_name">Назад</p>
+                            </div>
+                        </div>  
+    
+                        <div class="parametr_bg" @click="lock()">
+                            <div class="parametr_name">
+                                <img src="./systems/cars/img/lock.svg" alt="car_icon">
+                                <p class="car_name">Открыть/закрыть</p>
+                            </div>
+                        </div>
+    
+                        <div class="parametr_bg" @click="loadupload">
+                            <div class="parametr_name">
+                                <img src="./systems/cars/img/unload.svg" alt="car_icon">
+                                <p class="car_name">Выгрузить</p>
+                            </div>
+                        </div>
+    
+                        <div class="parametr_bg" @click="towtruck()">
+                            <div class="parametr_name">
+                                <img src="./systems/cars/img/loadcar.svg" alt="car_icon">
+                                <p class="car_name">Эвакуировать</p>
+                            </div>
+                        </div>
+    
+                        <div class="parametr_bg" @click="gps()">
+                            <div class="parametr_name">
+                                <img src="./systems/cars/img/gps.svg" alt="car_icon">
+                                <p class="car_name">Найти</p>
+                            </div>
+                        </div>
+    
+                    </div>
+                </div>
+            </div>
+            </div>
         </div>
     <!-- Худ -->
     <div id="HUD_main" v-show="active" v-cloak>
