@@ -1,5 +1,5 @@
 
-let chat = require('./hud');
+let chat = require('./basic/hud');
 let methods = require('../modules/methods');
 
 // Language
@@ -209,6 +209,7 @@ mp.events.addCommand('dimension', (player, world) => {
     let target = methods.getById(id);
     if (target == undefined) return chat.addNotify(player, 2, 'Игрок не найден', 7000)
     chat.addNotify(target, 3, `Вы были заморожены`, 4000);
+    chat.addNotify(player, 1, `Вы успешно заморозили игрока`, 4000);
     target.call('freezePlayer');
 });
 
@@ -218,6 +219,7 @@ mp.events.addCommand('unfreeze', (player, _, id) => {
     let target = methods.getById(id);
     if (target == undefined) return chat.addNotify(player, 2, 'Игрок не найден', 7000)
     chat.addNotify(target, 3, `Вы были разморожены`, 4000);
+    chat.addNotify(player, 1, `Вы успешно разморозили игрока`, 4000);
     target.call('unfreezePlayer');
 });
 

@@ -13,8 +13,7 @@ mp.events.add('Charselector_selectCharacter::CLIENT', function (data) {
   mp.events.call('Auth_hideCamera::CLIENT');
   mp.gui.cursor.show(false, false);
   mp.game.ui.displayRadar(true);
-  mp.events.call('HUD_setShow::CLIENT', true); //
-
+  mp.events.call('HUD_setShow::CLIENT', true);
   mp.events.callRemote('Charselector_selectCharacter::SERVER', JSON.stringify(_data));
 });
 mp.events.add('Charselector_createCharacter::CLIENT', function () {

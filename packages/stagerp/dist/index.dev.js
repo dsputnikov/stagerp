@@ -1,72 +1,72 @@
 "use strict";
 
 try {
-  // Модули
-  require('./modules/mysql');
-
-  require('./modules/methods'); // Events
+  // Модули, утилиты, методы
+  require('./modules/mysql'); // База данных
 
 
-  require('./events/auth'); // Авторизация
+  require('./modules/methods'); // Методы
 
 
-  require('./events/pedCreator'); // Создание персонажа
+  require('./utilities/time'); // Система времени
 
 
-  require('./events/charselector'); // Выбор персонажа
+  require('./utilities/weather'); // Система погоды
+
+
+  require('./utilities/items'); // Предметы
+
+
+  require('./utilities/death'); // Система смерти
+  // Основное
+
+
+  require('./events/basic/auth'); // Авторизация/регистрация
+
+
+  require('./events/basic/pedCreator'); // Создание персонажа
+
+
+  require('./events/basic/charselector'); // Выбор персонажа
+
+
+  require('./events/basic/hud'); // Худ
+
+
+  require('./events/basic/money'); // Деньги
+
+
+  require('./events/basic/voice'); // Голосовой чат
+
+
+  require('./events/basic/weaponcompsync'); // Оружия и их улучшения
+  // Бизнесы
+
+
+  require('./business/rent'); // Аренда ТС
+
+
+  require('./business/autosalon'); // Автосалон
+
+
+  require('./business/bank'); // Банк
+  // Events
 
 
   require('./events/admin'); // Админ система
 
 
-  require('./events/hud'); // Худ
-
-
-  require('./events/autosalon'); // Автосалон
-
-
-  require('./events/money'); // Автосалон
-
-
   require('./events/commands'); // Команды
 
 
-  require('./events/bank'); // Банк
-
-
   require('./events/inventory'); // Инвентарь
-
-
-  require('./events/voice'); // Войс чат
-
-
-  require('./events/weaponcompsync'); // Оружия и их улучшения
 
 
   require('./events/houses'); // Дома
 
 
   require('./events/menu'); // Меню
-
-
-  require('./events/rent'); // Аренда ТС
-
-
-  require('./events/casino'); // Прочее
-
-
-  require('./luckywheel/index');
-
-  require('./autosalon/auto'); // Утилиты
-
-
-  require('./utilities/time');
-
-  require('./utilities/weather');
-
-  require('./utilities/items');
-
-  require('./utilities/death'); // Работы
+  // Работы
 
 
   require('./jobs/farm');
@@ -75,13 +75,19 @@ try {
 
   require('./jobs/lawnmower');
 
-  require('./jobs/taxi'); // Фракции
+  require('./jobs/taxi'); // Ораганизации
 
 
-  require('./fractions/autoschool'); //Конфиги
+  require('./fractions/index'); // Основное
+  // Гос
 
 
-  require('./config');
+  require('./fractions/gov/autoschool'); // Крайм
+
+
+  require('./fractions/ghetto/ghetto_zones');
+
+  require('./fractions/ghetto/aztecas');
 
   mp.events.add('console_log', function (player, arg) {
     console.log(arg);

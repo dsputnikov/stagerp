@@ -1,9 +1,7 @@
 "use strict";
 
 var currentWork = 0; // Текущаю работа (айди)
-
-var browser = mp.browsers["new"]('package://browser/index.html');
-var player = mp.players.local; // Логика работ
+// Логика работ
 
 var FarmWork = {
   // Сборщик сена

@@ -3,11 +3,11 @@
 var chat = require("./hud"); // Language
 
 
-var config = require('../../../languages/config.js');
+var config = require('../../../../languages/config.js');
 
 var language = config.language;
 
-var translations = require("../../../languages/".concat(language, ".json"));
+var translations = require("../../../../languages/".concat(language, ".json"));
 
 mp.events.add("loadCharacter::SERVER", function (player) {
   DB.query("SELECT * FROM characters WHERE login = ?", [player.login], function (err, r) {

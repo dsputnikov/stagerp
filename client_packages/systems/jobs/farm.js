@@ -1,9 +1,6 @@
 
 let currentWork = 0; // Текущаю работа (айди)
 
-const browser = mp.browsers.new('package://browser/index.html');
-const player = mp.players.local;
-
 // Логика работ
 let FarmWork = {
     // Сборщик сена

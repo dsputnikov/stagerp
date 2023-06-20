@@ -1,7 +1,3 @@
-const browser = mp.browsers.new('package://browser/index.html');
-const player = mp.players.local;
-
-
 var SET_CURRENT_PED_WEAPON = '0xADF692B254977C0C';
 mp.events.add("playerWeaponShot", async (targetPosition, targetEntity) => {
     if (mp.players.local.getAmmoInClip(mp.players.local.weapon) == 0) {

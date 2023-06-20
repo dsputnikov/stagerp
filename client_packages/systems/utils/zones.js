@@ -1,6 +1,3 @@
-const browser = mp.browsers.new('package://browser/index.html');
-const player = mp.players.local;
-
 
 // Массив зеленых зон
         let greenZones = [

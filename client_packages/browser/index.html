@@ -627,8 +627,8 @@
                     <img src="./systems/Hud/img/notify/succes.svg" v-if="item.type == 1">
                     <img src="./systems/Hud/img/notify/error.svg" v-if="item.type == 2">
                     <img src="./systems/Hud/img/notify/info.svg" v-if="item.type == 3">
+                    <audio src="./systems/Hud/sounds/cancel.mp3" autoplay></audio>
                     <div class="texts">
-                        <h1>{{ item.top }}</h1>
                         <p>{{ item.text }}</p>
                     </div>
                 </div>
@@ -870,76 +870,113 @@
     </div>
     <!-- Инвентарь -->
     <div id="inventory" v-show="active" v-cloak>
-        <transition name="fade">
-            <img src="./systems/inventory/img/bg.png" class="bg" v-show="active">
+    <transition name="fade">
+        <img src="./systems/inventory/img/bg.png" class="bg" v-show="active">
+    </transition>
+    <div class="main_wrapper" @mousedown="clickEmpty">
+        <transition name="slide-fade">
+            <div class="player-skin-wrapper" v-show="active">
+                <div class="player-skin-texts">
+                    <h1>{{ player.name }} <span style="font-family: Gilroy;font-style: normal;font-weight: normal;font-size: 2.4vh;color: rgba(255, 255, 255, 0.5);">{{
+                            player.lvl }}lvl</span></h1>
+                    <p>Ваш персонаж</p>
+                </div>
+                <div class="player-skin">
+                    <div class="player-skin-slots">
+                        <div class="player-skin-slot" id="clothes_cap">
+                            <img id = 'default' src="./systems/inventory/img/skin-items/cap.svg">
+                        </div>
+                        <div class="player-skin-slot" id="clothes_watch">
+                            <img id = 'default' src="./systems/inventory/img/skin-items/wristwatch.svg">
+                        </div>
+                        <div class="player-skin-slot" id="clothes_necklace">
+                            <img id = 'default' src="./systems/inventory/img/skin-items/necklace.svg">
+                        </div>
+                        <div class="player-skin-slot" id="clothes_top"><img id = 'default' src="./systems/inventory/img/skin-items/blazer.svg" alt=""></div>
+                        <div class="player-skin-slot" id="clothes_shoes"><img id = 'default' src="./systems/inventory/img/skin-items/shoes.svg" alt=""></div>
+                    </div>
+                    <img src="./systems/inventory/img/skin.svg" alt="">
+                    <div class="player-skin-slots">
+                        <div class="player-skin-slot" id="clothes_mask"><img id = 'default' src="./systems/inventory/img/skin-items/mask.svg" alt="">
+                        </div>
+                        <div class="player-skin-slot" id="clothes_sunglasses"><img id = 'default' src="./systems/inventory/img/skin-items/sunglasses.svg" alt=""></div>
+                        <div class="player-skin-slot" id="clothes_gloves"><img id = 'default' src="./systems/inventory/img/skin-items/gloves.svg" alt=""></div>
+                        <div class="player-skin-slot" id="clothes_underwear">
+                            <img id = 'default' src="./systems/inventory/img/skin-items/shirt.svg">
+                        </div>
+                        <div class="player-skin-slot" id="clothes_legs"><img id = 'default' src="./systems/inventory/img/skin-items/trousers.svg" alt=""></div>
+                    </div>
+                </div>
+            </div>
         </transition>
-        <div class="main_wrapper" @mousedown="clickEmpty">
-            <transition name="slide-fade">
-                <div class="player-skin-wrapper" v-show="active">
-                    <div class="player-skin-texts">
-                        <h1>{{ player.name }} <span style="font-family: Gilroy;font-style: normal;font-weight: normal;font-size: 2.4vh;color: rgba(255, 255, 255, 0.5);">{{
-                                player.lvl }}lvl</span></h1>
-                        <p>Ваш персонаж</p>
-                    </div>
-                    <div class="player-skin">
-                        <div class="player-skin-slots">
-                            <div class="player-skin-slot" id="clothes_cap">
-                                <img src="./systems/inventory/img/skin-items/cap.svg">
-                            </div>
-                            <div class="player-skin-slot" id="clothes">
-                                <img src="./systems/inventory/img/skin-items/wristwatch.svg">
-                            </div>
-                            <div class="player-skin-slot" id="clothes">
-                                <img src="./systems/inventory/img/skin-items/necklace.svg">
-                            </div>
-                            <div class="player-skin-slot"><img src="./systems/inventory/img/skin-items/blazer.svg" alt=""></div>
-                            <div class="player-skin-slot"><img src="./systems/inventory/img/skin-items/shoes.svg" alt=""></div>
-                        </div>
-                        <img src="./systems/inventory/img/skin.svg" alt="">
-                        <div class="player-skin-slots">
-                            <div class="player-skin-slot"><img src="./systems/inventory/img/skin-items/mask.svg" alt="">
-                            </div>
-                            <div class="player-skin-slot"><img src="./systems/inventory/img/skin-items/sunglasses.svg" alt=""></div>
-                            <div class="player-skin-slot"><img src="./systems/inventory/img/skin-items/gloves.svg" alt=""></div>
-                            <div class="player-skin-slot" id="clothes_top">
-                                <img src="./systems/inventory/img/skin-items/shirt.svg">
-                            </div>
-                            <div class="player-skin-slot"><img src="./systems/inventory/img/skin-items/trousers.svg" alt=""></div>
-                        </div>
+        <transition name="slide-fade2">
+            <div class="list-slots-wrapper" v-show="active">
+                <div class="list-slots-texts">
+                    <h1>Ваши предметы</h1>
+                    <p>Вес 15/30 кг</p>
+                </div>
+                <div class="slots">
+                    <div class="slot" v-for="i in 28" :id="i + ' inv'">
+                        <!-- <div class="item" onClick="clickItem(1)" id="1" style="background-image: url('./systems/inventory/img/items/109.png'); background-repeat: no-repeat;"></div> -->
                     </div>
                 </div>
-            </transition>
-            <transition name="slide-fade2">
-                <div class="list-slots-wrapper" v-show="active">
-                    <div class="list-slots-texts">
-                        <h1>Ваши предметы</h1>
-                        <p>Вес NoNe</p>
+
+                <!-- <img src="./systems/inventory/img/items/car.png" alt="" class="imgfast"> -->
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <div class="fastslots">
+                    <div class="fastslot" v-for="i in 3" :id="i + ' fast'">
+                     <p :id="i + 'fast'" id = 'default' class="fastslottext">{{ i }}</p>
                     </div>
-                    <div class="slots">
-                        <div class="slot" v-for="i in 28" :id="i">
-                        </div>
+                    </div>
+                
+                <img src="./systems/inventory/img/items/car.png" alt="" class="imgcar" v-if="incar == 1">
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <div class="slotscar" v-if="incar == 1">
+                    <div class="slotcar" v-for="i in 7" :id="i + ' car'">
+                    </div>
+                    </div>
+            </div>
+        </transition>
+        <transition name="fade">
+            <div class="modal-window-wrapper" v-show="modal.active">
+                <div class="modal-window" v-bind:style="{ left: modal.posX + 'px', top: modal.posY + 'px'}">
+                    <div class="modal-img">
+                        <img :src="modal.img">
+                        <h1>{{ modal.name }}</h1>
+                        <p>{{ modal.count }} шт.</p>
+                    </div>
+                    <p class="modal-desc">{{modal.desc}}</p>
+                    <hr>
+                    <div class="modal-buttons-wrapper">
+                        <div class="modal-buttons-btn modal-buttons-use" @click="useItem(false, 0)"><span>Использовать</span></div>
+                        <div class="modal-buttons-btn modal-buttons-drop"><span>Выбросить</span></div>
                     </div>
                 </div>
-            </transition>
-            <transition name="fade">
-                <div class="modal-window-wrapper" v-show="modal.active">
-                    <div class="modal-window" v-bind:style="{ left: modal.posX + 'px', top: modal.posY + 'px'}">
-                        <div class="modal-img">
-                            <img :src="modal.img">
-                            <h1>{{ modal.name }}</h1>
-                            <p>{{ modal.count }} шт.</p>
-                        </div>
-                        <p class="modal-desc">{{modal.desc}}</p>
-                        <hr>
-                        <div class="modal-buttons-wrapper">
-                            <div class="modal-buttons-btn modal-buttons-use"><span>Использовать</span></div>
-                            <div class="modal-buttons-btn modal-buttons-drop"><span>Выбросить</span></div>
-                        </div>
+            </div>
+        </transition>
+
+        <transition name="fade">
+            <div class="modal-window-wrapper" v-show="modal2.active">
+                <div class="modal-window" v-bind:style="{ left: modal2.posX + 'px', top: modal2.posY + 'px'}">
+                    <div class="modal-buttons-wrapper">
+                        <div class="btnfast"><span @click="fastSlot">Назначить быстрый слот</span></div>
                     </div>
                 </div>
-            </transition>
-        </div>
+            </div>
+        </transition>
+
+        <transition name="fade">
+            <div class="modal-window-wrapper" v-show="modal3.active">
+                <div class="modal-window" v-bind:style="{ left: 450 + 'px', top: 300 + 'px'}">
+                    <p class="modal-desc">Нажмите кнопку, чтобы назначить слот</p>
+                    <hr>
+                </div>
+            </div>
+        </transition>
+
+
     </div>
+</div>
     <!-- Меню -->
     <div id="menu" v-show="active" v-cloak>
         <img src="./systems/menu/img/main/bg.png" class="menu-main-bg" v-if="open == 0">
@@ -1698,15 +1735,18 @@
         <div class="autoschool-tabs-wrapper">
             <div class="autoschool-tab">
                 <img src="./systems/autoschool/img/icon_car.png" class="autoschool-tab-logo">
+                <div class="taxi-rent-taxi-button taxi-rent-close" @click="close">
+                    <span>Отмена</span>
+                </div>
                 <div class="autoschool-tab-texts">
                     <h1>Легковые авто</h1>
                     <p>Стоймость сдачи экзамена - 500$</p>
                 </div>
-                <div class="autoschool-tab-button">
-                    <p>Хуй</p>
+                <div @click="exam(1)" class="autoschool-tab-button">
+                    <p>Начать</p>
                 </div>
             </div>
-            <div class="autoschool-tab">
+            <!-- <div class="autoschool-tab">
                 <img src="./systems/autoschool/img/icon_car.png" class="autoschool-tab-logo">
                 <div class="autoschool-tab-texts">
                     <h1>Легковые авто</h1>
@@ -1735,7 +1775,7 @@
                 <div class="autoschool-tab-button">
                     <p>Хуй</p>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
     <!-- ----[Работы]------ -->

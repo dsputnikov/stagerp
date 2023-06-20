@@ -49,6 +49,7 @@ for (let i = 0; i < bankomats.length; i++) {
       name: `Банкомат`,
       color: 2,
       shortRange: true,
+      scale: 0.9,
     }
   );
 }
@@ -61,6 +62,7 @@ for (let i = 0; i < banks.length; i++) {
     name: `Банк`,
     color: 2,
     shortRange: true,
+    scale: 0.9,
   });
 }
 

@@ -1,7 +1,5 @@
 
 var tempData = {};
-const browser = mp.browsers.new('package://browser/index.html');
-const player = mp.players.local;
 
 mp.events.add('pedCreator_start::CLIENT', () => {
     browser.call('pedCreator_show::CEF')

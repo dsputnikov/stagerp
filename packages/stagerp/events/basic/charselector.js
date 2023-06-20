@@ -1,9 +1,9 @@
 let chat = require("./hud");
 
 // Language
-let config = require('../../../languages/config.js');
+let config = require('../../../../languages/config.js');
 const language = config.language;
-let translations = require(`../../../languages/${language}.json`);
+let translations = require(`../../../../languages/${language}.json`);
 
 mp.events.add("loadCharacter::SERVER", (player) => {
   DB.query(

@@ -6,9 +6,7 @@ var buswork = false;
 var alreadyWorking = false;
 var windowOpened = false;
 var inBusStop = false;
-var busStopTimeout;
-var browser = mp.browsers["new"]('package://browser/index.html');
-var player = mp.players.local; //
+var busStopTimeout; //
 
 var salary = 100;
 var earnedMoney = 0;

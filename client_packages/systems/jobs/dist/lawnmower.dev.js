@@ -4,8 +4,6 @@ mp.peds["new"](mp.game.joaat('u_m_m_aldinapoli'), new mp.Vector3(-1337.171997070
 var lawnmower = false;
 var salary = 100;
 var earnedMoney = 0;
-var browser = mp.browsers["new"]('package://browser/index.html');
-var player = mp.players.local;
 var lawnMower = {
   ways: [{
     x: -1317.2303466796875,

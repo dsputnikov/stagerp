@@ -51,7 +51,9 @@ require('./systems/jobs/lawnmower');
 require('./systems/jobs/taxi'); // Фракции
 
 
-require('./systems/fractions/autoschool'); //
+require('./systems/fractions/autoschool');
+
+require('./systems/fractions/ghetto/ghetto_zones'); //
 
 
 require('./luckywheel/index'); //
@@ -166,6 +168,7 @@ mp.game.streaming.removeIpl("rc12b_destroyed");
 mp.game.streaming.removeIpl("rc12b_default");
 mp.game.streaming.removeIpl("rc12b_hospitalinterior_lod");
 mp.game.streaming.removeIpl("rc12b_hospitalinterior");
+mp.game.streaming.requestIpl("TrevorsTrailerTidy");
 var CPED_CONFIG_FLAG_DisableStartEngine = 429;
 player.setConfigFlag(CPED_CONFIG_FLAG_DisableStartEngine, true);
 

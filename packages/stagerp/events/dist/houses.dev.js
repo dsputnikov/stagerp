@@ -1,6 +1,6 @@
 "use strict";
 
-var chat = require('./hud');
+var chat = require('./basic/hud');
 
 var methods = require('../modules/methods');
 

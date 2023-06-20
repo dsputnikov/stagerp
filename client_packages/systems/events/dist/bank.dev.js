@@ -112,7 +112,8 @@ for (var i = 0; i < bankomats.length; i++) {
   mp.blips["new"](500, new mp.Vector3(bankomats[i].x, bankomats[i].y, bankomats[i].z), {
     name: "\u0411\u0430\u043D\u043A\u043E\u043C\u0430\u0442",
     color: 2,
-    shortRange: true
+    shortRange: true,
+    scale: 0.9
   });
 }
 
@@ -124,7 +125,8 @@ for (var _i = 0; _i < banks.length; _i++) {
   mp.blips["new"](108, new mp.Vector3(banks[_i].x, banks[_i].y, banks[_i].z), {
     name: "\u0411\u0430\u043D\u043A",
     color: 2,
-    shortRange: true
+    shortRange: true,
+    scale: 0.9
   });
 } // ----------------------------[Вход в шэйп]------------------------------\\
 

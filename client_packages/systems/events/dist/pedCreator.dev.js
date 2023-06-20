@@ -1,8 +1,6 @@
 "use strict";
 
 var tempData = {};
-var browser = mp.browsers["new"]('package://browser/index.html');
-var player = mp.players.local;
 mp.events.add('pedCreator_start::CLIENT', function () {
   browser.call('pedCreator_show::CEF');
   mp.gui.cursor.show(true, true);

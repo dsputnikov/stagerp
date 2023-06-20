@@ -1,6 +1,7 @@
-let hud = require('../events/hud'); // Импорт чата, уведомлений и тд.
-let chat = require('../events/hud');
-let methods = require('../modules/methods')
+let hud = require('../events/basic/hud');
+let chat = require('../events/basic/hud');
+let methods = require('../modules/methods');
+
 
 let vehs = []
 let highDrivers = []

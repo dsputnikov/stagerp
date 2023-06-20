@@ -1,4 +1,5 @@
-let chat = require('./hud');
+
+let chat = require('../events/basic/hud');
 
 const heading = require('../index.js');
 
@@ -14,8 +15,9 @@ function generateRandomNumberPlate() {
 
 var salons = [
     {
-        name: 'Низкого класса',
-        marker: new mp.Vector3(-51.41538619995117, -1102.193359375, 25.4154052734375),
+        name: 'Среднего класса',
+        marker: new mp.Vector3(-57.05355453491211, -1097.1641845703125, 25.5),
+        scale: 0.9,
         blipColor: 31,
         vehicles: [
             { name: 'Albany Emperor', price: 4000, model: 'emperor' },
@@ -32,8 +34,9 @@ var salons = [
         exitPosition: new mp.Vector3(-49.24433898925781, -1102.9827880859375, 26.422351837158203),
     },
     {
-        name: 'Среднего класса',
+        name: 'Низкого класса',
         marker: new mp.Vector3(-38.880760192871094, -1673.1343994140625, 28.48229217529297),
+        scale: 0.9,
         blipColor: 75,
         vehicles: [
             { name: 'Dodge Charger Hellcat', price: 150000, model: 'hellcat15' },
@@ -54,6 +57,7 @@ var salons = [
     {
         name: 'Высокого класса',
         marker: new mp.Vector3(-795.868896484375, -219.9210968017578, 36.079654693603516),
+        scale: 0.9,
         blipColor: 83,
         vehicles: [
             { name: 'Sheava', price: 350000, model: 'sheava' },

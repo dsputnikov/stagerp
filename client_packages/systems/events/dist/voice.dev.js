@@ -3,8 +3,6 @@
 var Use3d = true;
 var UseAutoVolume = false;
 var MaxRange = 50.0;
-var browser = mp.browsers["new"]('package://browser/index.html');
-var player = mp.players.local;
 mp.keys.bind(0x4E, true, function () {
   if (!player.getVariable('logged')) return;
   if (chatOpened) return;

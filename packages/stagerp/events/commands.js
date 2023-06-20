@@ -1,5 +1,5 @@
 
-let chat = require('./hud');
+let chat = require('./basic/hud');
 
 mp.events.addCommand('me',(player,args) => {
     if(args == undefined) return chat.send(player,'!{#BAFE2A}[Информация] !{#FFFFFF}Используйте /me [Действие]')

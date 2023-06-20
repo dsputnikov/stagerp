@@ -1,7 +1,7 @@
 "use strict";
 
-var browser = mp.browsers["new"]('package://browser/index.html');
-var player = mp.players.local;
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 var salons = {};
 var opened = false;
 var previewVehicle;
@@ -50,13 +50,13 @@ function setBlip(carObject) {
         case 12:
           carColshape = _context.sent;
           _context.next = 15;
-          return regeneratorRuntime.awrap(mp.blips["new"](825, new mp.Vector3(pos.x, pos.y, pos.z), {
+          return regeneratorRuntime.awrap(mp.blips["new"](825, new mp.Vector3(pos.x, pos.y, pos.z), _defineProperty({
             name: "\u041C\u0430\u0448\u0438\u043D\u0430",
             scale: 1,
             color: 17,
             dimension: 0,
             shortRange: true
-          }));
+          }, "scale", 0.9)));
 
         case 15:
           carBlip = _context.sent;

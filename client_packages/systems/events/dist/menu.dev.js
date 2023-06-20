@@ -1,8 +1,6 @@
 "use strict";
 
-var menuOpen = false;
-var browser = mp.browsers["new"]('package://browser/index.html');
-var player = mp.players.local; // mp.keys.bind(0x09, true, () => {
+var menuOpen = false; // mp.keys.bind(0x09, true, () => {
 //     mp.events.callRemote('Menu_openWindow::SERVER')
 // })
 

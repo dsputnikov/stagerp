@@ -853,256 +853,251 @@ html {
     z-index: 0;
     position: absolute;
     width: 100%;
-    height: 100%;
-}
-#inventory .main_wrapper {
+    height: 100%; }
+  #inventory .main_wrapper {
     display: flex;
-    align-items: center;
-}
-#inventory .main_wrapper .list-slots-wrapper {
-    display: block;
-    float: right;
-}
-#inventory .main_wrapper .list-slots-wrapper .list-slots-texts {
-    display: flex;
-    align-items: baseline;
-    width: 54vh;
-}
-#inventory .main_wrapper .list-slots-wrapper .list-slots-texts h1 {
-    font-family: 'Inter', sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 2.4vh;
-    margin-bottom: 2vh;
-    color: #ffffff;
-}
-#inventory .main_wrapper .list-slots-wrapper .list-slots-texts p {
-    margin-left: auto;
-    font-family: 'Inter', sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 1.4vh;
-    color: rgba(255, 255, 255, 0.4);
-}
-#inventory .main_wrapper .list-slots-wrapper .slots {
-    width: 59.2vh;
-    height: 29.4vh;
-    margin: auto;
-    display: flex;
-    flex-wrap: wrap;
-}
-#inventory .main_wrapper .list-slots-wrapper .slots .slot {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 7vh;
-    height: 7vh;
-    background: rgba(255, 255, 255, 0.05);
-    box-sizing: border-box;
-    margin: 0.4vh 0.4vh;
-}
-#inventory .main_wrapper .list-slots-wrapper .slots .slot .item {
-    background-position: center;
-    background-size: 5vh;
-    width: 5vh;
-    height: 5vh;
-    color: #c900c9;
-}
-#inventory .main_wrapper .list-slots-wrapper .slots .slot .item img {
-    width: 3vh;
-}
-#inventory .main_wrapper .list-slots-wrapper .slots .fast-slot {
-    position: relative;
-    width: 7vh;
-    height: 7vh;
-    background: rgba(255, 255, 255, 0.05);
-    margin: 0.4vh 0.4vh;
-}
-#inventory .main_wrapper .list-slots-wrapper .slots .fast-slot .item {
-    width: 5vh;
-    height: 5vh;
-    z-index: 5;
-    background-size: 4vh;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-#inventory .main_wrapper .player-skin-wrapper {
-    float: left;
-    margin-right: 9.1vh;
-}
-#inventory .main_wrapper .player-skin-wrapper .player-skin-texts {
-    margin-bottom: 3vh;
-}
-#inventory .main_wrapper .player-skin-wrapper .player-skin-texts h1 {
-    margin-bottom: 1vh;
-    font-family: 'Inter', sans-serif;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 3.2vh;
-    color: #ffffff;
-}
-#inventory .main_wrapper .player-skin-wrapper .player-skin-texts p {
-    font-family: 'Inter', sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 2.4vh;
-    color: #ffffff;
-}
-#inventory .main_wrapper .player-skin-wrapper .player-skin {
-    display: flex;
-    align-items: center;
-}
-#inventory .main_wrapper .player-skin-wrapper .player-skin .player-skin-slots {
-    display: block;
-    margin: 0 0.5vh;
-}
-#inventory .main_wrapper .player-skin-wrapper .player-skin .player-skin-slots .player-skin-slot {
-    position: relative;
-    width: 7vh;
-    height: 7vh;
-    background: rgba(255, 255, 255, 0.05);
-    margin-top: 1.5vh;
-    background-position: center;
-}
-#inventory
-    .main_wrapper
-    .player-skin-wrapper
-    .player-skin
-    .player-skin-slots
-    .player-skin-slot
-    .item {
-    width: 5vh;
-    height: 5vh;
-    z-index: 5;
-    background-size: 4vh;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-#inventory .main_wrapper .modal-window-wrapper .modal-window {
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    background: linear-gradient(
-        151.42deg,
-        rgba(72, 72, 72, 0.5) -0.93%,
-        rgba(31, 31, 31, 0.5) 100.86%,
-        rgba(133, 120, 120, 0.5) 100.86%
-    );
-    padding: 2.5vh 2.5vh;
-    z-index: 5;
-}
-#inventory .main_wrapper .modal-window-wrapper .modal-window .modal-img {
-    display: block;
-    text-align: center;
-    margin-top: 0vh;
-}
-#inventory .main_wrapper .modal-window-wrapper .modal-window .modal-img img {
-    width: 7vh;
-}
-#inventory .main_wrapper .modal-window-wrapper .modal-window .modal-img h1 {
-    font-family: 'Inter', sans-serif;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 1.9vh;
-    color: #ffffff;
-}
-#inventory .main_wrapper .modal-window-wrapper .modal-window .modal-img p {
-    font-family: 'Inter', sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 1.4vh;
-    color: rgba(255, 255, 255, 0.6);
-}
-#inventory .main_wrapper .modal-window-wrapper .modal-window .modal-desc {
-    margin-top: 2.4vh;
-    text-align: center;
-    font-family: 'Inter', sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 1.2vh;
-    width: 19.5vh;
-    color: rgba(255, 255, 255, 0.5);
-}
-#inventory .main_wrapper .modal-window-wrapper .modal-window hr {
-    margin-top: 3vh;
-    opacity: 0.1;
-    width: 100%;
-    background: rgba(255, 255, 255, 0.15);
-}
-#inventory .main_wrapper .modal-window-wrapper .modal-window .modal-buttons-wrapper {
-    display: flex;
-    margin-top: 1.5vh;
-}
-#inventory
-    .main_wrapper
-    .modal-window-wrapper
-    .modal-window
-    .modal-buttons-wrapper
-    .modal-buttons-btn {
-    position: relative;
-    width: 9vh;
-    height: 3.5vh;
-}
-#inventory
-    .main_wrapper
-    .modal-window-wrapper
-    .modal-window
-    .modal-buttons-wrapper
-    .modal-buttons-btn
-    span {
-    font-family: 'Inter', sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 1.2vh;
-    color: #ffffff;
-}
-#inventory
-    .main_wrapper
-    .modal-window-wrapper
-    .modal-window
-    .modal-buttons-wrapper
-    .modal-buttons-use {
-    background: #2c80ef;
-}
-#inventory
-    .main_wrapper
-    .modal-window-wrapper
-    .modal-window
-    .modal-buttons-wrapper
-    .modal-buttons-drop {
-    margin-left: 1.2vh;
-    background: #6b6b6b;
-}
-#inventory .fade-enter-active,
-#inventory .fade-leave-active {
-    transition: opacity 0.5s;
-}
-#inventory .fade-enter,
-#inventory .fade-leave-to {
-    opacity: 0;
-}
-#inventory .slide-fade-enter-active {
-    transition: all 0.3s ease;
-}
-#inventory .slide-fade-leave-active {
-    transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
-}
-#inventory .slide-fade-enter,
-#inventory .slide-fade-leave-to {
+    align-items: center; }
+    #inventory .main_wrapper .list-slots-wrapper {
+      display: block;
+      float: right; }
+      #inventory .main_wrapper .list-slots-wrapper .list-slots-texts {
+        display: flex;
+        align-items: baseline;
+        width: 54vh; }
+        #inventory .main_wrapper .list-slots-wrapper .list-slots-texts h1 {
+          font-family: 'Inter', sans-serif;;
+          font-style: normal;
+          font-weight: 500;
+          font-size: 2.4vh;
+          margin-bottom: 2vh;
+          color: #ffffff; }
+        #inventory .main_wrapper .list-slots-wrapper .list-slots-texts p {
+          margin-left: auto;
+          font-family: 'Inter', sans-serif;;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 1.4vh;
+          color: rgba(255, 255, 255, 0.4); }
+      #inventory .main_wrapper .list-slots-wrapper .slots {
+        width: 59.2vh;
+        height: 29.4vh;
+        margin: auto;
+        display: flex;
+        flex-wrap: wrap; }
+  
+        #inventory .main_wrapper .list-slots-wrapper .slotscar {
+          width: 59.2vh;
+          height: 29.4vh;
+          margin: auto;
+          display: flex;
+          flex-wrap: wrap; }
+  
+          #inventory .main_wrapper .list-slots-wrapper .fastslots {
+            width: 59.2vh;
+            height: 29.4vh;
+            margin: auto;
+            display: flex;
+            flex-wrap: wrap; }
+  
+        #inventory .main_wrapper .list-slots-wrapper .slots .slot {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 7vh;
+          height: 7vh;
+          background: rgba(255, 255, 255, 0.05);
+          box-sizing: border-box;
+          margin: 0.4vh 0.4vh; }
+  
+          #inventory .main_wrapper .list-slots-wrapper .fastslots .fastslot {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 7vh;
+            height: 7vh;
+            background: rgba(255, 255, 255, 0.05);
+            box-sizing: border-box;
+            margin: 5vh 5vh; }
+  
+            #inventory .imgcar {
+              width: 10vh;
+              margin-top: 100px;
+              margin-left: 180px; 
+            }
+  
+            #inventory .imgfast {
+              width: 10vh;
+              margin-top: 100px;
+              margin-left: 180px; 
+            }
+  
+          #inventory .main_wrapper .list-slots-wrapper .slots .slot .item {
+            background-position: center;
+            background-size: 5vh;
+            width: 5vh;
+            height: 5vh;
+            color: #c900c9; }
+  
+            #inventory .main_wrapper .list-slots-wrapper .fastslots .fastslot .item {
+              background-position: center;
+              background-size: 5vh;
+              width: 5vh;
+              height: 5vh;
+              color: #c900c9; }
+            
+            #inventory .main_wrapper .list-slots-wrapper .slots .slot .item img {
+              width: 3vh; }
+        #inventory .main_wrapper .list-slots-wrapper .slots .fast-slot {
+          position: relative;
+          width: 7vh;
+          height: 7vh;
+          background: rgba(255, 255, 255, 0.05);
+          margin: 0.4vh 0.4vh; }
+          #inventory .main_wrapper .list-slots-wrapper .slots .fast-slot .item {
+            width: 5vh;
+            height: 5vh;
+            z-index: 5;
+            background-size: 4vh;
+            background-position: center;
+            background-repeat: no-repeat; }
+            #inventory .main_wrapper .list-slots-wrapper .fastslots .fastslot .item {
+              width: 5vh;
+              height: 5vh;
+              z-index: 5;
+              background-size: 4vh;
+              background-position: center;
+              background-repeat: no-repeat; }
+    #inventory .main_wrapper .player-skin-wrapper {
+      float: left;
+      margin-right: 9.1vh; }
+      #inventory .main_wrapper .player-skin-wrapper .player-skin-texts {
+        margin-bottom: 3vh; }
+        #inventory .main_wrapper .player-skin-wrapper .player-skin-texts h1 {
+          margin-bottom: 1vh;
+          font-family: 'Inter', sans-serif;;
+          font-style: normal;
+          font-weight: bold;
+          font-size: 3.2vh;
+          color: #ffffff; }
+        #inventory .main_wrapper .player-skin-wrapper .player-skin-texts p {
+          font-family: 'Inter', sans-serif;;
+          font-style: normal;
+          font-weight: 500;
+          font-size: 2.4vh;
+          color: #ffffff; }
+      #inventory .main_wrapper .player-skin-wrapper .player-skin {
+        display: flex;
+        align-items: center; }
+        #inventory .main_wrapper .player-skin-wrapper .player-skin .player-skin-slots {
+          display: block;
+          margin: 0 0.5vh; }
+          #inventory .main_wrapper .player-skin-wrapper .player-skin .player-skin-slots .player-skin-slot {
+            position: relative;
+            width: 7vh;
+            height: 7vh;
+            background: rgba(255, 255, 255, 0.05);
+            margin-top: 1.5vh;
+            background-position: center; }
+            #inventory .main_wrapper .player-skin-wrapper .player-skin .player-skin-slots .player-skin-slot .item {
+              width: 5vh;
+              height: 5vh;
+              z-index: 5;
+              background-size: 4vh;
+              background-position: center;
+              background-repeat: no-repeat; }
+    #inventory .main_wrapper .modal-window-wrapper .modal-window {
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      background: linear-gradient(151.42deg, rgba(72, 72, 72, 0.5) -0.93%, rgba(31, 31, 31, 0.5) 100.86%, rgba(133, 120, 120, 0.5) 100.86%);
+      padding: 2.5vh 2.5vh;
+      z-index: 5; }
+      #inventory .main_wrapper .modal-window-wrapper .modal-window .modal-img {
+        display: block;
+        text-align: center;
+        margin-top: 0vh; }
+        #inventory .main_wrapper .modal-window-wrapper .modal-window .modal-img img {
+          width: 7vh; }
+        #inventory .main_wrapper .modal-window-wrapper .modal-window .modal-img h1 {
+          font-family: 'Inter', sans-serif;;
+          font-style: normal;
+          font-weight: bold;
+          font-size: 1.9vh;
+          color: #ffffff; }
+        #inventory .main_wrapper .modal-window-wrapper .modal-window .modal-img p {
+          font-family: 'Inter', sans-serif;;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 1.4vh;
+          color: rgba(255, 255, 255, 0.6); }
+      #inventory .main_wrapper .modal-window-wrapper .modal-window .modal-desc {
+        margin-top: 2.4vh;
+        text-align: center;
+        font-family: 'Inter', sans-serif;;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 1.2vh;
+        width: 19.5vh;
+        color: rgba(255, 255, 255, 0.5); }
+      #inventory .main_wrapper .modal-window-wrapper .modal-window hr {
+        margin-top: 3vh;
+        opacity: 0.1;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.15); }
+      #inventory .main_wrapper .modal-window-wrapper .modal-window .modal-buttons-wrapper {
+        display: flex;
+        margin-top: 1.5vh; }
+        #inventory .main_wrapper .modal-window-wrapper .modal-window .modal-buttons-wrapper .modal-buttons-btn {
+          position: relative;
+          width: 9vh;
+          height: 3.5vh; }
+  
+          #inventory .main_wrapper .modal-window-wrapper .modal-window .modal-buttons-wrapper .btnfast {
+            position: relative;
+            width: 15vh;
+            height: 8.5vh;
+            background: #2c80ef; }
+  
+            #inventory .main_wrapper .modal-window-wrapper .modal-window .modal-buttons-wrapper .btnfast span {
+              font-family: 'Inter', sans-serif;;
+              font-style: normal;
+              font-weight: 500;
+              white-space: nowrap;
+              font-size: 1.2vh;
+              color: #ffffff; }
+  
+          #inventory .main_wrapper .modal-window-wrapper .modal-window .modal-buttons-wrapper .modal-buttons-btn span {
+            font-family: 'Inter', sans-serif;;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 1.2vh;
+            color: #ffffff; }
+        #inventory .main_wrapper .modal-window-wrapper .modal-window .modal-buttons-wrapper .modal-buttons-use {
+          background: #2c80ef; }
+        #inventory .main_wrapper .modal-window-wrapper .modal-window .modal-buttons-wrapper .modal-buttons-drop {
+          margin-left: 1.2vh;
+          background: #6b6b6b; }
+  #inventory .fade-enter-active,
+  #inventory .fade-leave-active {
+    transition: opacity 0.5s; }
+  #inventory .fade-enter, #inventory .fade-leave-to {
+    opacity: 0; }
+  #inventory .slide-fade-enter-active {
+    transition: all 0.3s ease; }
+  #inventory .slide-fade-leave-active {
+    transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1); }
+  #inventory .slide-fade-enter, #inventory .slide-fade-leave-to
+   {
     transform: translateX(-60px);
-    opacity: 0;
-}
-#inventory .slide-fade2-enter-active {
-    transition: all 0.3s ease;
-}
-#inventory .slide-fade2-leave-active {
-    transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
-}
-#inventory .slide-fade2-enter,
-#inventory .slide-fade-leave-to {
+    opacity: 0; }
+  #inventory .slide-fade2-enter-active {
+    transition: all 0.3s ease; }
+  #inventory .slide-fade2-leave-active {
+    transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1); }
+  #inventory .slide-fade2-enter, #inventory .slide-fade-leave-to
+   {
     transform: translateX(60px);
-    opacity: 0;
-}
+    opacity: 0; }
 
 #HUD_main body {
     position: relative;
@@ -1151,11 +1146,11 @@ html {
     align-items: center;
     justify-content: center;
     width: 33.1vh;
-    height: 8.1vh;
-    border-radius: 1vh;
+    height: 7.5vh;
+    border-radius: 0.5vh;
 }
 #HUD_main .notify .notify_wrapper img {
-    width: 5.8vh;
+    width: 2.2vh;
     margin-left: 1.9vh;
 }
 #HUD_main .notify .notify_wrapper .texts {
@@ -1163,7 +1158,6 @@ html {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-top: -4vh;
 }
 #HUD_main .notify .notify_wrapper .texts h1 {
     font-family: 'Inter', sans-serif;
@@ -1175,7 +1169,7 @@ html {
 #HUD_main .notify .notify_wrapper .texts p {
     font-family: 'Inter', sans-serif;
     font-style: normal;
-    font-weight: 600;
+    font-weight: 500;
     font-size: 1.4vh;
     color: #ffffff;
 }

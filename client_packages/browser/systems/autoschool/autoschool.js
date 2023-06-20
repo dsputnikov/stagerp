@@ -5,20 +5,15 @@ var Autoschool = new Vue({
         active: false,
     },
     methods: {
-        examA() {
-            mp.trigger('House_buyHouse::CLIENT')
+        exam(cl) {
+            if(cl == 1) {
+                mp.trigger("startAuto::CLIENT", 1);
+                this.active = false;
+                mp.trigger("Autoschool_windowClose::CLIENT");
+            }
         },
-        examB() {
-            mp.trigger('House_openHouse::CLIENT')
-            this.ifLocked = 1;
-        },
-        examC() {
-            mp.trigger('House_openHouse::CLIENT')
-            this.ifLocked = 1;
-        },
-        examD() {
-            mp.trigger('House_openHouse::CLIENT')
-            this.ifLocked = 1;
+        close() {
+            mp.trigger("Autoschool_windowClose::CLIENT");
         }
     },
     mounted() {
@@ -30,6 +25,7 @@ var Autoschool = new Vue({
             if (type == 2) {
                 this.acitveExits = bool;
             }
+            mp.trigger("Autoschool_windowOpen::CLIENT");
         })
     }
 })

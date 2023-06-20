@@ -1,5 +1,5 @@
 
-let chat = require('../events/hud');
+let chat = require('../events/basic/hud');
 let methods = require('../modules/methods')
 
 let vehs = []

@@ -5,9 +5,6 @@ let windowOpened = false;
 let inBusStop = false;
 let busStopTimeout;
 
-const browser = mp.browsers.new('package://browser/index.html');
-const player = mp.players.local;
-
 //
 let salary = 100;
 let earnedMoney = 0;

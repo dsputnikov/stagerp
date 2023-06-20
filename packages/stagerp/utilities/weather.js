@@ -31,7 +31,7 @@ getWeather();
 
 function changeWeather () {
 setInterval(getWeather, 600000);
-console.log('Смена погоды')
+console.log('\x1b[34m[WEATHER]\x1b[0m Загружена система погоды');
 }
 
 changeWeather();

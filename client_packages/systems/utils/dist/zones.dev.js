@@ -1,8 +1,6 @@
 "use strict";
 
-var browser = mp.browsers["new"]('package://browser/index.html');
-var player = mp.players.local; // Массив зеленых зон
-
+// Массив зеленых зон
 var greenZones = [{
   x: -1022,
   y: -2711,

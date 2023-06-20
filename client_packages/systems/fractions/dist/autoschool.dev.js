@@ -1,20 +1,68 @@
 "use strict";
 
-var browser = mp.browsers["new"]('package://browser/index.html');
 var player = mp.players.local;
 var drivetest = [{
   x: -634.7968139648438,
   y: -2260.137451171875,
   z: 5.931935787200928
 }];
-var autoSchool = false;
+var carCheckpoint;
+var curr = 0;
 var DriveTestColshapes = [];
 
 for (var i = 0; i < drivetest.length; i++) {
   var shape = mp.colshapes.newSphere(drivetest[i].x, drivetest[i].y, drivetest[i].z, 1, 0);
   DriveTestColshapes.push(shape);
-} // ----------------------------[Вход в шэйп]------------------------------\\
+}
 
+mp.events.add('startAuto::CLIENT', function _callee(cl) {
+  return regeneratorRuntime.async(function _callee$(_context) {
+    while (1) {
+      switch (_context.prev = _context.next) {
+        case 0:
+          if (cl == 1) {
+            mp.events.callRemote('startAuto::SERVER', 1);
+          }
+
+        case 1:
+        case "end":
+          return _context.stop();
+      }
+    }
+  });
+});
+mp.events.add('Autoschool_windowOpen::CLIENT', function _callee2() {
+  return regeneratorRuntime.async(function _callee2$(_context2) {
+    while (1) {
+      switch (_context2.prev = _context2.next) {
+        case 0:
+          mp.gui.cursor.show(true, true);
+          mp.game.ui.displayRadar(false);
+          mp.events.call('HUD_setShow::CLIENT', false);
+
+        case 3:
+        case "end":
+          return _context2.stop();
+      }
+    }
+  });
+});
+mp.events.add('Autoschool_windowClose::CLIENT', function _callee3() {
+  return regeneratorRuntime.async(function _callee3$(_context3) {
+    while (1) {
+      switch (_context3.prev = _context3.next) {
+        case 0:
+          mp.gui.cursor.show(false, false);
+          mp.game.ui.displayRadar(true);
+          mp.events.call('HUD_setShow::CLIENT', true);
+
+        case 3:
+        case "end":
+          return _context3.stop();
+      }
+    }
+  });
+}); // ----------------------------[Вход в шэйп]------------------------------\\
 
 mp.events.add("playerEnterColshape", function (shape) {
   var _iteratorNormalCompletion = true;
@@ -27,10 +75,9 @@ mp.events.add("playerEnterColshape", function (shape) {
 
       if (shape == colshape) {
         mp.keys.bind(0x45, true, function () {
-          mp.events.callRemote("DrivingTest");
-          browser.call('Autoschool_showWindow::CEF', 2, true);
+          global.browser.call('Autoschool_showWindow::CEF', 2, true);
         });
-        browser.execute("HUD.usebutton.active = true;");
+        global.browser.execute("HUD.usebutton.active = true;");
         break;
       }
     }
@@ -82,85 +129,98 @@ mp.events.add("playerExitColshape", function (shape) {
 }); // ----------------------------[Старт маршрута]------------------------------\\
 
 mp.events.add('DriveTest_startRoute::CLIENT', function () {
-  AutoSchool = true;
+  mp.events.callRemote('Hud_addNotify::SERVER', 1, "Начинайте движение по чекпоинтам", 3000);
+  autoSCreate();
 });
-var AutoSchool = {
-  ways: [[{
-    x: -550.5162963867188,
-    y: -2196.588623046875,
-    z: 5.5
-  }, {
-    x: -509.48150634765625,
-    y: -2124.307861328125,
-    z: 9.065557479858398
-  }, {
-    x: -588.8439331054688,
-    y: -2038.987548828125,
-    z: 6.274981498718262
-  }, {
-    x: -773.3026733398438,
-    y: -1964.1556396484375,
-    z: 9.092047691345215
-  }]],
-  AutoSchoolColshape: null,
-  AutoSchoolCheckpoint: null,
-  AutoSchoolBlip: null,
-  markerType: null,
-  earn: null,
-  idx: 0,
-  isStop: false,
-  SchoolWay: function SchoolWay(type) {
-    var points = this.ways;
-    var point = this.idx;
-    var nextRoute = points[type][point + 1];
 
-    if (nextRoute == null || nextRoute == undefined) {
-      this.AutoSchoolCheckpoint = mp.checkpoints["new"](4, new mp.Vector3(points[type][point].x, points[type][point].y, points[type][point].z - 2), 5, {
-        direction: new mp.Vector3(0, 0, 0),
-        color: [44, 128, 239, 150],
-        visible: true,
-        dimension: 0
-      });
-      this.AutoSchoolColshape = mp.colshapes.newSphere(points[type][point].x, points[type][point].y, points[type][point].z, 5, 0);
-      this.AutoSchoolBlip = mp.blips["new"](1, new mp.Vector3(points[type][point].x, points[type][point].y, points[type][point].z), {
-        color: 3
-      });
-      return;
-    }
+function autoSCreate() {
+  var checkpoints;
+  return regeneratorRuntime.async(function autoSCreate$(_context4) {
+    while (1) {
+      switch (_context4.prev = _context4.next) {
+        case 0:
+          checkpoints = [{
+            x: -550.5162963867188,
+            y: -2196.588623046875,
+            z: 5.5
+          }, {
+            x: -509.48150634765625,
+            y: -2124.307861328125,
+            z: 9.065557479858398
+          }, {
+            x: -588.8439331054688,
+            y: -2038.987548828125,
+            z: 6.274981498718262
+          }, {
+            x: -773.3026733398438,
+            y: -1964.1556396484375,
+            z: 9.092047691345215
+          }, {
+            x: -819.056884765625,
+            y: -2011.1483154296875,
+            z: 8.838269233703613
+          }, {
+            x: -881.334716796875,
+            y: -2072.076171875,
+            z: 8.20911693572998
+          }, {
+            x: -954.58056640625,
+            y: -2157.974853515625,
+            z: 8.265790939331055
+          }, {
+            x: -863.2446899414062,
+            y: -2252.535400390625,
+            z: 6.0208821296691895
+          }, {
+            x: -746.8334350585938,
+            y: -2367.52587890625,
+            z: 14.15343952178955
+          }, {
+            x: -714.3162841796875,
+            y: -2384.85400390625,
+            z: 14.069738388061523
+          }, {
+            x: -651.7977905273438,
+            y: -2315.252197265625,
+            z: 7.185215950012207
+          }, {
+            x: -613.6757202148438,
+            y: -2273.32958984375,
+            z: 5.23016881942749
+          }, {
+            x: -612.1859,
+            y: -2241.9277,
+            z: 6.1109
+          }];
+          _context4.next = 3;
+          return regeneratorRuntime.awrap(mp.checkpoints["new"](1, {
+            x: checkpoints[curr].x,
+            y: checkpoints[curr].y,
+            z: checkpoints[curr].z
+          }, 2));
 
-    this.AutoSchoolColshape = mp.colshapes.newSphere(points[type][point].x, points[type][point].y, points[type][point].z, 5, 0);
-    this.isStop = points[type][this.idx].stop;
-    this.AutoSchoolCheckpoint = mp.checkpoints["new"](1, new mp.Vector3(points[type][this.idx].x, points[type][this.idx].y, points[type][this.idx].z - 2), 5, {
-      direction: new mp.Vector3(nextRoute.x, nextRoute.y, nextRoute.z),
-      color: [44, 128, 239, 150],
-      visible: true,
-      dimension: 0
-    });
-    this.AutoSchoolBlip = mp.blips["new"](1, new mp.Vector3(points[type][this.idx].x, points[type][this.idx].y, points[type][this.idx].z), {
-      scale: 1,
-      color: 3,
-      dimension: 0
-    });
-    this.AutoSchoolBlip.setRoute(true);
-  },
-  EnterColshape: function EnterColshape(shape) {
-    if (shape == this.AutoSchoolColshape) {
-      if (this.idx == this.ways[busWayType].length - 1) {
-        this.idx = 0;
-        this.AutoSchoolColshape.destroy();
-        this.AutoSchoolCheckpoint.destroy();
-        this.AutoSchoolBlip.destroy();
-        this.SchoolWay(ScoolWayType);
-        earnedMoney += salary;
-        mp.events.callRemote('', earnedMoney);
-        return;
+        case 3:
+          carCheckpoint = _context4.sent;
+
+        case 4:
+        case "end":
+          return _context4.stop();
       }
-
-      this.idx++;
-      this.AutoSchoolColshape.destroy();
-      this.AutoSchoolCheckpoint.destroy();
-      this.AutoSchoolBlip.destroy();
-      this.SchoolWay(SchoolWayType);
     }
+  });
+}
+
+mp.events.add('playerEnterCheckpoint', function (shape) {
+  if (shape == carCheckpoint) {
+    carCheckpoint.destroy();
+    curr++;
+
+    if (curr == 13) {
+      curr = 0;
+      return mp.events.callRemote('FinalCheckpoint::SERVER');
+    }
+
+    mp.events.callRemote('Hud_addNotify::SERVER', 1, "Успешно, двигайтесь дальше", 3000);
+    autoSCreate();
   }
-};
+});

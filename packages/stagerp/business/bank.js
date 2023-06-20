@@ -1,4 +1,4 @@
-let chat = require("./hud");
+let chat = require('../events/basic/hud');
 let methods = require("../modules/methods");
 
 // ------------------------------------------[Банк]------------------------------------------\\

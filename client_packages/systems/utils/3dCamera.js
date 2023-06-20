@@ -1,6 +1,3 @@
-global.browser = mp.browsers.new('package://browser/index.html');
-global.player = mp.players.local;
-
 
 global.CameraRotator = class {
     start(camera, basePosition, lookAtPosition, offsetVector, heading, fov) {

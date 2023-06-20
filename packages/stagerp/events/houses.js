@@ -1,5 +1,5 @@
 
-let chat = require('./hud');
+let chat = require('./basic/hud');
 let methods = require('../modules/methods');
 
 mp.events.addCommand('addhouse', (player, _, price, houseClass) => {

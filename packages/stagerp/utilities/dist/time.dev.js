@@ -2,7 +2,7 @@
 
 var moment = require('moment-timezone');
 
-var chat = require('../events/hud');
+var chat = require('../events/basic/hud');
 
 function updateTime() {
   var moscowTime = moment().tz('Europe/Moscow');
@@ -12,8 +12,8 @@ function updateTime() {
   mp.world.time.set(hours, minutes, seconds);
 }
 
-setInterval(updateTime, 100000);
-console.log('Система времени: работает');
+setInterval(updateTime, 10000);
+console.log('\x1b[34m[TIME]\x1b[0m Загружена система времени');
 mp.events.addCommand('time', function (player) {
   var moscowTime = moment().tz('Europe/Moscow');
   var hours = moscowTime.hours();

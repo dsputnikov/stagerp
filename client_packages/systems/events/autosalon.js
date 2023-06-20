@@ -1,8 +1,3 @@
-
-const browser = mp.browsers.new('package://browser/index.html')
-
-const player = mp.players.local;
-
 var salons = {}
 var opened = false;
 var previewVehicle;
@@ -47,6 +42,7 @@ async function setBlip(carObject) {
                     color: 17,
                     dimension: 0,
                     shortRange: true,
+                    scale: 0.9,
                 })
 
                 mp.events.callRemote('Hud_addNotify::SERVER',1,"Точка парковки указана на GPS",7000)

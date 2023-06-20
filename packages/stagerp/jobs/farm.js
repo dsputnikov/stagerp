@@ -1,5 +1,5 @@
-
-let chat = require('../events/hud');
+let chat = require('../events/basic/hud');
+let methods = require('../modules/methods')
 
 let farmPedColshape = mp.colshapes.newSphere(2016.3450927734375, 4984.787109375, 41.27164077758789, 2, 0);
 mp.blips.new(88, new mp.Vector3(2016.3450927734375, 4984.787109375, 41.27164077758789), {

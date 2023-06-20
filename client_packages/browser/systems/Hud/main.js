@@ -15,8 +15,8 @@ var HUD = new Vue({
         //
         notify: {
             notifys: [],
-            error_color: 'linear-gradient(89.96deg, #ff4747 0.04%, rgba(255, 71, 71, 0) 99.5%)',
-            succes_color: 'linear-gradient(89.96deg, #BAFE2A 0.04%, rgba(186, 254, 42, 0.05) 99.5%)',
+            error_color: '#F63E16',
+            succes_color: '#68CA00',
             info_color: 'linear-gradient(89.96deg, #FFE600 0.04%, rgba(201, 181, 0, 0.05) 99.5%)'
         },
         locationPosition: {

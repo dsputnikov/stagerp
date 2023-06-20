@@ -1,6 +1,6 @@
 "use strict";
 
-var chat = require('./hud');
+var chat = require('./basic/hud');
 
 var methods = require('../modules/methods'); // Language
 
@@ -192,6 +192,7 @@ mp.events.addCommand('freeze', function (player, _, id) {
   var target = methods.getById(id);
   if (target == undefined) return chat.addNotify(player, 2, 'Игрок не найден', 7000);
   chat.addNotify(target, 3, "\u0412\u044B \u0431\u044B\u043B\u0438 \u0437\u0430\u043C\u043E\u0440\u043E\u0436\u0435\u043D\u044B", 4000);
+  chat.addNotify(player, 1, "\u0412\u044B \u0443\u0441\u043F\u0435\u0448\u043D\u043E \u0437\u0430\u043C\u043E\u0440\u043E\u0437\u0438\u043B\u0438 \u0438\u0433\u0440\u043E\u043A\u0430", 4000);
   target.call('freezePlayer');
 });
 mp.events.addCommand('unfreeze', function (player, _, id) {
@@ -200,6 +201,7 @@ mp.events.addCommand('unfreeze', function (player, _, id) {
   var target = methods.getById(id);
   if (target == undefined) return chat.addNotify(player, 2, 'Игрок не найден', 7000);
   chat.addNotify(target, 3, "\u0412\u044B \u0431\u044B\u043B\u0438 \u0440\u0430\u0437\u043C\u043E\u0440\u043E\u0436\u0435\u043D\u044B", 4000);
+  chat.addNotify(player, 1, "\u0412\u044B \u0443\u0441\u043F\u0435\u0448\u043D\u043E \u0440\u0430\u0437\u043C\u043E\u0440\u043E\u0437\u0438\u043B\u0438 \u0438\u0433\u0440\u043E\u043A\u0430", 4000);
   target.call('unfreezePlayer');
 });
 mp.events.addCommand('kick', function (player, _, id) {

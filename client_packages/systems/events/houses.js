@@ -24,7 +24,7 @@ mp.events.add({
             houseBlips.push(mp.blips.new(40, new mp.Vector3(houses[0][i].x, houses[0][i].y, houses[0][i].z),
                 {
                     name: `Дом`,
-                    scale: 0.6,
+                    scale: 0.5,
                     color: blipColor,
                     dimension: 0,
                     shortRange: true,
