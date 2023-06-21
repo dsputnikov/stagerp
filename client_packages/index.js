@@ -142,11 +142,13 @@ var VK = {
 };
 
 mp.game.streaming.removeIpl("ch1_02_open");
+
 mp.game.streaming.removeIpl("rc12b_fixed");
 mp.game.streaming.removeIpl("rc12b_destroyed");
 mp.game.streaming.removeIpl("rc12b_default");
 mp.game.streaming.removeIpl("rc12b_hospitalinterior_lod");
 mp.game.streaming.removeIpl("rc12b_hospitalinterior");
+
 mp.game.streaming.requestIpl("TrevorsTrailerTidy");
 
 
@@ -283,3 +285,4 @@ let simonIntID = mp.game.interior.getInteriorAtCoords(
   }
   
   mp.game.interior.refreshInterior(simonIntID);
+

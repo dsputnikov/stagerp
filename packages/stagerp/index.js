@@ -8,6 +8,7 @@ require('./utilities/time'); // Система времени
 require('./utilities/weather'); // Система погоды
 require('./utilities/items'); // Предметы
 require('./utilities/death'); // Система смерти
+require('./utilities/zones'); // Зеленые зоны
 
 // Основное
 

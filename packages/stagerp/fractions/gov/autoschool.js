@@ -137,13 +137,3 @@ mp.events.addCommand('carpass', (player) => {
     }
     chat.addNotify(player, 1, `Ваши права: ${carpass}`, 4000);
 })
-
-mp.events.add('JoinGreen' , (player) => {
-    chat.send(player, '!{#BAFE2A}[Информация] !{#FFFFFF}Ты в ЗЗ другалек');
-    player.setVariable('greenzone', true);
-})
-
-mp.events.add('LeaveGreen' , (player) => {
-    chat.send(player, '!{#BAFE2A}[Информация] !{#FFFFFF}Ты вышел из ЗЗ другалек');
-    player.setVariable('greenzone', false);
-})

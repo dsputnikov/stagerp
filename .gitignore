@@ -1,4 +1,8 @@
 client_packages/game_resources/
 node_modules/
 .gitignore.bak
-.vscode
+.vscode/
+.vscode/
+*.dev.js
+dist/ 
+dist/*
