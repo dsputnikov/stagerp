@@ -25,9 +25,6 @@ var HUD = new Vue({
             location: '',
             zone: ''
         },
-        greenzone: {
-            zone: ''
-        },
         hints: [
             { key: 'F7', text: 'Скрыть худ' },
             { key: 'F2', text: 'Показать/Скрыть курсор' },
@@ -38,6 +35,12 @@ var HUD = new Vue({
             active: false,
             button: 'E',
             text: 'Используйте для взаимодействия',
+        },
+        greenzone: {
+            active: false,
+        },
+        redzone: {
+            active: false,
         }
     },
     methods: {

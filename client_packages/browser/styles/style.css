@@ -1344,7 +1344,7 @@ html {
     gap: 20px;
 }
 
-#HUD_main .zone {
+#HUD_main .zone_green {
     background: radial-gradient(58.18% 58.18% at 49.09% 49.09%, rgba(206, 255, 66, 0.48) 0%, rgba(206, 255, 66, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
     border: 0.2vh solid #CEFF42;
     border-radius: 20%;
@@ -1354,6 +1354,18 @@ html {
     align-items: center;
     justify-content: center;
 }
+
+#HUD_main .zone_red {
+    background: radial-gradient(58.18% 58.18% at 49.09% 49.09%, rgba(246, 62, 22, 0.48) 0%, rgba(246, 62, 22, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+    border: 0.2vh solid #F63E16;
+    border-radius: 20%;
+    width: 4.1vh;
+    height: 4vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 
 #HUD_main .microphone {
     background: radial-gradient(58.18% 58.18% at 49.09% 49.09%, rgba(70, 70, 70, 0.58) 0%, rgba(164, 164, 164, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;

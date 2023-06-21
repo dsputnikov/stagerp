@@ -678,9 +678,12 @@
                 </div>
             </div>
             <div class="zone_micro">
-                <div class="zone">
-                <span class="zone_icon"><img src="./systems/Hud/img/green_zone.svg" alt=""></span>
-                </div>
+                <div class="zone_green" v-show="greenzone.active">
+                    <span class="zone_icon"><img src="./systems/Hud/img/green_zone.svg" alt=""></span>
+                  </div>
+                  <div class="zone_red" v-show="redzone.active">
+                    <span class="zone_icon"><img src="./systems/Hud/img/red_zone.svg" alt=""></span>
+                  </div>
             <div class="microphone">
                 <span class="micro_icon"><img src="./systems/Hud/img/microphone.svg" alt=""></span>
             </div>
