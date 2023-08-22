@@ -14,7 +14,7 @@ let news = mp.blips.new(498, new mp.Vector3(-1070, -246, 53), {
     scale: 0.9,
 });
 
-let tuning = mp.blips.new(72, new mp.Vector3(-351, -134, 29), {
+let tuning_1 = mp.blips.new(446, new mp.Vector3(-351, -134, 29), {
     name: 'Тюнинг сервис',
     color: 4,
     shortRange: true,
@@ -22,7 +22,7 @@ let tuning = mp.blips.new(72, new mp.Vector3(-351, -134, 29), {
 });
 
 let autosaloon_medium = mp.blips.new(225, new mp.Vector3(-75.39668273925781, 64.27561950683594, 57.21598434448242), {
-    name: 'Автосалон среднего класса',
+    name: 'Автосалон Cреднего класса',
     color: 57,
     shortRange: true,
     scale: 0.9,
@@ -42,33 +42,41 @@ let coliseum = mp.blips.new(24, new mp.Vector3(-319.33905029296875, -1974.354858
     scale: 0.9,
 });
 
-let ballas_band = mp.blips.new(84, new mp.Vector3(104.41075897216797, -1940.5482177734375, 20.80369758605957), {
+let ballas_band = mp.blips.new(378, new mp.Vector3(104.41075897216797, -1940.5482177734375, 20.80369758605957), {
     name: 'Front Yard Ballas',
     color: 83,
     shortRange: true,
     scale: 0.9,
 });
 
-let vagos_band = mp.blips.new(84, new mp.Vector3(323.4017333984375, -2029.188232421875, 20.838010787963867), {
+let vagos_band = mp.blips.new(378, new mp.Vector3(966.6788330078125, -1821.3857421875, 31.07394027709961), {
     name: 'Los Santos Vagos',
     color: 81,
     shortRange: true,
     scale: 0.9,
 });
 
-let aztec_band = mp.blips.new(84, new mp.Vector3(1435.540771484375, -1498.5040283203125, 63.223236083984375), {
+let aztec_band = mp.blips.new(378, new mp.Vector3(1435.540771484375, -1498.5040283203125, 63.223236083984375), {
     name: 'Varrios Los Aztecas',
     color: 84,
     shortRange: true,
     scale: 0.9,
 });
 
-let groove_band = mp.blips.new(84, new mp.Vector3(-215.70274353027344, -1603.1956787109375, 35.275577545166016), {
+let groove_band = mp.blips.new(378, new mp.Vector3(-212.35414123535156, -1495.7493896484375, 31.27507209777832), {
     name: 'Grove Street Families',
     color: 82,
     shortRange: true,
     scale: 0.9,
 });
+
+let bloods_band = mp.blips.new(378, new mp.Vector3(493.8275451660156, -1331.756103515625, 29.337482452392578), {
+    name: 'Bloods Gans',
+    color: 59,
+    shortRange: true,
+    scale: 0.9,
+});
+
 
 let driving_school = mp.blips.new(545, new mp.Vector3(-634.9441528320312, -2259.55224609375, 5.932521343231201), {
     name: 'Автошкола',
@@ -97,6 +105,22 @@ let fraction_LSPD = mp.blips.new(60, new mp.Vector3(436.385009765625, -984.70947
     shortRange: true,
     scale: 0.9,
 });
+
+let russian_mafia = mp.blips.new(674, new mp.Vector3(-1558.4207763671875, 121.07612609863281, 56.88303756713867), {
+    name: 'Russian Mafia',
+    color: 4,
+    shortRange: true,
+    scale: 0.9,
+});
+
+let armenian_mafia = mp.blips.new(674, new mp.Vector3(-120.95304870605469, 993.4129638671875, 235.7554473876953), {
+    name: 'Armenian Mafia',
+    color: 64,
+    shortRange: true,
+    scale: 0.9,
+});
+
+
 
 // Педы
 

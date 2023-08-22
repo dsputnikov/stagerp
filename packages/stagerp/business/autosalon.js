@@ -234,7 +234,7 @@ mp.events.add('Autosalon_buyVehicle::SERVER', async (player, t, model, price, co
     DB.query('INSERT INTO vehicles (login,items,model,pos,rot,parkpos,parkrot,color1,color2) VALUES(?,?,?,?,?,?,?,?,?)', [player.login, '[{}]', model, JSON.stringify(salons[player.getVariable('currentAutosalon')].testDrive), '{"x":0,"y":0,"z":0}', JSON.stringify(salons[player.getVariable('currentAutosalon')].testDrive), '{"x":0,"y":0,"z":0}', color1, color2], function (err, r) {
         if (err) return console.log(err)
     })
-   
+
     await setTimeout(async() => {
 
         await DB.query('SELECT * FROM vehicles WHERE login = ?', [player.login], async function (err, r) {

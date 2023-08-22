@@ -107,8 +107,8 @@ mp.keys.bind(0x54, true, function () {
 
 // F7
 mp.keys.bind(0x76, true, function () {
-    if (player.getVariable('logged') == false) return;
-    if(inTestdrive) return;
+    // if (player.getVariable('logged') == false) return;
+    // if(inTestdrive) return;
     if (hidden == true) return mp.events.call('HUD_setShow::CLIENT', !false)
     mp.events.call('HUD_setShow::CLIENT', !true)
 })

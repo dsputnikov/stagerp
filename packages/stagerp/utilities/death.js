@@ -7,3 +7,14 @@ mp.events.add('playerDeath', (player) => {
     chat.addNotify(player, 3, `Вы умерли`, 4000);
     player.call('playerDeath')
 })
+
+mp.events.addCommand('phonestart', (player) => {
+    player.call('PhoneAnimShow')
+    chat.addNotify(player, 3, `Нету`, 4000);
+  })
+
+
+  mp.events.addCommand('phonestop', (player) => {
+    player.call('PhoneAnimHide')
+    chat.addNotify(player, 3, `Нету`, 4000);
+  })

@@ -1,5 +1,4 @@
-
-var SQL = require('mysql')
+var SQL = require('mysql');
 
 global.DB = SQL.createPool({
     host: 'localhost',
